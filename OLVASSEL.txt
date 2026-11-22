@@ -53,11 +53,14 @@ MI ÚJ EBBEN A VERZIÓBAN?
           Add a README      ✗ NE
           .gitignore        ✗ NE
 
-    Aztán:
+    Aztán (az origin-t is ő állítja be, akkor is, ha
+    már volt egy régi – „remote origin already exists”):
 
-        git remote add origin \
-            git@github.com:ZSOLDOSPETI/florum.git
-        bash florum-kiadas.sh --feltoltes
+        bash florum-kiadas.sh --feltoltes --repo zsoldospeti/florum
+
+    Repó-ellenőrzés bármikor (az üres repó NEM hiba):
+
+        bash github-beallitas.sh --repo
 
     A „rejected (fetch first)” hiba (ha mégis lett README):
         git pull --rebase origin main

@@ -16,6 +16,7 @@
 #      bash github-beallitas.sh --https FELHASZNALO/REPO   # HTTPS + token
 #      bash github-beallitas.sh --ssh  FELHASZNALO/REPO    # SSH-ra állítás
 #      bash github-beallitas.sh --proba      # kapcsolat-próba a GitHubbal
+#      bash github-beallitas.sh --repo       # létezik-e a repó a GitHubon
 #
 #  FONTOS: a privát kulcs (id_ed25519) SOHA nem hagyja el a gépedet.
 #  Csak a nyilvános kulcs (.pub) megy fel a GitHubra.
@@ -31,6 +32,16 @@ nem()   { printf '  \033[31m✘\033[0m %s\n' "$*"; }
 tipp()  { printf '    \033[33m→\033[0m %s\n' "$*"; }
 
 SSH_KONYVTAR="$HOME/.ssh"
+
+# git ls-remote visszatérési kódjai:
+#   0 = van ág (elérhető)   2 = elérhető, de ÜRES repó   128 = nem elérhető
+# Az üres repót NEM szabad hibának venni – épp ez a friss repó tipikus esete.
+repo_elerheto() {
+  local url="$1" kod
+  GIT_TERMINAL_PROMPT=0 git ls-remote --exit-code "$url" >/dev/null 2>&1
+  kod=$?
+  [ "$kod" -eq 0 ] || [ "$kod" -eq 2 ]
+}
 
 # ---- 1. van-e egyáltalán kulcs ---------------------------------------------
 kulcsok() {
@@ -133,13 +144,68 @@ EOF
 }
 
 # ---- 3. remote beállítása --------------------------------------------------
+# ---- remote beállítása: akkor is működik, ha az origin MÁR LÉTEZIK ----------
+# (a „git remote add” ilyenkor ezt adja: error: remote origin already exists.)
+remote_beallit() {
+  local url="$1" regi
+  regi="$(git remote get-url origin 2>/dev/null || echo '')"
+  if [ -n "$regi" ] && [ "$regi" = "$url" ]; then
+    ok "origin már jó: $url"
+  elif [ -n "$regi" ]; then
+    git remote set-url origin "$url"
+    sarga "  az origin átállítva:"
+    printf '    régi: %s\n    új:   %s\n' "$regi" "$url"
+  else
+    git remote add origin "$url"
+    ok "origin = $url"
+  fi
+}
+
+# ---- létezik-e a repó a GitHubon? -----------------------------------------
+repo_proba() {
+  local url; url="$(git remote get-url origin 2>/dev/null || echo '')"
+  local nev="${url##*/}"; nev="${nev%.git}"
+  [ -n "$url" ] || { nem "nincs origin – előbb: bash github-beallitas.sh --ssh NEVED/florum"; return 1; }
+  cim "Repó-ellenőrzés: $url"
+  if repo_elerheto "$url"; then
+    # üres-e (még nincs ág)?
+    if [ -z "$(GIT_TERMINAL_PROMPT=0 git ls-remote "$url" 2>/dev/null)" ]; then
+      ok "a repó létezik, de még ÜRES – ez jó (az első push feltölti)"
+    else
+      ok "a repó létezik és elérhető"
+    fi
+    return 0
+  fi
+  nem "a repó NEM érhető el ezen a címen"
+  echo
+  sarga "  Mit jelent: a GitHub nem találja a repót. Két oka lehet:"
+  cat <<EOF
+
+    ① A repó még nem létezik  →  https://github.com/new
+       Repository name:  ${nev}
+       Private ✔   ·   Add a README ✗   ·   .gitignore ✗
+
+    ② A név/felhasználó nem stimmel. Amit most próbál:
+           $url
+       Helyes alak:  git@github.com:FELHASZNALONEV/REPO.git
+       Átállítás:    bash github-beallitas.sh --ssh FELHASZNALONEV/REPO
+
+  Van egy gyorsabb út is (a repót is létrehozza, nem kell böngésző):
+       sudo pacman -S github-cli && gh auth login
+       gh repo create FELHASZNALONEV/${nev} --private --source=. --remote=origin --push
+
+EOF
+  return 1
+}
+
 https_beallitas() {
   local repo="${1:-}"
   [ -n "$repo" ] || { nem "használat: bash github-beallitas.sh --https FELHASZNALO/florum"; return 1; }
   cim "HTTPS + token beállítása ($repo)"
-  git remote remove origin 2>/dev/null
-  git remote add origin "https://github.com/$repo.git"
-  ok "origin = https://github.com/$repo.git"
+  case "$repo" in
+    git@*|ssh://*|http://*|https://*|/*) remote_beallit "$repo" ;;
+    *) remote_beallit "https://github.com/${repo%.git}.git" ;;
+  esac
   cat <<EOF
 
   A GitHub 2021 óta NEM fogadja el a jelszót. Token kell:
@@ -168,9 +234,10 @@ ssh_beallitas() {
   local repo="${1:-}"
   [ -n "$repo" ] || { nem "használat: bash github-beallitas.sh --ssh FELHASZNALO/florum"; return 1; }
   cim "SSH-ra állítás ($repo)"
-  git remote remove origin 2>/dev/null
-  git remote add origin "git@github.com:$repo.git"
-  ok "origin = git@github.com:$repo.git"
+  case "$repo" in
+    git@*|ssh://*|http://*|https://*|/*) remote_beallit "$repo" ;;
+    *) remote_beallit "git@github.com:${repo%.git}.git" ;;
+  esac
   sarga "  Előbb a kapcsolat legyen jó: bash github-beallitas.sh --proba"
 }
 
@@ -188,7 +255,16 @@ diagnozis() {
     ok "git repó: $(pwd)"
     local r
     r="$(git remote get-url origin 2>/dev/null || echo '')"
-    if [ -n "$r" ]; then ok "origin: $r"; else nem "nincs origin (git remote add origin …)"; fi
+    if [ -n "$r" ]; then
+      ok "origin: $r"
+      if repo_elerheto "$r"; then
+        ok "a repó elérhető a GitHubon"
+      else
+        nem "a repó NEM érhető el (Repository not found) – lásd: --repo"
+      fi
+    else
+      nem "nincs origin (git remote add origin …)"
+    fi
     printf '      ág: %s · verzió: %s\n' "$(git rev-parse --abbrev-ref HEAD 2>/dev/null)" \
            "$(cat VERSION 2>/dev/null || echo '?')"
   else
@@ -265,6 +341,7 @@ EOF
 case "${1:-}" in
   --kulcs) kulcs_letrehozas ;;
   --proba) proba ;;
+  --repo)  repo_proba ;;
   --https) https_beallitas "${2:-}" ;;
   --ssh)   ssh_beallitas "${2:-}" ;;
   ""|--diagnozis|-h|--help) diagnozis ;;

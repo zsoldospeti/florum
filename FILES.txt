@@ -25,8 +25,8 @@ install.sh                                        4.3 kB  menübejegyzés + eml�
 florum-megnyitas.sh                               7.1 kB  egységes indító: futó ablak előtérbe / KDE-ablak / böngésző + szerverindítás
 florum-atkoltoztetes.sh                           7.3 kB  az adatok átköltöztetése saját mappába (meg is jegyzi)
 florum-frissites.sh                               3.4 kB  frissítés után: a futó példány újraindítása + verzió-ellenőrzés
-florum-kiadas.sh                                 14.0 kB  kiadás: verzióváltás mindenhol, építés, csomag, git commit + feltöltés
-github-beallitas.sh                               9.9 kB  GitHub-hozzáférés: kulcs, token, diagnózis (Permission denied javítása)
+florum-kiadas.sh                                 15.7 kB  kiadás: verzióváltás mindenhol, építés, csomag, git commit + feltöltés
+github-beallitas.sh                              12.5 kB  GitHub-hozzáférés: kulcs, token, diagnózis (Permission denied javítása)
 florum-verzio.sh                                  6.9 kB  mi fut valójában (több porton) + --ujraindit
 florum-szolgaltatas.sh                            6.7 kB  háttérszerver (systemd --user) kezelése
 florum-szerver.service                            1.5 kB  systemd egység a háttérszerverhez
@@ -58,7 +58,7 @@ docker/proba-docker.py                           12.4 kB  a docker-fájlok ellen
 docker/kontener-adat.py                           5.1 kB  a régi konténer adatainak vizsgálata és egyesítése
 .dockerignore                                      372 B  mi ne kerüljön a képbe
 .gitignore                                         980 B  mi ne kerüljön a git repóba (adat, fotó, zip, titkok)
-teszt-verzio.py                                  23.8 kB  
+teszt-verzio.py                                  24.9 kB  
 teszt-forras.py                                  11.3 kB  
 teszt-adatut.py                                   8.8 kB  
 teszt-homerseklet-modul.js                       20.6 kB  
@@ -69,8 +69,8 @@ teszt-lenyilo.js                                 21.6 kB
 teszt-kert.js                                    23.2 kB  
 teszt-naplo.js                                   12.8 kB  
 teszt-tragyazas.js                               14.0 kB  
-README.md                                       136.4 kB  teljes leírás + hibaelhárítás + változáslista
-OLVASSEL.txt                                     32.4 kB  rövid, lépésenkénti útmutató
+README.md                                       137.8 kB  teljes leírás + hibaelhárítás + változáslista
+OLVASSEL.txt                                     32.5 kB  rövid, lépésenkénti útmutató
 forditas/entries.json                            38.3 kB  az Event Calendar magyar fordítása
 forditas/hu-1.py                                 10.4 kB  az Event Calendar magyar fordítása
 forditas/hu-2.py                                  6.7 kB  az Event Calendar magyar fordítása

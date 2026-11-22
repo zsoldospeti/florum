@@ -254,6 +254,39 @@ feltoltes() {
     return 1
   fi
   cim "Feltöltés a GitHubra"
+  printf '  origin: %s\n' "$(git remote get-url origin)"
+
+  # ---- a repó létezik-e? (a commit előtt derüljön ki, ne utána) ----------
+  # 0 = van ág · 2 = elérhető, de még ÜRES (friss repó – ez a jó eset) · 128 = hiba
+  GIT_TERMINAL_PROMPT=0 git ls-remote --exit-code origin >/dev/null 2>&1
+  local repokod=$?
+  if [ "$repokod" -ne 0 ] && [ "$repokod" -ne 2 ]; then
+    hiba "a repó NEM érhető el ezen a címen – a commit elkészül, de a feltöltés nem megy"
+    echo
+    local repohiba
+    repohiba="$(GIT_TERMINAL_PROMPT=0 git ls-remote origin 2>&1)"
+    if printf '%s' "$repohiba" | grep -qi "Repository not found"; then
+      cat <<EOF
+    A REPÓ MÉG NEM LÉTEZIK a GitHubon (vagy más a név).
+      1) https://github.com/new →  Repository name: florum
+         Private ✔  ·  Add a README ✗  ·  .gitignore ✗
+      2) ha más a név:  bash github-beallitas.sh --ssh zsoldospeti/az-igazi-nev
+      3) bash florum-kiadas.sh --feltoltes
+    (Ellenőrzés bármikor: bash github-beallitas.sh --repo)
+EOF
+    else
+      cat <<EOF
+    Ellenőrzés:   bash github-beallitas.sh --repo
+    Átállítás:    bash github-beallitas.sh --ssh zsoldospeti/florum
+EOF
+    fi
+    return 1
+  fi
+  if [ "$repokod" -eq 2 ]; then
+    ok "a repó elérhető és még üres – az első push feltölti"
+  else
+    ok "a repó elérhető a GitHubon"
+  fi
 
   # 1. biztonsági kapu: teszteljünk, mielőtt felmegy
   if [ -f teszt-verzio.py ]; then
@@ -373,7 +406,12 @@ case "${1:-}" in
   --csomag)          csomag ;;
   --git-elokeszites) git_elokeszites ;;
   --allapot)         git_allapot ;;
-  --feltoltes|--push) feltoltes ;;
+  --feltoltes|--push)
+      # opcionális: --feltoltes --repo NEVED/florum  → az origin-t is beállítja
+      if [ "${2:-}" = "--repo" ] && [ -n "${3:-}" ]; then
+        bash "$ITT/github-beallitas.sh" --ssh "$3" || exit 1
+      fi
+      feltoltes ;;
   ""|--segitseg|-h|--help)
       cim "Florum kiadás-segéd"
       echo "  verzió: $(jelenlegi)"
@@ -384,6 +422,8 @@ case "${1:-}" in
   bash florum-kiadas.sh --git-elokeszites      git repó + első commit
   bash florum-kiadas.sh --allapot              mi van a repóban
   bash florum-kiadas.sh --feltoltes            feltöltés (teszt + adat-ellenőrzés után)
+  bash florum-kiadas.sh --feltoltes --repo zsoldospeti/florum
+                                               feltöltés + az origin beállítása
 
   Részletes leírás: README 24. fejezet
 EOF

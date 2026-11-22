@@ -2629,6 +2629,35 @@ fatal: Could not read from remote repository.
 Ez azt jelenti: **a repó még nem létezik a GitHubon** (vagy más a neve / más a felhasználónév).
 A GitHub szándékosan ugyanezt írja, ha nincs jogosultságod – nem árulja el, melyik a kettő.
 
+**Előbb nézd meg, mi van beállítva:**
+
+```bash
+git remote -v
+```
+
+Gyakori csapda: **már van egy `origin`**, ami máshova mutat. Ilyenkor a
+`git remote add origin …` ezt adja: `error: remote origin already exists.` – a régi cím
+megmarad, és a push a rossz helyre indul (innen a „Repository not found”). Ezt nem
+`add`-dal, hanem **`set-url`**-lel kell átállítani:
+
+```bash
+bash github-beallitas.sh --ssh zsoldospeti/florum     # set-url, felülírja a régit
+```
+
+A szkript ezt magától elvégzi – a `--ssh` és a `--https` is `set-url`-t használ, tehát
+akárhányszor lefuttatható.
+
+**A repó-ellenőrzés (a commit ELŐTT, hogy ne derüljön ki utólag):**
+
+```bash
+bash github-beallitas.sh --repo
+#  ✔ a repó létezik, de még ÜRES – ez jó (az első push feltölti)
+#  ✘ a repó NEM érhető el ezen a címen   → lent az ok és a megoldás
+```
+
+> Az **üres repó nem hiba.** A `git ls-remote` üres repónál 2-es kóddal tér vissza – a
+> Florum ezt „üres, de elérhető”-ként kezeli, nem hibaként. Ez pont a friss repó esete.
+
 **A sorrend, ami működik:**
 
 ```bash
@@ -2650,11 +2679,26 @@ bash github-beallitas.sh --ssh ZSOLDOSPETI/az-igazi-nev
 bash florum-kiadas.sh --feltoltes
 ```
 
+Egyetlen paranccsal, ha a repó már létezik (az `origin`-t is átállítja):
+
+```bash
+bash florum-kiadas.sh --feltoltes --repo zsoldospeti/florum
+```
+
 Siker esetén ezt látod:
 
 ```
+ ✔ a repó elérhető és még üres – az első push feltölti
  * [new branch]      HEAD -> main
  ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.2)
+```
+
+Ha nincs kedved böngészőzni, a GitHub CLI egy lépésben megcsinálja (létrehozás + push):
+
+```bash
+sudo pacman -S github-cli
+gh auth login
+gh repo create zsoldospeti/florum --private --source=. --remote=origin --push
 ```
 
 > Ha a repó létrehozásakor **mégis** bepipáltad a README-t, a push ezt adja:

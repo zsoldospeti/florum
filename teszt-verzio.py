@@ -339,6 +339,28 @@ class GithubBeallitas(unittest.TestCase):
         self.assertNotIn('cat "$SSH_KONYVTAR/id_ed25519"', sh,
                          "a privát kulcs tartalmát ne írja ki")
 
+    def test_ures_repo_nem_hiba(self):
+        """A friss, ÜRES repó (git ls-remote → 2) ne legyen hiba.
+
+        A hiba, amit ez őriz: a `git ls-remote --exit-code` üres repónál 2-vel tér
+        vissza. Aki ezt „nem elérhetőnek” veszi, épp a legtipikusabb esetben
+        (most hoztam létre a repót) ad hamis hibát.
+        """
+        for fajl in ("florum-kiadas.sh", "github-beallitas.sh"):
+            with io.open(os.path.join(HERE, fajl), encoding="utf-8") as fh:
+                sh = fh.read()
+            self.assertIn("ls-remote", sh)
+            self.assertTrue(("-ne 2" in sh) or ("-eq 2" in sh),
+                            "%s: az üres repó (exit 2) nincs kezelve" % fajl)
+
+    def test_meglevo_origin_felulirható(self):
+        """Ha már van origin, a szkript set-url-t használjon, ne elhasaljon."""
+        with io.open(os.path.join(HERE, "github-beallitas.sh"), encoding="utf-8") as fh:
+            sh = fh.read()
+        self.assertIn("remote set-url", sh,
+                      "meglévő origin esetén: error: remote origin already exists")
+        self.assertNotIn("git remote remove origin 2>/dev/null\n  git remote add", sh)
+
     def test_push_hibak_leforditva(self):
         """A négy tipikus push-hibára legyen magyar magyarázat és megoldás."""
         with io.open(os.path.join(HERE, "florum-kiadas.sh"), encoding="utf-8") as fh:
