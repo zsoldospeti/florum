@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Florum"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A Florum növénygondozó esedékes teendői a panelen (öntözés, tápoldat, permetezés, átültetés)",
+        "Icon": "florum-symbolic",
+        "Id": "hu.florum.panel",
+        "License": "MIT",
+        "Name": "Florum naptár",
+        "Version": "1.33.2"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

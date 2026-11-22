@@ -1,0 +1,2937 @@
+[
+{
+"ctx": null,
+"id": "Views",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Clock",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "ICalendar (.ics)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Weather",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Time Zones",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Advanced",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "In progress",
+"pl": null
+},
+{
+"ctx": "agenda day header, %1 = Fri, 16 Oct",
+"id": "Today · %1",
+"pl": null
+},
+{
+"ctx": "agenda day header, %1 = Sat, 17 Oct",
+"id": "Tomorrow · %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "New Event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Due %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Overdue",
+"pl": null
+},
+{
+"ctx": "short month+date format",
+"id": "MMM d",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Task",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Delete Event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Confirm Deletion",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit in browser",
+"pl": null
+},
+{
+"ctx": "more events not shown in a month day cell",
+"id": "+%1",
+"pl": null
+},
+{
+"ctx": "event with no summary",
+"id": "(No title)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "[No Calendars]",
+"pl": null
+},
+{
+"ctx": null,
+"id": "HTTP Error %1: %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not connect",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Will try again soon.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Widget has been updated. Please logout and login to Google Calendar again.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Too many web requests. Will try again soon.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google authentication failed: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not get the free / busy times",
+"pl": null
+},
+{
+"ctx": null,
+"id": "iCalendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Unknown iCalendar helper error",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not load %1: %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Holidays",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Todo",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Other",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendars",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No calendars selected in the settings.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show All",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Cancel",
+"pl": null
+},
+{
+"ctx": "time left in the current meeting",
+"id": "%1 min left",
+"pl": "%1 min left"
+},
+{
+"ctx": "time left in the current meeting, %1 = 1h20m",
+"id": "%1 left",
+"pl": null
+},
+{
+"ctx": "meeting starts in",
+"id": "in %1 min",
+"pl": "in %1 min"
+},
+{
+"ctx": "meeting starts in, %1 = 1h20m",
+"id": "in %1",
+"pl": null
+},
+{
+"ctx": "%1 = event title, %2 = in 5 min / 12 min left",
+"id": "%1 · %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Name",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Name in my list",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Only you see this name. The calendar keeps its name for others.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Color",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Save",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Default (%1)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "(24-hour)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "(12-hour)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "(with seconds)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Custom…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Format",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Bold",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Font",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Maximum height",
+"pl": null
+},
+{
+"ctx": null,
+"id": "0 = fit the panel",
+"pl": null
+},
+{
+"ctx": null,
+"id": " px",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Custom formats use the <a href=\"https://doc.qt.io/qt-6/qml-qtqml-qt.html#formatDateTime-method\">Qt date and time format</a>, eg: HH:mm, ddd d MMM.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Second Line",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show a second line",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Eg: the date",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Size",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next Meeting",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show next to the clock",
+"pl": null
+},
+{
+"ctx": null,
+"id": "When it starts within",
+"pl": null
+},
+{
+"ctx": null,
+"id": " min",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Progress of the current meeting",
+"pl": null
+},
+{
+"ctx": null,
+"id": "A thin bar under the meeting's name, in its calendar's color.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Middle-click the clock to join the current or next meeting.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show background",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Desktop widget",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Debug logging and extra settings pages",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Refresh every",
+"pl": null
+},
+{
+"ctx": "Polling interval in minutes",
+"id": " min",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Plasma calendar plugins are unavailable.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Plasma calendars",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Clicking an event opens",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event details in the widget",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google Calendar in the browser",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reminder Before an Event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show a reminder",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Time before",
+"pl": null
+},
+{
+"ctx": "Time in minutes",
+"id": " min",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Use the reminder times set in Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Keep until dismissed",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Hide after",
+"pl": null
+},
+{
+"ctx": "notification shown for",
+"id": "%1 second",
+"pl": "%1 seconds"
+},
+{
+"ctx": "notification timeout",
+"id": "System default",
+"pl": null
+},
+{
+"ctx": null,
+"id": "System default: as set in System Settings > Notifications. A reminder hidden after a set time isn't kept in the notification history.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Snooze",
+"pl": null
+},
+{
+"ctx": null,
+"id": "0 = no Snooze button",
+"pl": null
+},
+{
+"ctx": null,
+"id": "When an Event Starts",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show a notification",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Critical",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Shown even in Do Not Disturb",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sounds",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reminder",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event starts",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google Meet",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open meeting links in",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Default browser",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Other command…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Command",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google account",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Default",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Join buttons open Google Meet links there; other meeting links open in the default browser. In a command, %u stands for the meeting link. Google account: its number (0, 1, …) or email, as in Google's account switcher; empty uses the app's default.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Meetings",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open the meeting link when a meeting starts",
+"pl": null
+},
+{
+"ctx": null,
+"id": "For meetings you accepted or organize, not marked as ended.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Pause music and videos when joining a meeting",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Players that are playing (eg: Spotify, Elisa, a video in the browser), when a Join button opens a meeting or it opens when the meeting starts.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Do Not Disturb during meetings",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Plasma's Do Not Disturb from the start until the end of a meeting with guests or a meeting link. Mark as Ended turns it off.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Only meetings I accepted",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Invitations",
+"pl": null
+},
+{
+"ctx": null,
+"id": "New invitations for today",
+"pl": null
+},
+{
+"ctx": null,
+"id": "A notification for each meeting today you haven't answered yet, with Yes, Maybe and No.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Daily Agenda",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Today's events every morning",
+"pl": null
+},
+{
+"ctx": null,
+"id": "A notification with today's events once a day, also when the computer is turned on later.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "At",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All Event Notifications",
+"pl": null
+},
+{
+"ctx": null,
+"id": "\"Join meeting\" button",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Skip all-day events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Skip events I declined",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Popups and sounds for each kind of notification can also be set in System Settings > Notifications > Event Calendar.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google Account",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google Account %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Login failed: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Login complete.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not prepare Google login: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Waiting for browser callback...",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sign-in timed out. Try again.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Auto login failed. See logs for details.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Auto login failed: invalid callback data.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Auto login failed: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Auto login failed: authorization code missing.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "The desktop could not open the browser automatically. Use the login link in Advanced sign-in options instead.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sign in to show your Google calendars and task lists. Your browser opens to sign in; when access is granted the widget picks it up automatically.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sign In Again",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reload calendars and task lists",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Remove Account",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Remove",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google access for this account expired or was revoked. Sign in again to reconnect it (the account and its settings are kept).",
+"pl": null
+},
+{
+"ctx": null,
+"id": "The widget was updated. Sign in again to keep this account in sync.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No calendars loaded yet. Use the reload button.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Task Lists",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add Account…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sign in with Google…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Waiting for the browser sign-in…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Advanced sign-in options",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Your own Google OAuth client, or pasting the sign-in code by hand",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Client Credentials",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Using a previously stored Google OAuth client for compatibility. If login still fails, add your own client ID and client secret.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Try desktop built-in client (no secret)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Client ID",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Optional",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Client Secret",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Leave these empty to use the built-in client. A custom client must be a Google Cloud OAuth Desktop client, or a Web client with its secret and the redirect URI set to %1.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "For a custom OAuth client, publish the OAuth consent screen to Production. Google expires refresh tokens for external apps left in Testing after seven days; Workspace session controls can also require reauthorization.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Manual Sign-in",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Login (Auto) - Add Account",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Login (Auto)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Click Login (Auto) to open <a href=\"%1\">%2</a>. After you grant access, the browser redirects to a localhost URL. If auto-capture succeeds you can ignore the field below; otherwise copy the full URL (or just the code) and paste it.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "The desktop could not open the browser automatically.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Copy Link",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Helper page (optional): <a href=\"%1\">%1</a>",
+"pl": null
+},
+{
+"ctx": null,
+"id": "If your browser shows a connection error, that's expected. Copy the URL from the address bar anyway and paste it below. If auto-capture works, you do not need to paste anything.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Paste the authorization code or redirect URL here",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google authorization code or redirect URL",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Paste the Google authorization code or the full redirect URL from the browser",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add Account",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Submit",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Options",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Hide \"This event was added from Goals in Google Calendar\" description",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "New Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar Label",
+"pl": null
+},
+{
+"ctx": null,
+"id": "https:// URL or local %1/*.ics file",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Browse",
+"pl": null
+},
+{
+"ctx": null,
+"id": "iCalendar (*.ics)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Local",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Extra Time Zones in the Tooltip",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Remove time zone",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add a time zone, eg: America/New_York",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Zones with the same time as yours are not shown.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Display",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show time zones as",
+"pl": null
+},
+{
+"ctx": null,
+"id": "City name",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Abbreviation (eg: CEST)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Popup",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Default view",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Month",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Week",
+"pl": null
+},
+{
+"ctx": "calendar view showing one day",
+"id": "Day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Agenda",
+"pl": null
+},
+{
+"ctx": null,
+"id": "View switcher in the header",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Popup width",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Popup height",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Week and Day",
+"pl": null
+},
+{
+"ctx": "week view setting",
+"id": "Days shown",
+"pl": null
+},
+{
+"ctx": null,
+"id": "7 days",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Work week (without the weekend)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Working hours start",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Working hours end",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Second time zone",
+"pl": null
+},
+{
+"ctx": "no second time zone",
+"id": "None",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No second time zone",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Its hours are shown next to the local ones in the Week and Day views.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Search time zones",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Forecast in the day headers and, in the Day view, a weather panel.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "First day of week",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event colors",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google's API still returns an older palette; \"As in Google Calendar\" shows the current one. \"Follow the system color scheme\" uses the nearest colors of your Plasma color scheme.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "As in Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Classic (as returned by Google)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Follow the system color scheme",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event look",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All-day filled, timed light with a color bar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Filled in the event color",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event text size",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Week numbers",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Clicking a day opens it in the Day view",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Month view",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Declined events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show (struck through)",
+"pl": null
+},
+{
+"ctx": "declined events",
+"id": "Hide",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Double-clicking a day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "New event in Google Calendar (browser)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Do nothing",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event descriptions",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Meeting link button",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Multi-day events on every day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Meteogram above the agenda",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer above the agenda",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer sound",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Meteogram / timer height",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Source",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Service",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open-Meteo (free, no API key)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Location",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Current location",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Not set",
+"pl": null
+},
+{
+"ctx": null,
+"id": "City name, eg: Warszawa",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Search",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No places found.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "OpenWeatherMap",
+"pl": null
+},
+{
+"ctx": null,
+"id": "City id",
+"pl": null
+},
+{
+"ctx": null,
+"id": "eg: 5983720",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Find City…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "API app id",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Required for OpenWeatherMap",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Weather Canada",
+"pl": null
+},
+{
+"ctx": null,
+"id": "eg: on-14",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Units",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Celsius",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Fahrenheit",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Kelvin",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Meteogram shows",
+"pl": null
+},
+{
+"ctx": null,
+"id": " hours",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Not signed in to this Google account. Sign in again.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not save the calendar: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Select city",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Fetched from <a href=\"%1\">%1</a>",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Id",
+"pl": null
+},
+{
+"ctx": null,
+"id": "City Webpage",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open Link",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit calendar…",
+"pl": null
+},
+{
+"ctx": "event editor date format",
+"id": "d MMM, yyyy",
+"pl": null
+},
+{
+"ctx": null,
+"id": "to",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event Title",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add description",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add due date",
+"pl": null
+},
+{
+"ctx": null,
+"id": "&Save",
+"pl": null
+},
+{
+"ctx": null,
+"id": "&Cancel",
+"pl": null
+},
+{
+"ctx": "RSVP to an invitation",
+"id": "Respond",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show Details",
+"pl": null
+},
+{
+"ctx": "%1 = Google Meet, Zoom, ...",
+"id": "Join %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open in Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Mark as Ended",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Email Guests…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Duplicate…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Delete",
+"pl": null
+},
+{
+"ctx": "%1 = event title",
+"id": "Delete Only This Occurrence of “%1”",
+"pl": null
+},
+{
+"ctx": "%1 = event title",
+"id": "Delete “%1”",
+"pl": null
+},
+{
+"ctx": "%1 = event title",
+"id": "Delete All Events of “%1”",
+"pl": null
+},
+{
+"ctx": null,
+"id": "This event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All events in the series",
+"pl": null
+},
+{
+"ctx": "guests who accepted",
+"id": "%1 yes",
+"pl": null
+},
+{
+"ctx": "guests who said maybe",
+"id": "%1 maybe",
+"pl": null
+},
+{
+"ctx": "guests who declined",
+"id": "%1 no",
+"pl": null
+},
+{
+"ctx": "guests who haven't responded",
+"id": "%1 awaiting",
+"pl": null
+},
+{
+"ctx": null,
+"id": "1 guest",
+"pl": "%1 guests"
+},
+{
+"ctx": "reminder at event start",
+"id": "at start",
+"pl": null
+},
+{
+"ctx": "%1 = 10m, 2m",
+"id": "Reminders: %1 before",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Back",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Delete:",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Delete this event?",
+"pl": null
+},
+{
+"ctx": null,
+"id": "This Occurrence",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All Events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Deletes every occurrence of this repeating event.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Duplicate",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Private event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Repeats",
+"pl": null
+},
+{
+"ctx": "%1 = start and end time, %2 = city, %3 = time zone id",
+"id": "%1 %2 time (%3)",
+"pl": null
+},
+{
+"ctx": "RSVP to an invitation",
+"id": "Going?",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Out of office",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Focus time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Declines all meetings at this time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Declines new invitations at this time",
+"pl": null
+},
+{
+"ctx": "%1 = message sent when declining",
+"id": "Message: “%1”",
+"pl": null
+},
+{
+"ctx": "%1 = titles of other events at the same time",
+"id": "Overlaps with: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Write an email to the guests",
+"pl": null
+},
+{
+"ctx": "event organizer",
+"id": "organizer",
+"pl": null
+},
+{
+"ctx": "the current user in a guest list",
+"id": "you",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show less",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show 1 more",
+"pl": "Show all %1"
+},
+{
+"ctx": "%1 = start and end time in the local time zone",
+"id": "%1 your time",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Lavender",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Sage",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Grape",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Flamingo",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Banana",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Tangerine",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Peacock",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Graphite",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Blueberry",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Basil",
+"pl": null
+},
+{
+"ctx": "Google Calendar event color",
+"id": "Tomato",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Enter an email address, like name@example.com",
+"pl": null
+},
+{
+"ctx": "you, in Find a time",
+"id": "You",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Edit Event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Send invitation emails to the guests?",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Send update emails to the guests?",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Send invitations",
+"pl": null
+},
+{
+"ctx": "send update emails to guests",
+"id": "Send",
+"pl": null
+},
+{
+"ctx": "don't send emails to guests",
+"id": "Don't send",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Change:",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Title",
+"pl": null
+},
+{
+"ctx": "event type",
+"id": "Event",
+"pl": null
+},
+{
+"ctx": "event type",
+"id": "Out of office",
+"pl": null
+},
+{
+"ctx": "event type",
+"id": "Focus time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event type",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Don't decline invitations",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Decline new invitations in this time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Decline new and existing invitations in this time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Automatically decline",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Message for declined invitations",
+"pl": null
+},
+{
+"ctx": "Google Chat status during focus time",
+"id": "Do not disturb",
+"pl": null
+},
+{
+"ctx": "Google Chat status during focus time",
+"id": "Available",
+"pl": null
+},
+{
+"ctx": "%1 = Do not disturb or Available",
+"id": "Chat status: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Chat status",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar color",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Local time",
+"pl": null
+},
+{
+"ctx": "%1 = time zone id, eg: Europe/Warsaw",
+"id": "Time zone: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Time zone",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Does not repeat",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Daily",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Every weekday (Monday to Friday)",
+"pl": null
+},
+{
+"ctx": "%1 = day name",
+"id": "Weekly on %1",
+"pl": null
+},
+{
+"ctx": "%1 = day of the month",
+"id": "Monthly on day %1",
+"pl": null
+},
+{
+"ctx": "%1 = date, eg: 16 October",
+"id": "Yearly on %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Custom (as set in Google Calendar)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Loading…",
+"pl": null
+},
+{
+"ctx": "Repeat every [2] [weeks]",
+"id": "Every",
+"pl": null
+},
+{
+"ctx": "Repeat every N",
+"id": "day",
+"pl": "days"
+},
+{
+"ctx": "Repeat every N",
+"id": "week",
+"pl": "weeks"
+},
+{
+"ctx": "Repeat every N",
+"id": "month",
+"pl": "months"
+},
+{
+"ctx": "Repeat every N",
+"id": "year",
+"pl": "years"
+},
+{
+"ctx": "Repeat ends: never / on date / after N times",
+"id": "Ends:",
+"pl": null
+},
+{
+"ctx": "Repeat ends",
+"id": "Never",
+"pl": null
+},
+{
+"ctx": "Repeat ends on [date]",
+"id": "On",
+"pl": null
+},
+{
+"ctx": "Repeat ends after [N] times",
+"id": "After",
+"pl": null
+},
+{
+"ctx": "Repeat ends after N",
+"id": "time",
+"pl": "times"
+},
+{
+"ctx": null,
+"id": "Add Google Meet video conferencing",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Video conferencing will be removed when you save",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Undo",
+"pl": null
+},
+{
+"ctx": null,
+"id": "A Google Meet link will be created when you save",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Video conferencing",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Remove video conferencing",
+"pl": null
+},
+{
+"ctx": "show the event's time as",
+"id": "Busy",
+"pl": null
+},
+{
+"ctx": "show the event's time as",
+"id": "Free",
+"pl": null
+},
+{
+"ctx": "%1 = Busy or Free",
+"id": "Show as: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Show as",
+"pl": null
+},
+{
+"ctx": "event visibility",
+"id": "Calendar default",
+"pl": null
+},
+{
+"ctx": "event visibility",
+"id": "Public",
+"pl": null
+},
+{
+"ctx": "event visibility",
+"id": "Private",
+"pl": null
+},
+{
+"ctx": "%1 = Calendar default, Public or Private",
+"id": "Visibility: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Visibility",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reminders",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar's default",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Set for this event",
+"pl": null
+},
+{
+"ctx": "reminder: N … before the event",
+"id": "minute before",
+"pl": "minutes before"
+},
+{
+"ctx": "reminder: N … before the event",
+"id": "hour before",
+"pl": "hours before"
+},
+{
+"ctx": "reminder: N … before the event",
+"id": "day before",
+"pl": "days before"
+},
+{
+"ctx": "reminder: N … before the event",
+"id": "week before",
+"pl": "weeks before"
+},
+{
+"ctx": null,
+"id": "Remove reminder",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No notification reminders",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add Reminder",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Guests",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Only the organizer can change the guest list",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Add guests by email",
+"pl": null
+},
+{
+"ctx": "add a guest",
+"id": "Add",
+"pl": null
+},
+{
+"ctx": "guest suggestion: %1 = name, %2 = email",
+"id": "%1 <%2>",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Find a Time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Description",
+"pl": null
+},
+{
+"ctx": "working location",
+"id": "Home",
+"pl": null
+},
+{
+"ctx": "working location",
+"id": "Office",
+"pl": null
+},
+{
+"ctx": "working location",
+"id": "Elsewhere",
+"pl": null
+},
+{
+"ctx": null,
+"id": "This calendar can't import events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "This calendar can't show free / busy times",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event moved",
+"pl": null
+},
+{
+"ctx": "separator of names in a list",
+"id": ", ",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No suggestions: the guests' busy times aren't available.",
+"pl": null
+},
+{
+"ctx": "%1 = names of people",
+"id": "Suggested times (not counting %1):",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Suggested times:",
+"pl": null
+},
+{
+"ctx": "%1 = names of people",
+"id": "No time free in the working hours of this day (not counting %1).",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No time free for everyone in the working hours of this day.",
+"pl": null
+},
+{
+"ctx": "someone's calendar in Find a time",
+"id": "Not available",
+"pl": null
+},
+{
+"ctx": "someone's calendar in Find a time: %1 = Google's reason",
+"id": "Not available (%1)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Previous day",
+"pl": null
+},
+{
+"ctx": "Find a time: the day shown",
+"id": "ddd, d MMM",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not read the file.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reading .ics files needs the Python icalendar module (python-icalendar).",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not read the file: %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Changed occurrence of a repeating event",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Every %1 day",
+"pl": "Every %1 days"
+},
+{
+"ctx": null,
+"id": "Every %1 week",
+"pl": "Every %1 weeks"
+},
+{
+"ctx": null,
+"id": "Weekly",
+"pl": null
+},
+{
+"ctx": "%1 = Weekly / Every 2 weeks, %2 = days",
+"id": "%1 on %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Every %1 month",
+"pl": "Every %1 months"
+},
+{
+"ctx": null,
+"id": "Monthly",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Every %1 year",
+"pl": "Every %1 years"
+},
+{
+"ctx": null,
+"id": "Yearly",
+"pl": null
+},
+{
+"ctx": "%2 = Weekly on Monday, ...",
+"id": "%2, %1 time",
+"pl": "%2, %1 times"
+},
+{
+"ctx": "%1 = Weekly on Monday, ..., %2 = date",
+"id": "%1, until %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1 exception",
+"pl": "%1 exceptions"
+},
+{
+"ctx": null,
+"id": "Import Events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Close",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Import",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No file chosen",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Choose File…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Reading the file…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No events in this file",
+"pl": null
+},
+{
+"ctx": null,
+"id": "(No title)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1 cancelled event isn't imported.",
+"pl": "%1 cancelled events aren't imported."
+},
+{
+"ctx": null,
+"id": "Calendar:",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Guests and the organizer aren't imported, and no invitations are sent. Importing the same event again updates it.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Importing needs a Google Calendar you can edit. Log in to Google Calendar in the settings.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Importing… %1 of %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1 event imported",
+"pl": "%1 events imported"
+},
+{
+"ctx": null,
+"id": "%1 failed: %2",
+"pl": "%1 failed, eg: %2"
+},
+{
+"ctx": null,
+"id": "Join",
+"pl": null
+},
+{
+"ctx": "Use default font",
+"id": "Default",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Choose a Font",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Play",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Choose a sound effect",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sound files (%1)",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All files (%1)",
+"pl": null
+},
+{
+"ctx": "event time on the hour (24 hour clock)",
+"id": "h",
+"pl": null
+},
+{
+"ctx": "event time (24 hour clock)",
+"id": "h:mm",
+"pl": null
+},
+{
+"ctx": "event time on the hour (12 hour clock)",
+"id": "h AP",
+"pl": null
+},
+{
+"ctx": "event time (12 hour clock)",
+"id": "h:mm AP",
+"pl": null
+},
+{
+"ctx": "date (%1) with time (%2)",
+"id": "%1, %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "All Day",
+"pl": null
+},
+{
+"ctx": "from date/time %1 until date/time %2",
+"id": "%1 - %2",
+"pl": null
+},
+{
+"ctx": "event span, %1 = start, %2 = end",
+"id": "%1 – %2",
+"pl": null
+},
+{
+"ctx": "search result, %1 = date",
+"id": "%1 · All day",
+"pl": null
+},
+{
+"ctx": "search result, %1 = date, %2 = start time, %3 = end time",
+"id": "%1 · %2 – %3",
+"pl": null
+},
+{
+"ctx": "short form for %1 hours",
+"id": "%1h",
+"pl": null
+},
+{
+"ctx": "short form for %1 minutes",
+"id": "%1m",
+"pl": null
+},
+{
+"ctx": "short form for %1 seconds",
+"id": "%1s",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Could not connect.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "The weather service is not available right now.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Weather API limit reached",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Google authorization expired or was revoked. Open Event Calendar Settings > Google Calendar and sign in to that account again.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Logged out of Google. Please login again.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar is back in sync",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Calendar can't sync",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No connection. Showing the last loaded events; retrying automatically.",
+"pl": null
+},
+{
+"ctx": "%1 = Google Meet, Zoom, ..., %2 = event title, %3 = when",
+"id": "Join %1: %2 (%3)",
+"pl": null
+},
+{
+"ctx": "%1 = event title",
+"id": "Mark “%1” as Ended",
+"pl": null
+},
+{
+"ctx": null,
+"id": "New Event…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Import Events…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Refresh",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Copy Date and Time",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Date and Time Formats…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1mm",
+"pl": null
+},
+{
+"ctx": "calendar title format for current month",
+"id": "MMMM d, yyyy",
+"pl": null
+},
+{
+"ctx": "calendar title format for other months of current year",
+"id": "MMMM",
+"pl": null
+},
+{
+"ctx": "calendar title format for months not from current year",
+"id": "MMMM, yyyy",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Eg: 9am-5pm Work",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Previous Day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Previous Week",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Previous Month",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Today",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next Day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next Week",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next Month",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Keep Open",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Repeating event deleted",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Event deleted",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Retrying…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Retrying in %1 second.",
+"pl": "Retrying in %1 seconds."
+},
+{
+"ctx": null,
+"id": "Retrying in %1 minute.",
+"pl": "Retrying in %1 minutes."
+},
+{
+"ctx": null,
+"id": "Can't connect. Showing the last loaded events.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Retry Now",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Dismiss",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Weather not configured.\nGo to Weather in the config and set your city,\nand/or disable the meteogram to hide this area.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Error fetching weather.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Quick Add",
+"pl": null
+},
+{
+"ctx": "quick add example",
+"id": "Lunch with Anna tomorrow 13:00",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Type what, when and where. Without a day, the event is added today.",
+"pl": null
+},
+{
+"ctx": "%1 = date",
+"id": "Type what, when and where. Without a day, the event is added on %1.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "More options…",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "Yes",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "Yes to All Events",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "Maybe",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "Maybe to All Events",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "No",
+"pl": null
+},
+{
+"ctx": "RSVP",
+"id": "No to All Events",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Search events…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Type to search event titles, places and descriptions",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Searching…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No events found",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Couldn't search Google Calendar",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Searching Google Calendar…",
+"pl": null
+},
+{
+"ctx": null,
+"id": "&Start",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer finished",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1 has passed",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Repeat",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer, %1 remaining. Activate to pause.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer, %1 remaining. Activate to start.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Timer set to %1. Use plus or minus to change the duration.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Pause Timer",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Start Timer",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Scroll or use plus and minus keys to adjust duration",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Sound",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Set Timer",
+"pl": null
+},
+{
+"ctx": "high / low temperature",
+"id": "%1 / %2",
+"pl": null
+},
+{
+"ctx": "precipitation in inches",
+"id": "%1 in",
+"pl": null
+},
+{
+"ctx": "precipitation in mm",
+"id": "%1 mm",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Snooze 1 minute",
+"pl": "Snooze %1 minutes"
+},
+{
+"ctx": "%1 = 15 minutes, %2 = event title",
+"id": "In %1: %2",
+"pl": null
+},
+{
+"ctx": "invitation, %1 = organizer",
+"id": "From %1",
+"pl": null
+},
+{
+"ctx": "%1 = event title",
+"id": "Invitation: %1",
+"pl": null
+},
+{
+"ctx": "daily agenda, %1 = event title",
+"id": "All day: %1",
+"pl": null
+},
+{
+"ctx": "daily agenda, more events",
+"id": "+%1 more",
+"pl": "+%1 more"
+},
+{
+"ctx": null,
+"id": "Today: %1 event",
+"pl": "Today: %1 events"
+},
+{
+"ctx": null,
+"id": "Nothing planned today",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Open Agenda",
+"pl": null
+},
+{
+"ctx": "%1 = time",
+"id": "tomorrow %1",
+"pl": null
+},
+{
+"ctx": "%1 = 3h20m",
+"id": "(in %1)",
+"pl": null
+},
+{
+"ctx": "%1 = event title, %2 = end time",
+"id": "Now: %1, until %2",
+"pl": null
+},
+{
+"ctx": "%1 = event title, %2 = when",
+"id": "Next: %1, %2",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Set a location in Settings > Weather to see the forecast here.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Loading weather…",
+"pl": null
+},
+{
+"ctx": "current weather",
+"id": "Now",
+"pl": null
+},
+{
+"ctx": "weather of the day shown in the Day view",
+"id": "Forecast",
+"pl": null
+},
+{
+"ctx": "high / low temperature",
+"id": "High %1 · Low %2",
+"pl": null
+},
+{
+"ctx": "precipitation during the day",
+"id": "Rain: %1",
+"pl": null
+},
+{
+"ctx": "today's high / low temperature",
+"id": "Today: high %1, low %2",
+"pl": null
+},
+{
+"ctx": "precipitation",
+"id": "rain %1",
+"pl": null
+},
+{
+"ctx": null,
+"id": "No forecast for this day.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next 12 hours",
+"pl": null
+},
+{
+"ctx": "weather by hour of the shown day",
+"id": "During the day",
+"pl": null
+},
+{
+"ctx": null,
+"id": "Next days",
+"pl": null
+},
+{
+"ctx": "%1 = time zone, %2 = a date",
+"id": "%1\nThe time difference changes during these days: the hours shown are those of %2.",
+"pl": null
+},
+{
+"ctx": null,
+"id": "%1 day",
+"pl": "%1 days"
+},
+{
+"ctx": "more events not shown",
+"id": "+%1",
+"pl": null
+},
+{
+"ctx": "%1 = Home, Office, ...",
+"id": "Working location: %1",
+"pl": null
+}
+]

@@ -1,0 +1,27 @@
+# ==============================================================
+#  FLORUM 1.33.2  ·  emlékeztető démon (systemd --user egység)
+#  Fájl:    florum-emlekezteto.service
+#  Telepítés (a Florum mappájában):
+#      mkdir -p ~/.config/systemd/user
+#      cp florum-emlekezteto.service ~/.config/systemd/user/
+#      # ha nem itt van a Florum, írd át az ExecStart útvonalát:
+#      sed -i "s#/home/user/florum#$PWD#" ~/.config/systemd/user/florum-emlekezteto.service
+#      systemctl --user daemon-reload
+#      systemctl --user enable --now florum-emlekezteto
+#  Állapot:  systemctl --user status florum-emlekezteto
+#  Napló:    journalctl --user -u florum-emlekezteto -n 30
+# ==============================================================
+[Unit]
+Description=Florum – növénygondozó emlékeztető (naptár + asztali értesítés)
+Documentation=file:///home/user/florum/README.md
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/user/florum/emlekezteto.py --daemon --intervallum 1800
+Restart=always
+RestartSec=60
+Nice=10
+
+[Install]
+WantedBy=default.target

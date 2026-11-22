@@ -1,0 +1,42 @@
+# ==============================================================
+#  FLORUM 1.33.2  ·  háttérszerver a panel-widgethez (systemd --user)
+#  Fájl:    florum-szerver.service
+#
+#  A panel-widget innen kapja az adatot (http://127.0.0.1:8777/api/panel.json).
+#  Ha ez a szolgáltatás fut, a widget mindig talál adatot – akkor is, ha a
+#  Florum ablakát bezártad.
+#
+#  Telepítés kézzel (a Florum mappájában):
+#      bash telepites-florum-panel.sh --autostart      ← ezt használd, ez mindent beállít
+#
+#  Kézzel, ha kell:
+#      mkdir -p ~/.config/systemd/user
+#      sed "s#@DIR@#$PWD#" florum-szerver.service > ~/.config/systemd/user/florum-szerver.service
+#      systemctl --user daemon-reload
+#      systemctl --user enable --now florum-szerver
+#
+#  Állapot:  systemctl --user status florum-szerver
+#  Napló:    journalctl --user -u florum-szerver -n 30
+#  Port:     cat ~/.local/share/florum/szerver.json
+# ==============================================================
+[Unit]
+Description=Florum – háttérszerver (a panel-widget adatforrása)
+Documentation=file://@DIR@/README.md
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+# Saját adatmappa (ha a --data-dir-rel máshova tetted az adatokat):
+#   systemctl --user edit florum-szerver
+#   [Service]
+#   Environment=FLORUM_DATA=/home/.../Florum-adat
+Environment=FLORUM_DATA=%h/.local/share/florum
+Type=simple
+WorkingDirectory=@DIR@
+ExecStart=/usr/bin/python3 @DIR@/florum.py --szerver --notify
+Restart=always
+RestartSec=3
+Nice=5
+
+[Install]
+WantedBy=default.target

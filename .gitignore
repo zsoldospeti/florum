@@ -1,0 +1,44 @@
+# ==============================================================
+#  FLORUM – mi NE kerüljön a git repóba
+#
+#  A repó a PROGRAMOT tartalmazza, nem az adataidat.
+#  A növényeid, a méréseid, a fotóid a saját gépeden vannak
+#  (~/.local/share/florum), és soha nem mennek fel a GitHubra.
+# ==============================================================
+
+# ---- a TE adataid (soha ne kerüljön fel) --------------------
+florum-data.json
+florum-data.json.elotte.json
+florum-adat.conf
+notify-state.json
+szerver.json
+florum.ics
+photos/
+mentes/
+data/
+docker/data/
+
+# ---- fejlesztői maradék (nem kell a repóba) -----------------
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- csomagok, előnézetek, teszthez használt adatok ---------
+*.zip
+*-elonezet.html
+teszt-adat/
+_cal_uj.js
+_patch*.py
+_*.py
+_*.js
+
+# ---- naplók, ideiglenes ------------------------------------
+*.log
+*.tmp
+.venv/
+.pylibs/
+
+# ---- titkok (soha, semmilyen formában) ----------------------
+.env
+*.token
+token.txt

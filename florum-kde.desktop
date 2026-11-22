@@ -1,0 +1,23 @@
+# FIGYELEM: ezt a fájlt a telepítők NEM teszik a menübe!
+# A Florum EGYSZER szerepel a menüben és a panelen: florum.desktop →
+# florum-megnyitas.sh (az dönt: KDE-ablak vagy böngésző).
+# Ez csak sablon / kézi használatra maradt itt.
+[Desktop Entry]
+Type=Application
+Version=1.33.2
+Name=Florum
+Name[hu]=Florum – növénygondozó
+GenericName=Plant Care
+GenericName[hu]=Növénygondozó
+Comment=Otthoni növénygondozó: locsolás, tápoldat, permetezés, átültetés
+Comment[hu]=Otthoni növénygondozó: locsolás, tápoldat, permetezés, átültetés
+Exec=florum-kde %U
+TryExec=florum-kde
+Icon=florum
+Terminal=false
+Categories=Utility;Qt;KDE;Science;
+Keywords=plant;garden;watering;növény;öntözés;gondozás;
+Keywords[hu]=növény;öntözés;gondozás;tápoldat;permetezés;átültetés;
+StartupWMClass=florum-kde
+StartupNotify=true
+X-KDE-StartupNotify=true

@@ -1,0 +1,1980 @@
+# Event Calendar – magyar fordítás (Florum mellett)
+# A widget (plasma_applet_org.kde.plasma.eventcalendar) saját szövegeihez.
+# Készült a hivatalos template.pot alapján, kézi fordítással.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: eventcalendar (Florum magyarítás)\n"
+"Report-Msgid-Bugs-To: https://github.com/divinae/plasma-applet-eventcalendar\n"
+"PO-Revision-Date: 2026-10-23 12:00+0200\n"
+"Last-Translator: Florum magyarítás\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Views"
+msgstr "Nézetek"
+
+msgid "Clock"
+msgstr "Óra"
+
+msgid "Events"
+msgstr "Események"
+
+msgid "ICalendar (.ics)"
+msgstr "iCalendar (.ics)"
+
+msgid "Google Calendar"
+msgstr "Google Naptár"
+
+msgid "Weather"
+msgstr "Időjárás"
+
+msgid "Time Zones"
+msgstr "Időzónák"
+
+msgid "Advanced"
+msgstr "Speciális"
+
+msgid "Calendar event"
+msgstr "Naptáresemény"
+
+msgid "In progress"
+msgstr "Folyamatban"
+
+msgctxt "agenda day header, %1 = Fri, 16 Oct"
+msgid "Today · %1"
+msgstr "Ma · %1"
+
+msgctxt "agenda day header, %1 = Sat, 17 Oct"
+msgid "Tomorrow · %1"
+msgstr "Holnap · %1"
+
+msgid "New Event"
+msgstr "Új esemény"
+
+msgid "No events"
+msgstr "Nincs esemény"
+
+msgid "Due %1"
+msgstr "Esedékes: %1"
+
+msgid "Overdue"
+msgstr "Lejárt"
+
+msgctxt "short month+date format"
+msgid "MMM d"
+msgstr "MMM d."
+
+msgid "Task"
+msgstr "Feladat"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Delete Event"
+msgstr "Esemény törlése"
+
+msgid "Confirm Deletion"
+msgstr "Törlés megerősítése"
+
+msgid "Edit in browser"
+msgstr "Szerkesztés a böngészőben"
+
+msgctxt "more events not shown in a month day cell"
+msgid "+%1"
+msgstr "+%1"
+
+msgctxt "event with no summary"
+msgid "(No title)"
+msgstr "(Nincs cím)"
+
+msgid "[No Calendars]"
+msgstr "(Nincs naptár)"
+
+msgid "HTTP Error %1: %2"
+msgstr "HTTP-hiba %1: %2"
+
+msgid "Could not connect"
+msgstr "Nem sikerült csatlakozni"
+
+msgid "Will try again soon."
+msgstr "Hamarosan újra próbálja."
+
+msgid "Widget has been updated. Please logout and login to Google Calendar again."
+msgstr "A widget frissült. Jelentkezz be újra a Google Naptárba."
+
+msgid "Too many web requests. Will try again soon."
+msgstr "Túl sok kérés. Hamarosan újra próbálja."
+
+msgid "Google authentication failed: %1"
+msgstr "A Google-hitelesítés nem sikerült: %1"
+
+msgid "Could not get the free / busy times"
+msgstr "Nem sikerült lekérni a szabad/foglalt időpontokat"
+
+msgid "iCalendar"
+msgstr "iCalendar"
+
+msgid "Unknown iCalendar helper error"
+msgstr "Ismeretlen iCalendar-segédhiba"
+
+msgid "Could not load %1: %2"
+msgstr "Nem sikerült betölteni: %1 (%2)"
+
+msgid "Holidays"
+msgstr "Ünnepek"
+
+msgid "Todo"
+msgstr "Teendő"
+
+msgid "Other"
+msgstr "Egyéb"
+
+msgid "Calendars"
+msgstr "Naptárak"
+
+msgid "No calendars selected in the settings."
+msgstr "A beállításokban nincs kiválasztott naptár."
+
+msgid "Show All"
+msgstr "Összes megjelenítése"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgctxt "time left in the current meeting"
+msgid "%1 min left"
+msgid_plural "%1 min left"
+msgstr[0] "%1 perc van hátra"
+msgstr[1] "%1 perc van hátra"
+
+msgctxt "time left in the current meeting, %1 = 1h20m"
+msgid "%1 left"
+msgstr "%1 van hátra"
+
+msgctxt "meeting starts in"
+msgid "in %1 min"
+msgid_plural "in %1 min"
+msgstr[0] "%1 perc múlva"
+msgstr[1] "%1 perc múlva"
+
+msgctxt "meeting starts in, %1 = 1h20m"
+msgid "in %1"
+msgstr "%1 múlva"
+
+msgctxt "%1 = event title, %2 = in 5 min / 12 min left"
+msgid "%1 · %2"
+msgstr "%1 · %2"
+
+msgid "Edit Calendar"
+msgstr "Naptár szerkesztése"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Name in my list"
+msgstr "Név a saját listámban"
+
+msgid "Only you see this name. The calendar keeps its name for others."
+msgstr "Ezt a nevet csak te látod. A naptár másoknak megtartja a saját nevét."
+
+msgid "Color"
+msgstr "Szín"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Default (%1)"
+msgstr "Alapértelmezett (%1)"
+
+msgid "(24-hour)"
+msgstr "(24 órás)"
+
+msgid "(12-hour)"
+msgstr "(12 órás)"
+
+msgid "(with seconds)"
+msgstr "(másodpercekkel)"
+
+msgid "Custom…"
+msgstr "Egyéni…"
+
+msgid "Time"
+msgstr "Idő"
+
+msgid "Format"
+msgstr "Formátum"
+
+msgid "Bold"
+msgstr "Félkövér"
+
+msgid "Font"
+msgstr "Betűtípus"
+
+msgid "Maximum height"
+msgstr "Legnagyobb magasság"
+
+msgid "0 = fit the panel"
+msgstr "0 = a panelhez igazodik"
+
+msgid " px"
+msgstr " px"
+
+msgid "Custom formats use the <a href=\"https://doc.qt.io/qt-6/qml-qtqml-qt.html#formatDateTime-method\">Qt date and time format</a>, eg: HH:mm, ddd d MMM."
+msgstr "Az egyéni formátumok a <a href=\"https://doc.qt.io/qt-6/qml-qtqml-qt.html#formatDateTime-method\">Qt dátum- és időformátumát</a> használják, pl.: HH:mm, ddd d MMM."
+
+msgid "Second Line"
+msgstr "Második sor"
+
+msgid "Show a second line"
+msgstr "Második sor megjelenítése"
+
+msgid "Eg: the date"
+msgstr "Pl.: a dátum"
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Next Meeting"
+msgstr "Következő megbeszélés"
+
+msgid "Show next to the clock"
+msgstr "Megjelenítés az óra mellett"
+
+msgid "When it starts within"
+msgstr "Ha ennyivel kezdődik"
+
+msgid " min"
+msgstr " perc"
+
+msgid "Progress of the current meeting"
+msgstr "A folyamatban lévő megbeszélés haladása"
+
+msgid "A thin bar under the meeting's name, in its calendar's color."
+msgstr "Vékony sáv a megbeszélés neve alatt, a naptár színében."
+
+msgid "Middle-click the clock to join the current or next meeting."
+msgstr "Középső kattintás az órán: csatlakozás a mostani vagy a következő megbeszéléshez."
+
+msgid "Show background"
+msgstr "Háttér megjelenítése"
+
+msgid "Desktop widget"
+msgstr "Asztali widget"
+
+msgid "Debug logging and extra settings pages"
+msgstr "Hibanaplózás és további beállítási oldalak"
+
+msgid "Refresh every"
+msgstr "Frissítés ennyi időnként"
+
+msgctxt "Polling interval in minutes"
+msgid " min"
+msgstr " perc"
+
+msgid "Plasma calendar plugins are unavailable."
+msgstr "A Plasma naptár-pluginjai nem érhetők el."
+
+msgid "Plasma calendars"
+msgstr "Plasma-naptárak"
+
+msgid "Clicking an event opens"
+msgstr "Az eseményre kattintva ez nyílik meg"
+
+msgid "Event details in the widget"
+msgstr "Esemény részletei a widgetben"
+
+msgid "Google Calendar in the browser"
+msgstr "Google Naptár a böngészőben"
+
+msgid "Reminder Before an Event"
+msgstr "Emlékeztető esemény előtt"
+
+msgid "Show a reminder"
+msgstr "Emlékeztető megjelenítése"
+
+msgid "Time before"
+msgstr "Ennyivel előtte"
+
+msgctxt "Time in minutes"
+msgid " min"
+msgstr " perc"
+
+msgid "Use the reminder times set in Google Calendar"
+msgstr "A Google Naptárban beállított emlékeztetők használata"
+
+msgid "Keep until dismissed"
+msgstr "Maradjon, amíg be nem zárul"
+
+msgid "Hide after"
+msgstr "Elrejtés ennyi idő után"
+
+msgctxt "notification shown for"
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 másodperc"
+msgstr[1] "%1 másodperc"
+
+msgctxt "notification timeout"
+msgid "System default"
+msgstr "Rendszerbeállítás"
+
+msgid "System default: as set in System Settings > Notifications. A reminder hidden after a set time isn't kept in the notification history."
+msgstr "Rendszerbeállítás: ahogy a Rendszerbeállítások → Értesítések alatt meg van adva. A beállított idő után elrejtett emlékeztető nem kerül be az értesítési előzményekbe."
+
+msgid "Snooze"
+msgstr "Szundi"
+
+msgid "0 = no Snooze button"
+msgstr "0 = nincs Szundi gomb"
+
+msgid "When an Event Starts"
+msgstr "Amikor az esemény elkezdődik"
+
+msgid "Show a notification"
+msgstr "Értesítés megjelenítése"
+
+msgid "Critical"
+msgstr "Kritikus"
+
+msgid "Shown even in Do Not Disturb"
+msgstr "„Ne zavarjanak” módban is látszik"
+
+msgid "Sounds"
+msgstr "Hangok"
+
+msgid "Reminder"
+msgstr "Emlékeztető"
+
+msgid "Event starts"
+msgstr "Esemény kezdete"
+
+msgid "Google Meet"
+msgstr "Google Meet"
+
+msgid "Open meeting links in"
+msgstr "A megbeszélés-linkek megnyitása ezzel"
+
+msgid "Default browser"
+msgstr "Alapértelmezett böngésző"
+
+msgid "Other command…"
+msgstr "Másik parancs…"
+
+msgid "Command"
+msgstr "Parancs"
+
+msgid "Google account"
+msgstr "Google-fiók"
+
+msgid "Default"
+msgstr "Alapértelmezett"
+
+msgid "Join buttons open Google Meet links there; other meeting links open in the default browser. In a command, %u stands for the meeting link. Google account: its number (0, 1, …) or email, as in Google's account switcher; empty uses the app's default."
+msgstr "A Csatlakozás gombok a Google Meet linkjeit ott nyitják meg, a többi megbeszélés-linket az alapértelmezett böngésző nyitja. Egy parancsban a %u a megbeszélés linkjét jelöli. Google-fiók: a sorszáma (0, 1, …) vagy az e-mail-címe, ahogy a Google fiókváltójában szerepel; üresen hagyva az alkalmazás alapértelmezését használja."
+
+msgid "Meetings"
+msgstr "Megbeszélések"
+
+msgid "Open the meeting link when a meeting starts"
+msgstr "A megbeszélés-link megnyitása a megbeszélés kezdetekor"
+
+msgid "For meetings you accepted or organize, not marked as ended."
+msgstr "Azokra a megbeszélésekre, amelyeket elfogadtál vagy szervezel, és nincsenek lezártként megjelölve."
+
+msgid "Pause music and videos when joining a meeting"
+msgstr "Zene és videó szüneteltetése csatlakozáskor"
+
+msgid "Players that are playing (eg: Spotify, Elisa, a video in the browser), when a Join button opens a meeting or it opens when the meeting starts."
+msgstr "Az éppen játszó lejátszók (pl. Spotify, Elisa, egy videó a böngészőben), amikor egy Csatlakozás gomb megnyit egy megbeszélést, vagy amikor az a kezdéskor megnyílik."
+
+msgid "Do Not Disturb during meetings"
+msgstr "„Ne zavarjanak” mód megbeszélés alatt"
+
+msgid "Plasma's Do Not Disturb from the start until the end of a meeting with guests or a meeting link. Mark as Ended turns it off."
+msgstr "A Plasma „Ne zavarjanak” módja a megbeszélés kezdetétől a végéig, ha van vendég vagy megbeszélés-link. A „Lezárva” jelöléssel kikapcsol."
+
+msgid "Only meetings I accepted"
+msgstr "Csak az általam elfogadott megbeszélések"
+
+msgid "Invitations"
+msgstr "Meghívások"
+
+msgid "New invitations for today"
+msgstr "Új meghívások mára"
+
+msgid "A notification for each meeting today you haven't answered yet, with Yes, Maybe and No."
+msgstr "Értesítés minden olyan mai megbeszélésről, amelyre még nem válaszoltál, Igen / Talán / Nem gombokkal."
+
+msgid "Daily Agenda"
+msgstr "Napi agenda"
+
+msgid "Today's events every morning"
+msgstr "A mai események minden reggel"
+
+msgid "A notification with today's events once a day, also when the computer is turned on later."
+msgstr "Naponta egyszer értesítés a mai eseményekről, akkor is, ha a gép később kapcsol be."
+
+msgid "At"
+msgstr "Ekkor:"
+
+msgid "All Event Notifications"
+msgstr "Minden eseményértesítés"
+
+msgid "\"Join meeting\" button"
+msgstr "„Csatlakozás a megbeszéléshez” gomb"
+
+msgid "Skip all-day events"
+msgstr "Egész napos események kihagyása"
+
+msgid "Skip events I declined"
+msgstr "Az általam elutasított események kihagyása"
+
+msgid "Popups and sounds for each kind of notification can also be set in System Settings > Notifications > Event Calendar."
+msgstr "Az egyes értesítéstípusok felugró ablakai és hangjai a Rendszerbeállítások → Értesítések → Event Calendar alatt is beállíthatók."
+
+msgid "Google Account"
+msgstr "Google-fiók"
+
+msgid "Google Account %1"
+msgstr "%1. Google-fiók"
+
+msgid "Login failed: %1"
+msgstr "A bejelentkezés nem sikerült: %1"
+
+msgid "Login complete."
+msgstr "A bejelentkezés kész."
+
+msgid "Could not prepare Google login: %1"
+msgstr "Nem sikerült előkészíteni a Google-bejelentkezést: %1"
+
+msgid "Waiting for browser callback..."
+msgstr "Várakozás a böngésző visszahívására…"
+
+msgid "Sign-in timed out. Try again."
+msgstr "A bejelentkezés lejárt. Próbáld újra."
+
+msgid "Auto login failed. See logs for details."
+msgstr "Az automatikus bejelentkezés nem sikerült. A részletek a naplóban."
+
+msgid "Auto login failed: invalid callback data."
+msgstr "Az automatikus bejelentkezés nem sikerült: érvénytelen visszahívási adatok."
+
+msgid "Auto login failed: %1"
+msgstr "Az automatikus bejelentkezés nem sikerült: %1"
+
+msgid "Auto login failed: authorization code missing."
+msgstr "Az automatikus bejelentkezés nem sikerült: hiányzik az engedélyezési kód."
+
+msgid "The desktop could not open the browser automatically. Use the login link in Advanced sign-in options instead."
+msgstr "Az asztali környezet nem tudta megnyitni a böngészőt. Használd a Speciális bejelentkezési lehetőségek alatti bejelentkezési linket."
+
+msgid "Sign in to show your Google calendars and task lists. Your browser opens to sign in; when access is granted the widget picks it up automatically."
+msgstr "Jelentkezz be a Google-naptáraid és feladatlistáid megjelenítéséhez. A böngésző megnyílik a bejelentkezéshez; amint engedélyezed a hozzáférést, a widget automatikusan átveszi."
+
+msgid "Sign In Again"
+msgstr "Bejelentkezés újra"
+
+msgid "Reload calendars and task lists"
+msgstr "Naptárak és feladatlisták újratöltése"
+
+msgid "Remove Account"
+msgstr "Fiók eltávolítása"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Google access for this account expired or was revoked. Sign in again to reconnect it (the account and its settings are kept)."
+msgstr "A fiók Google-hozzáférése lejárt vagy visszavonták. Jelentkezz be újra az újracsatlakozáshoz (a fiók és a beállításai megmaradnak)."
+
+msgid "The widget was updated. Sign in again to keep this account in sync."
+msgstr "A widget frissült. Jelentkezz be újra, hogy ez a fiók szinkronban maradjon."
+
+msgid "No calendars loaded yet. Use the reload button."
+msgstr "Még nincs betöltött naptár. Használd az újratöltés gombot."
+
+msgid "Task Lists"
+msgstr "Feladatlisták"
+
+msgid "Add Account…"
+msgstr "Fiók hozzáadása…"
+
+msgid "Sign in with Google…"
+msgstr "Bejelentkezés Google-fiókkal…"
+
+msgid "Waiting for the browser sign-in…"
+msgstr "Várakozás a böngészős bejelentkezésre…"
+
+msgid "Advanced sign-in options"
+msgstr "Speciális bejelentkezési lehetőségek"
+
+msgid "Your own Google OAuth client, or pasting the sign-in code by hand"
+msgstr "Saját Google OAuth-ügyfél, vagy a bejelentkezési kód kézi beillesztése"
+
+msgid "Client Credentials"
+msgstr "Ügyfél-hitelesítő adatok"
+
+msgid "Using a previously stored Google OAuth client for compatibility. If login still fails, add your own client ID and client secret."
+msgstr "Kompatibilitás miatt egy korábban eltárolt Google OAuth-ügyfelet használ. Ha a bejelentkezés így sem sikerül, add meg a saját ügyfél-azonosítót és -titkot."
+
+msgid "Try desktop built-in client (no secret)"
+msgstr "Beépített asztali ügyfél kipróbálása (titok nélkül)"
+
+msgid "Client ID"
+msgstr "Ügyfél-azonosító"
+
+msgid "Optional"
+msgstr "Nem kötelező"
+
+msgid "Client Secret"
+msgstr "Ügyfél-titok"
+
+msgid "Leave these empty to use the built-in client. A custom client must be a Google Cloud OAuth Desktop client, or a Web client with its secret and the redirect URI set to %1."
+msgstr "Hagyd üresen a beépített ügyfél használatához. Az egyéni ügyfélnek Google Cloud OAuth asztali ügyfélnek kell lennie, vagy webes ügyfélnek a titkával és a %1 átirányítási URI-val."
+
+msgid "For a custom OAuth client, publish the OAuth consent screen to Production. Google expires refresh tokens for external apps left in Testing after seven days; Workspace session controls can also require reauthorization."
+msgstr "Egyéni OAuth-ügyfélnél tedd közzé az OAuth hozzájárulási képernyőt (Production). A Google a tesztelésben hagyott külső alkalmazások frissítési tokenjeit hét nap után lejáratja; a Workspace munkamenet-szabályai is kérhetnek újraengedélyezést."
+
+msgid "Manual Sign-in"
+msgstr "Kézi bejelentkezés"
+
+msgid "Login (Auto) - Add Account"
+msgstr "Bejelentkezés (automatikus) – fiók hozzáadása"
+
+msgid "Login (Auto)"
+msgstr "Bejelentkezés (automatikus)"
+
+msgid "Click Login (Auto) to open <a href=\"%1\">%2</a>. After you grant access, the browser redirects to a localhost URL. If auto-capture succeeds you can ignore the field below; otherwise copy the full URL (or just the code) and paste it."
+msgstr "Kattints a Bejelentkezés (automatikus) gombra a(z) <a href=\"%1\">%2</a> megnyitásához. Az engedélyezés után a böngésző egy localhost URL-re irányít. Ha az automatikus átvétel sikerül, az alábbi mezőt figyelmen kívül hagyhatod; egyébként másold be a teljes URL-t (vagy csak a kódot)."
+
+msgid "The desktop could not open the browser automatically."
+msgstr "Az asztali környezet nem tudta automatikusan megnyitni a böngészőt."
+
+msgid "Copy Link"
+msgstr "Hivatkozás másolása"
+
+msgid "Helper page (optional): <a href=\"%1\">%1</a>"
+msgstr "Segédoldal (nem kötelező): <a href=\"%1\">%1</a>"
+
+msgid "If your browser shows a connection error, that's expected. Copy the URL from the address bar anyway and paste it below. If auto-capture works, you do not need to paste anything."
+msgstr "Ha a böngésző kapcsolódási hibát mutat, az rendben van. Akkor is másold ki az URL-t a címsorból, és illeszd be alább. Ha az automatikus átvétel működik, nem kell semmit beilleszteni."
+
+msgid "Paste the authorization code or redirect URL here"
+msgstr "Illeszd be ide az engedélyezési kódot vagy az átirányítási URL-t"
+
+msgid "Google authorization code or redirect URL"
+msgstr "Google engedélyezési kód vagy átirányítási URL"
+
+msgid "Paste the Google authorization code or the full redirect URL from the browser"
+msgstr "Illeszd be a Google engedélyezési kódját vagy a böngészőből származó teljes átirányítási URL-t"
+
+msgid "Add Account"
+msgstr "Fiók hozzáadása"
+
+msgid "Submit"
+msgstr "Beküldés"
+
+msgid "Options"
+msgstr "Beállítások"
+
+msgid "Hide \"This event was added from Goals in Google Calendar\" description"
+msgstr "A „Ez az esemény a Google Naptár Célok funkciójából került hozzá” leírás elrejtése"
+
+msgid "Add Calendar"
+msgstr "Naptár hozzáadása"
+
+msgid "New Calendar"
+msgstr "Új naptár"
+
+msgid "Calendar Label"
+msgstr "Naptár felirata"
+
+msgid "https:// URL or local %1/*.ics file"
+msgstr "https:// URL vagy helyi %1/*.ics fájl"
+
+msgid "Browse"
+msgstr "Tallózás"
+
+msgid "iCalendar (*.ics)"
+msgstr "iCalendar (*.ics)"
+
+msgid "Local"
+msgstr "Helyi"
+
+msgid "Extra Time Zones in the Tooltip"
+msgstr "További időzónák a tippszövegben"
+
+msgid "Remove time zone"
+msgstr "Időzóna eltávolítása"
+
+msgid "Add a time zone, eg: America/New_York"
+msgstr "Időzóna hozzáadása, pl.: Europe/Budapest"
+
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgid "Zones with the same time as yours are not shown."
+msgstr "A sajátoddal azonos idejű zónák nem jelennek meg."
+
+msgid "Display"
+msgstr "Megjelenítés"
+
+msgid "Show time zones as"
+msgstr "Időzónák megjelenítése"
+
+msgid "City name"
+msgstr "Városnév"
+
+msgid "Abbreviation (eg: CEST)"
+msgstr "Rövidítés (pl. CEST)"
+
+msgid "Popup"
+msgstr "Felugró ablak"
+
+msgid "Default view"
+msgstr "Alapértelmezett nézet"
+
+msgid "Month"
+msgstr "Hónap"
+
+msgid "Week"
+msgstr "Hét"
+
+msgctxt "calendar view showing one day"
+msgid "Day"
+msgstr "Nap"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "View switcher in the header"
+msgstr "Nézetváltó a fejlécben"
+
+msgid "Popup width"
+msgstr "Felugró ablak szélessége"
+
+msgid "Popup height"
+msgstr "Felugró ablak magassága"
+
+msgid "Week and Day"
+msgstr "Hét és nap"
+
+msgctxt "week view setting"
+msgid "Days shown"
+msgstr "Megjelenített napok"
+
+msgid "7 days"
+msgstr "7 nap"
+
+msgid "Work week (without the weekend)"
+msgstr "Munkahét (hétvége nélkül)"
+
+msgid "Working hours start"
+msgstr "Munkaidő kezdete"
+
+msgid "Working hours end"
+msgstr "Munkaidő vége"
+
+msgid "Second time zone"
+msgstr "Második időzóna"
+
+msgctxt "no second time zone"
+msgid "None"
+msgstr "Nincs"
+
+msgid "No second time zone"
+msgstr "Nincs második időzóna"
+
+msgid "Its hours are shown next to the local ones in the Week and Day views."
+msgstr "Az órái a helyi idő mellett látszanak a Hét és a Nap nézetben."
+
+msgid "Search time zones"
+msgstr "Időzónák keresése"
+
+msgid "Forecast in the day headers and, in the Day view, a weather panel."
+msgstr "Előrejelzés a napfejlécekben, a Nap nézetben pedig időjárás-panel."
+
+msgid "Calendar"
+msgstr "Naptár"
+
+msgid "First day of week"
+msgstr "A hét első napja"
+
+msgid "Event colors"
+msgstr "Eseményszínek"
+
+msgid "Google's API still returns an older palette; \"As in Google Calendar\" shows the current one. \"Follow the system color scheme\" uses the nearest colors of your Plasma color scheme."
+msgstr "A Google API még a régi palettát adja vissza; a „Mint a Google Naptárban” a jelenlegit mutatja. A „A rendszer színsémáját követi” a Plasma színsémád legközelebbi színeit használja."
+
+msgid "As in Google Calendar"
+msgstr "Mint a Google Naptárban"
+
+msgid "Classic (as returned by Google)"
+msgstr "Klasszikus (ahogy a Google visszaadja)"
+
+msgid "Follow the system color scheme"
+msgstr "A rendszer színsémáját követi"
+
+msgid "Event look"
+msgstr "Események megjelenése"
+
+msgid "All-day filled, timed light with a color bar"
+msgstr "Egész napos kitöltve, időponthoz kötött világos, színsávval"
+
+msgid "Filled in the event color"
+msgstr "Kitöltve az esemény színével"
+
+msgid "Event text size"
+msgstr "Eseményszöveg mérete"
+
+msgid "Week numbers"
+msgstr "Hét sorszámai"
+
+msgid "Clicking a day opens it in the Day view"
+msgstr "Egy napra kattintva az a Nap nézetben nyílik meg"
+
+msgid "Month view"
+msgstr "Hónap nézet"
+
+msgid "Declined events"
+msgstr "Elutasított események"
+
+msgid "Show (struck through)"
+msgstr "Megjelenítés (áthúzva)"
+
+msgctxt "declined events"
+msgid "Hide"
+msgstr "Elrejtés"
+
+msgid "Double-clicking a day"
+msgstr "Egy napra duplán kattintva"
+
+msgid "New event in Google Calendar (browser)"
+msgstr "Új esemény a Google Naptárban (böngésző)"
+
+msgid "Do nothing"
+msgstr "Semmi"
+
+msgid "Event descriptions"
+msgstr "Eseményleírások"
+
+msgid "Meeting link button"
+msgstr "Megbeszélés-link gomb"
+
+msgid "Multi-day events on every day"
+msgstr "Többnapos események minden napon"
+
+msgid "Meteogram above the agenda"
+msgstr "Meteogram az agenda fölött"
+
+msgid "Timer above the agenda"
+msgstr "Időzítő az agenda fölött"
+
+msgid "Timer sound"
+msgstr "Időzítő hangja"
+
+msgid "Meteogram / timer height"
+msgstr "Meteogram / időzítő magassága"
+
+msgid "Source"
+msgstr "Forrás"
+
+msgid "Service"
+msgstr "Szolgáltatás"
+
+msgid "Open-Meteo (free, no API key)"
+msgstr "Open-Meteo (ingyenes, API-kulcs nélkül)"
+
+msgid "Location"
+msgstr "Hely"
+
+msgid "Current location"
+msgstr "Jelenlegi hely"
+
+msgid "Not set"
+msgstr "Nincs beállítva"
+
+msgid "City name, eg: Warszawa"
+msgstr "Városnév, pl.: Budapest"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "No places found."
+msgstr "Nincs találat."
+
+msgid "OpenWeatherMap"
+msgstr "OpenWeatherMap"
+
+msgid "City id"
+msgstr "Város-azonosító"
+
+msgid "eg: 5983720"
+msgstr "pl.: 3054643"
+
+msgid "Find City…"
+msgstr "Város keresése…"
+
+msgid "API app id"
+msgstr "API app-azonosító"
+
+msgid "Required for OpenWeatherMap"
+msgstr "Az OpenWeatherMaphez kötelező"
+
+msgid "Weather Canada"
+msgstr "Weather Canada"
+
+msgid "eg: on-14"
+msgstr "pl.: on-14"
+
+msgid "Units"
+msgstr "Mértékegységek"
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Meteogram shows"
+msgstr "A meteogram ennyit mutat"
+
+msgid " hours"
+msgstr " óra"
+
+msgid "Not signed in to this Google account. Sign in again."
+msgstr "Nincs bejelentkezve ebbe a Google-fiókba. Jelentkezz be újra."
+
+msgid "Could not save the calendar: %1"
+msgstr "Nem sikerült menteni a naptárt: %1"
+
+msgid "Select city"
+msgstr "Város kiválasztása"
+
+msgid "Fetched from <a href=\"%1\">%1</a>"
+msgstr "Forrás: <a href=\"%1\">%1</a>"
+
+msgid "Id"
+msgstr "Azonosító"
+
+msgid "City Webpage"
+msgstr "Város weboldala"
+
+msgid "Open Link"
+msgstr "Hivatkozás megnyitása"
+
+msgid "Edit calendar…"
+msgstr "Naptár szerkesztése…"
+
+msgctxt "event editor date format"
+msgid "d MMM, yyyy"
+msgstr "MMM d., yyyy"
+
+msgid "to"
+msgstr "–"
+
+msgid "Event Title"
+msgstr "Esemény címe"
+
+msgid "Add description"
+msgstr "Leírás hozzáadása"
+
+msgid "Add due date"
+msgstr "Határidő hozzáadása"
+
+msgid "&Save"
+msgstr "&Mentés"
+
+msgid "&Cancel"
+msgstr "&Mégse"
+
+msgctxt "RSVP to an invitation"
+msgid "Respond"
+msgstr "Válasz"
+
+msgid "Show Details"
+msgstr "Részletek megjelenítése"
+
+msgctxt "%1 = Google Meet, Zoom, ..."
+msgid "Join %1"
+msgstr "Csatlakozás: %1"
+
+msgid "Open in Google Calendar"
+msgstr "Megnyitás a Google Naptárban"
+
+msgid "Mark as Ended"
+msgstr "Megjelölés lezártként"
+
+msgid "Email Guests…"
+msgstr "E-mail a vendégeknek…"
+
+msgid "Edit…"
+msgstr "Szerkesztés…"
+
+msgid "Duplicate…"
+msgstr "Duplikálás…"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgctxt "%1 = event title"
+msgid "Delete Only This Occurrence of “%1”"
+msgstr "Csak a(z) „%1” ezen előfordulásának törlése"
+
+msgctxt "%1 = event title"
+msgid "Delete “%1”"
+msgstr "A(z) „%1” törlése"
+
+msgctxt "%1 = event title"
+msgid "Delete All Events of “%1”"
+msgstr "A(z) „%1” összes eseményének törlése"
+
+msgid "This event"
+msgstr "Ez az esemény"
+
+msgid "All events in the series"
+msgstr "Az ismétlődő sorozat összes eseménye"
+
+msgctxt "guests who accepted"
+msgid "%1 yes"
+msgstr "%1 igen"
+
+msgctxt "guests who said maybe"
+msgid "%1 maybe"
+msgstr "%1 talán"
+
+msgctxt "guests who declined"
+msgid "%1 no"
+msgstr "%1 nem"
+
+msgctxt "guests who haven't responded"
+msgid "%1 awaiting"
+msgstr "%1 válaszra vár"
+
+msgid "1 guest"
+msgid_plural "%1 guests"
+msgstr[0] "%1 vendég"
+msgstr[1] "%1 vendég"
+
+msgctxt "reminder at event start"
+msgid "at start"
+msgstr "a kezdéskor"
+
+msgctxt "%1 = 10m, 2m"
+msgid "Reminders: %1 before"
+msgstr "Emlékeztetők: %1 előtte"
+
+msgid "Back"
+msgstr "Vissza"
+
+msgid "Delete:"
+msgstr "Törlés:"
+
+msgid "Delete this event?"
+msgstr "Törlöd ezt az eseményt?"
+
+msgid "This Occurrence"
+msgstr "Ezt az előfordulást"
+
+msgid "All Events"
+msgstr "Minden eseményt"
+
+msgid "Deletes every occurrence of this repeating event."
+msgstr "Az ismétlődő esemény minden előfordulását törli."
+
+msgid "Duplicate"
+msgstr "Duplikálás"
+
+msgid "Private event"
+msgstr "Privát esemény"
+
+msgid "All day"
+msgstr "Egész napos"
+
+msgid "Repeats"
+msgstr "Ismétlődés"
+
+msgctxt "%1 = start and end time, %2 = city, %3 = time zone id"
+msgid "%1 %2 time (%3)"
+msgstr "%1 %2 időpont (%3)"
+
+msgctxt "RSVP to an invitation"
+msgid "Going?"
+msgstr "Részt veszel?"
+
+msgid "Out of office"
+msgstr "Szabadság"
+
+msgid "Focus time"
+msgstr "Fókuszidő"
+
+msgid "Declines all meetings at this time"
+msgstr "Ebben az időben minden megbeszélést elutasít"
+
+msgid "Declines new invitations at this time"
+msgstr "Ebben az időben az új meghívásokat elutasítja"
+
+msgctxt "%1 = message sent when declining"
+msgid "Message: “%1”"
+msgstr "Üzenet: „%1”"
+
+msgctxt "%1 = titles of other events at the same time"
+msgid "Overlaps with: %1"
+msgstr "Átfedés ezekkel: %1"
+
+msgid "Write an email to the guests"
+msgstr "E-mail írása a vendégeknek"
+
+msgctxt "event organizer"
+msgid "organizer"
+msgstr "szervező"
+
+msgctxt "the current user in a guest list"
+msgid "you"
+msgstr "te"
+
+msgid "Show less"
+msgstr "Kevesebb megjelenítése"
+
+msgid "Show 1 more"
+msgid_plural "Show all %1"
+msgstr[0] "Még 1 megjelenítése"
+msgstr[1] "Mind a %1 megjelenítése"
+
+msgctxt "%1 = start and end time in the local time zone"
+msgid "%1 your time"
+msgstr "%1 – a te idődben"
+
+msgctxt "Google Calendar event color"
+msgid "Lavender"
+msgstr "Levendula"
+
+msgctxt "Google Calendar event color"
+msgid "Sage"
+msgstr "Zsálya"
+
+msgctxt "Google Calendar event color"
+msgid "Grape"
+msgstr "Szőlő"
+
+msgctxt "Google Calendar event color"
+msgid "Flamingo"
+msgstr "Flamingó"
+
+msgctxt "Google Calendar event color"
+msgid "Banana"
+msgstr "Banán"
+
+msgctxt "Google Calendar event color"
+msgid "Tangerine"
+msgstr "Mandarin"
+
+msgctxt "Google Calendar event color"
+msgid "Peacock"
+msgstr "Páva"
+
+msgctxt "Google Calendar event color"
+msgid "Graphite"
+msgstr "Grafit"
+
+msgctxt "Google Calendar event color"
+msgid "Blueberry"
+msgstr "Áfonya"
+
+msgctxt "Google Calendar event color"
+msgid "Basil"
+msgstr "Bazsalikom"
+
+msgctxt "Google Calendar event color"
+msgid "Tomato"
+msgstr "Paradicsom"
+
+msgid "Enter an email address, like name@example.com"
+msgstr "Adj meg egy e-mail-címet, például: nev@pelda.hu"
+
+msgctxt "you, in Find a time"
+msgid "You"
+msgstr "Te"
+
+msgid "Edit Event"
+msgstr "Esemény szerkesztése"
+
+msgid "Send invitation emails to the guests?"
+msgstr "Elküldjük a meghívó e-maileket a vendégeknek?"
+
+msgid "Send update emails to the guests?"
+msgstr "Elküldjük a frissítő e-maileket a vendégeknek?"
+
+msgid "Send invitations"
+msgstr "Meghívók küldése"
+
+msgctxt "send update emails to guests"
+msgid "Send"
+msgstr "Küldés"
+
+msgctxt "don't send emails to guests"
+msgid "Don't send"
+msgstr "Ne küldjön"
+
+msgid "Change:"
+msgstr "Módosítás:"
+
+msgid "Title"
+msgstr "Cím"
+
+msgctxt "event type"
+msgid "Event"
+msgstr "Esemény"
+
+msgctxt "event type"
+msgid "Out of office"
+msgstr "Szabadság"
+
+msgctxt "event type"
+msgid "Focus time"
+msgstr "Fókuszidő"
+
+msgid "Event type"
+msgstr "Esemény típusa"
+
+msgid "Don't decline invitations"
+msgstr "Ne utasítsa el a meghívásokat"
+
+msgid "Decline new invitations in this time"
+msgstr "Új meghívások elutasítása ebben az időben"
+
+msgid "Decline new and existing invitations in this time"
+msgstr "Új és meglévő meghívások elutasítása ebben az időben"
+
+msgid "Automatically decline"
+msgstr "Automatikus elutasítás"
+
+msgid "Message for declined invitations"
+msgstr "Üzenet az elutasított meghívásokhoz"
+
+msgctxt "Google Chat status during focus time"
+msgid "Do not disturb"
+msgstr "Ne zavarjanak"
+
+msgctxt "Google Chat status during focus time"
+msgid "Available"
+msgstr "Elérhető"
+
+msgctxt "%1 = Do not disturb or Available"
+msgid "Chat status: %1"
+msgstr "Csevegési állapot: %1"
+
+msgid "Chat status"
+msgstr "Csevegési állapot"
+
+msgid "Calendar color"
+msgstr "Naptár színe"
+
+msgid "Local time"
+msgstr "Helyi idő"
+
+msgctxt "%1 = time zone id, eg: Europe/Warsaw"
+msgid "Time zone: %1"
+msgstr "Időzóna: %1"
+
+msgid "Time zone"
+msgstr "Időzóna"
+
+msgid "Does not repeat"
+msgstr "Nem ismétlődik"
+
+msgid "Daily"
+msgstr "Naponta"
+
+msgid "Every weekday (Monday to Friday)"
+msgstr "Minden hétköznap (hétfőtől péntekig)"
+
+msgctxt "%1 = day name"
+msgid "Weekly on %1"
+msgstr "Hetente, ekkor: %1"
+
+msgctxt "%1 = day of the month"
+msgid "Monthly on day %1"
+msgstr "Havonta, ezen a napon: %1"
+
+msgctxt "%1 = date, eg: 16 October"
+msgid "Yearly on %1"
+msgstr "Évente, ekkor: %1"
+
+msgid "Custom (as set in Google Calendar)"
+msgstr "Egyéni (ahogy a Google Naptárban be van állítva)"
+
+msgid "Loading…"
+msgstr "Betöltés…"
+
+msgctxt "Repeat every [2] [weeks]"
+msgid "Every"
+msgstr "Minden"
+
+msgctxt "Repeat every N"
+msgid "day"
+msgid_plural "days"
+msgstr[0] "nap"
+msgstr[1] "nap"
+
+msgctxt "Repeat every N"
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "hét"
+msgstr[1] "hét"
+
+msgctxt "Repeat every N"
+msgid "month"
+msgid_plural "months"
+msgstr[0] "hónap"
+msgstr[1] "hónap"
+
+msgctxt "Repeat every N"
+msgid "year"
+msgid_plural "years"
+msgstr[0] "év"
+msgstr[1] "év"
+
+msgctxt "Repeat ends: never / on date / after N times"
+msgid "Ends:"
+msgstr "Vége:"
+
+msgctxt "Repeat ends"
+msgid "Never"
+msgstr "Soha"
+
+msgctxt "Repeat ends on [date]"
+msgid "On"
+msgstr "Ekkor:"
+
+msgctxt "Repeat ends after [N] times"
+msgid "After"
+msgstr "Ennyi után:"
+
+msgctxt "Repeat ends after N"
+msgid "time"
+msgid_plural "times"
+msgstr[0] "alkalom"
+msgstr[1] "alkalom"
+
+msgid "Add Google Meet video conferencing"
+msgstr "Google Meet videókonferencia hozzáadása"
+
+msgid "Video conferencing will be removed when you save"
+msgstr "A videókonferencia a mentéskor törlődik"
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "A Google Meet link will be created when you save"
+msgstr "A mentéskor Google Meet link készül"
+
+msgid "Video conferencing"
+msgstr "Videókonferencia"
+
+msgid "Remove video conferencing"
+msgstr "Videókonferencia eltávolítása"
+
+msgctxt "show the event's time as"
+msgid "Busy"
+msgstr "Foglalt"
+
+msgctxt "show the event's time as"
+msgid "Free"
+msgstr "Szabad"
+
+msgctxt "%1 = Busy or Free"
+msgid "Show as: %1"
+msgstr "Megjelenítés: %1"
+
+msgid "Show as"
+msgstr "Megjelenítés"
+
+msgctxt "event visibility"
+msgid "Calendar default"
+msgstr "A naptár alapértelmezése"
+
+msgctxt "event visibility"
+msgid "Public"
+msgstr "Nyilvános"
+
+msgctxt "event visibility"
+msgid "Private"
+msgstr "Privát"
+
+msgctxt "%1 = Calendar default, Public or Private"
+msgid "Visibility: %1"
+msgstr "Láthatóság: %1"
+
+msgid "Visibility"
+msgstr "Láthatóság"
+
+msgid "Reminders"
+msgstr "Emlékeztetők"
+
+msgid "Calendar's default"
+msgstr "A naptár alapértelmezése"
+
+msgid "Set for this event"
+msgstr "Ehhez az eseményhez beállítva"
+
+msgctxt "reminder: N … before the event"
+msgid "minute before"
+msgid_plural "minutes before"
+msgstr[0] "perccel előtte"
+msgstr[1] "perccel előtte"
+
+msgctxt "reminder: N … before the event"
+msgid "hour before"
+msgid_plural "hours before"
+msgstr[0] "órával előtte"
+msgstr[1] "órával előtte"
+
+msgctxt "reminder: N … before the event"
+msgid "day before"
+msgid_plural "days before"
+msgstr[0] "nappal előtte"
+msgstr[1] "nappal előtte"
+
+msgctxt "reminder: N … before the event"
+msgid "week before"
+msgid_plural "weeks before"
+msgstr[0] "héttel előtte"
+msgstr[1] "héttel előtte"
+
+msgid "Remove reminder"
+msgstr "Emlékeztető eltávolítása"
+
+msgid "No notification reminders"
+msgstr "Nincs értesítéses emlékeztető"
+
+msgid "Add Reminder"
+msgstr "Emlékeztető hozzáadása"
+
+msgid "Guests"
+msgstr "Vendégek"
+
+msgid "Only the organizer can change the guest list"
+msgstr "A vendéglistát csak a szervező módosíthatja"
+
+msgid "Add guests by email"
+msgstr "Vendégek hozzáadása e-mail-címmel"
+
+msgctxt "add a guest"
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgctxt "guest suggestion: %1 = name, %2 = email"
+msgid "%1 <%2>"
+msgstr "%1 <%2>"
+
+msgid "Find a Time"
+msgstr "Időpont keresése"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgctxt "working location"
+msgid "Home"
+msgstr "Otthon"
+
+msgctxt "working location"
+msgid "Office"
+msgstr "Iroda"
+
+msgctxt "working location"
+msgid "Elsewhere"
+msgstr "Máshol"
+
+msgid "This calendar can't import events"
+msgstr "Ez a naptár nem tud eseményeket importálni"
+
+msgid "This calendar can't show free / busy times"
+msgstr "Ez a naptár nem tud szabad/foglalt időpontokat mutatni"
+
+msgid "Event moved"
+msgstr "Az esemény áthelyezve"
+
+msgctxt "separator of names in a list"
+msgid ", "
+msgstr ", "
+
+msgid "No suggestions: the guests' busy times aren't available."
+msgstr "Nincs javaslat: a vendégek foglalt időpontjai nem érhetők el."
+
+msgctxt "%1 = names of people"
+msgid "Suggested times (not counting %1):"
+msgstr "Javasolt időpontok (%1 nélkül):"
+
+msgid "Suggested times:"
+msgstr "Javasolt időpontok:"
+
+msgctxt "%1 = names of people"
+msgid "No time free in the working hours of this day (not counting %1)."
+msgstr "Ezen a napon a munkaidőben nincs szabad időpont (%1 nélkül)."
+
+msgid "No time free for everyone in the working hours of this day."
+msgstr "Ezen a napon a munkaidőben nincs mindenkinek megfelelő szabad időpont."
+
+msgctxt "someone's calendar in Find a time"
+msgid "Not available"
+msgstr "Nem elérhető"
+
+msgctxt "someone's calendar in Find a time: %1 = Google's reason"
+msgid "Not available (%1)"
+msgstr "Nem elérhető (%1)"
+
+msgid "Previous day"
+msgstr "Előző nap"
+
+msgctxt "Find a time: the day shown"
+msgid "ddd, d MMM"
+msgstr "ddd, d MMM"
+
+msgid "Next day"
+msgstr "Következő nap"
+
+msgid "Could not read the file."
+msgstr "Nem sikerült beolvasni a fájlt."
+
+msgid "Reading .ics files needs the Python icalendar module (python-icalendar)."
+msgstr "Az .ics fájlok olvasásához a Python icalendar modulja kell (python-icalendar)."
+
+msgid "Could not read the file: %1"
+msgstr "Nem sikerült beolvasni a fájlt: %1"
+
+msgid "Changed occurrence of a repeating event"
+msgstr "Ismétlődő esemény módosított előfordulása"
+
+msgid "Every %1 day"
+msgid_plural "Every %1 days"
+msgstr[0] "Minden %1 nap"
+msgstr[1] "Minden %1 nap"
+
+msgid "Every %1 week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "Minden %1 hét"
+msgstr[1] "Minden %1 hét"
+
+msgid "Weekly"
+msgstr "Hetente"
+
+msgctxt "%1 = Weekly / Every 2 weeks, %2 = days"
+msgid "%1 on %2"
+msgstr "%1 ekkor: %2"
+
+msgid "Every %1 month"
+msgid_plural "Every %1 months"
+msgstr[0] "Minden %1 hónap"
+msgstr[1] "Minden %1 hónap"
+
+msgid "Monthly"
+msgstr "Havonta"
+
+msgid "Every %1 year"
+msgid_plural "Every %1 years"
+msgstr[0] "Minden %1 év"
+msgstr[1] "Minden %1 év"
+
+msgid "Yearly"
+msgstr "Évente"
+
+msgctxt "%2 = Weekly on Monday, ..."
+msgid "%2, %1 time"
+msgid_plural "%2, %1 times"
+msgstr[0] "%2, %1 időpont"
+msgstr[1] "%2, %1 időpont"
+
+msgctxt "%1 = Weekly on Monday, ..., %2 = date"
+msgid "%1, until %2"
+msgstr "%1, eddig: %2"
+
+msgid "%1 exception"
+msgid_plural "%1 exceptions"
+msgstr[0] "%1 kivétel"
+msgstr[1] "%1 kivétel"
+
+msgid "Import Events"
+msgstr "Események importálása"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Import"
+msgstr "Importálás"
+
+msgid "No file chosen"
+msgstr "Nincs kiválasztott fájl"
+
+msgid "Choose File…"
+msgstr "Fájl kiválasztása…"
+
+msgid "Reading the file…"
+msgstr "A fájl olvasása…"
+
+msgid "No events in this file"
+msgstr "Ebben a fájlban nincs esemény"
+
+msgid "(No title)"
+msgstr "(Nincs cím)"
+
+msgid "%1 cancelled event isn't imported."
+msgid_plural "%1 cancelled events aren't imported."
+msgstr[0] "%1 törölt esemény nem kerül importálásra."
+msgstr[1] "%1 törölt esemény nem kerül importálásra."
+
+msgid "Calendar:"
+msgstr "Naptár:"
+
+msgid "Guests and the organizer aren't imported, and no invitations are sent. Importing the same event again updates it."
+msgstr "A vendégeket és a szervezőt nem importálja, és meghívót sem küld. Ugyanannak az eseménynek az ismételt importálása frissíti azt."
+
+msgid "Importing needs a Google Calendar you can edit. Log in to Google Calendar in the settings."
+msgstr "Az importáláshoz egy szerkeszthető Google Naptár kell. Jelentkezz be a Google Naptárba a beállításokban."
+
+msgid "Importing… %1 of %2"
+msgstr "Importálás… %1 / %2"
+
+msgid "%1 event imported"
+msgid_plural "%1 events imported"
+msgstr[0] "%1 esemény importálva"
+msgstr[1] "%1 esemény importálva"
+
+msgid "%1 failed: %2"
+msgid_plural "%1 failed, eg: %2"
+msgstr[0] "%1 sikertelen: %2"
+msgstr[1] "%1 sikertelen, pl.: %2"
+
+msgid "Join"
+msgstr "Csatlakozás"
+
+msgctxt "Use default font"
+msgid "Default"
+msgstr "Alapértelmezett"
+
+msgid "Choose a Font"
+msgstr "Betűtípus kiválasztása"
+
+msgid "Play"
+msgstr "Lejátszás"
+
+msgid "Choose a sound effect"
+msgstr "Hangeffekt kiválasztása"
+
+msgid "Sound files (%1)"
+msgstr "Hangfájlok (%1)"
+
+msgid "All files (%1)"
+msgstr "Minden fájl (%1)"
+
+msgctxt "event time on the hour (24 hour clock)"
+msgid "h"
+msgstr "h"
+
+msgctxt "event time (24 hour clock)"
+msgid "h:mm"
+msgstr "h:mm"
+
+msgctxt "event time on the hour (12 hour clock)"
+msgid "h AP"
+msgstr "h AP"
+
+msgctxt "event time (12 hour clock)"
+msgid "h:mm AP"
+msgstr "h:mm AP"
+
+msgctxt "date (%1) with time (%2)"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+msgid "All Day"
+msgstr "Egész napos"
+
+msgctxt "from date/time %1 until date/time %2"
+msgid "%1 - %2"
+msgstr "%1 – %2"
+
+msgctxt "event span, %1 = start, %2 = end"
+msgid "%1 – %2"
+msgstr "%1 – %2"
+
+msgctxt "search result, %1 = date"
+msgid "%1 · All day"
+msgstr "%1 · Egész napos"
+
+msgctxt "search result, %1 = date, %2 = start time, %3 = end time"
+msgid "%1 · %2 – %3"
+msgstr "%1 · %2 – %3"
+
+msgctxt "short form for %1 hours"
+msgid "%1h"
+msgstr "%1ó"
+
+msgctxt "short form for %1 minutes"
+msgid "%1m"
+msgstr "%1p"
+
+msgctxt "short form for %1 seconds"
+msgid "%1s"
+msgstr "%1mp"
+
+msgid "Could not connect."
+msgstr "Nem sikerült csatlakozni."
+
+msgid "The weather service is not available right now."
+msgstr "Az időjárás-szolgáltatás most nem elérhető."
+
+msgid "Weather API limit reached"
+msgstr "Elérted az időjárás API korlátját"
+
+msgid "Google authorization expired or was revoked. Open Event Calendar Settings > Google Calendar and sign in to that account again."
+msgstr "A Google-engedély lejárt vagy visszavonták. Nyisd meg az Event Calendar beállításait → Google Naptár, és jelentkezz be újra ebbe a fiókba."
+
+msgid "Logged out of Google. Please login again."
+msgstr "A Google-ból kijelentkeztél. Jelentkezz be újra."
+
+msgid "Event Calendar"
+msgstr "Event Calendar"
+
+msgid "Calendar is back in sync"
+msgstr "A naptár újra szinkronban van"
+
+msgid "Calendar can't sync"
+msgstr "A naptár nem tud szinkronizálni"
+
+msgid "No connection. Showing the last loaded events; retrying automatically."
+msgstr "Nincs kapcsolat. A legutóbb betöltött események látszanak; automatikusan újrapróbálja."
+
+msgctxt "%1 = Google Meet, Zoom, ..., %2 = event title, %3 = when"
+msgid "Join %1: %2 (%3)"
+msgstr "Csatlakozás: %1 – %2 (%3)"
+
+msgctxt "%1 = event title"
+msgid "Mark “%1” as Ended"
+msgstr "A(z) „%1” megjelölése lezártként"
+
+msgid "New Event…"
+msgstr "Új esemény…"
+
+msgid "Import Events…"
+msgstr "Események importálása…"
+
+msgid "Open Google Calendar"
+msgstr "Google Naptár megnyitása"
+
+msgid "Refresh"
+msgstr "Frissítés"
+
+msgid "Copy Date and Time"
+msgstr "Dátum és idő másolása"
+
+msgid "Date and Time Formats…"
+msgstr "Dátum- és időformátumok…"
+
+msgid "%1mm"
+msgstr "%1 mm"
+
+msgctxt "calendar title format for current month"
+msgid "MMMM d, yyyy"
+msgstr "MMMM d., yyyy"
+
+msgctxt "calendar title format for other months of current year"
+msgid "MMMM"
+msgstr "MMMM"
+
+msgctxt "calendar title format for months not from current year"
+msgid "MMMM, yyyy"
+msgstr "MMMM, yyyy"
+
+msgid "Eg: 9am-5pm Work"
+msgstr "Pl.: 9–17 Munka"
+
+msgid "Previous Day"
+msgstr "Előző nap"
+
+msgid "Previous Week"
+msgstr "Előző hét"
+
+msgid "Previous Month"
+msgstr "Előző hónap"
+
+msgid "Today"
+msgstr "Ma"
+
+msgid "Next Day"
+msgstr "Következő nap"
+
+msgid "Next Week"
+msgstr "Következő hét"
+
+msgid "Next Month"
+msgstr "Következő hónap"
+
+msgid "Keep Open"
+msgstr "Nyitva tartás"
+
+msgid "Repeating event deleted"
+msgstr "Ismétlődő esemény törölve"
+
+msgid "Event deleted"
+msgstr "Esemény törölve"
+
+msgid "Retrying…"
+msgstr "Újrapróbálás…"
+
+msgid "Retrying in %1 second."
+msgid_plural "Retrying in %1 seconds."
+msgstr[0] "Újrapróbálás %1 másodperc múlva."
+msgstr[1] "Újrapróbálás %1 másodperc múlva."
+
+msgid "Retrying in %1 minute."
+msgid_plural "Retrying in %1 minutes."
+msgstr[0] "Újrapróbálás %1 perc múlva."
+msgstr[1] "Újrapróbálás %1 perc múlva."
+
+msgid "Can't connect. Showing the last loaded events."
+msgstr "Nincs kapcsolat. A legutóbb betöltött események látszanak."
+
+msgid "Retry Now"
+msgstr "Újrapróbálás most"
+
+msgid "Dismiss"
+msgstr "Elvetés"
+
+msgid "Weather not configured.\nGo to Weather in the config and set your city,\nand/or disable the meteogram to hide this area."
+msgstr "Az időjárás nincs beállítva.\nNyisd meg a beállításokban az Időjárás részt, és add meg a városodat,\nilletve kapcsold ki a meteogramot az terület elrejtéséhez."
+
+msgid "Error fetching weather."
+msgstr "Hiba az időjárás lekérésekor."
+
+msgid "Quick Add"
+msgstr "Gyors hozzáadás"
+
+msgctxt "quick add example"
+msgid "Lunch with Anna tomorrow 13:00"
+msgstr "Ebéd Annával holnap 13:00"
+
+msgid "Type what, when and where. Without a day, the event is added today."
+msgstr "Írd be, mit, mikor és hol. Nap megadása nélkül az esemény ma kerül be."
+
+msgctxt "%1 = date"
+msgid "Type what, when and where. Without a day, the event is added on %1."
+msgstr "Írd be, mit, mikor és hol. Nap megadása nélkül az esemény ekkor kerül be: %1."
+
+msgid "More options…"
+msgstr "További beállítások…"
+
+msgctxt "RSVP"
+msgid "Yes"
+msgstr "Igen"
+
+msgctxt "RSVP"
+msgid "Yes to All Events"
+msgstr "Igen, minden eseményre"
+
+msgctxt "RSVP"
+msgid "Maybe"
+msgstr "Talán"
+
+msgctxt "RSVP"
+msgid "Maybe to All Events"
+msgstr "Talán, minden eseményre"
+
+msgctxt "RSVP"
+msgid "No"
+msgstr "Nem"
+
+msgctxt "RSVP"
+msgid "No to All Events"
+msgstr "Nem, minden eseményre"
+
+msgid "Search events…"
+msgstr "Események keresése…"
+
+msgid "Type to search event titles, places and descriptions"
+msgstr "Írj be valamit az események címe, helye és leírása közötti kereséshez"
+
+msgid "Searching…"
+msgstr "Keresés…"
+
+msgid "No events found"
+msgstr "Nincs találat"
+
+msgid "Couldn't search Google Calendar"
+msgstr "Nem sikerült keresni a Google Naptárban"
+
+msgid "Searching Google Calendar…"
+msgstr "Keresés a Google Naptárban…"
+
+msgid "&Start"
+msgstr "&Indítás"
+
+msgid "Timer"
+msgstr "Időzítő"
+
+msgid "Timer finished"
+msgstr "Az időzítő lejárt"
+
+msgid "%1 has passed"
+msgstr "%1 eltelt"
+
+msgid "Repeat"
+msgstr "Ismétlés"
+
+msgid "Timer, %1 remaining. Activate to pause."
+msgstr "Időzítő, %1 van hátra. Kapcsold be a szüneteltetéshez."
+
+msgid "Timer, %1 remaining. Activate to start."
+msgstr "Időzítő, %1 van hátra. Kapcsold be az indításhoz."
+
+msgid "Timer set to %1. Use plus or minus to change the duration."
+msgstr "Az időzítő %1 értékre állítva. A plusz és mínusz gombokkal módosítható."
+
+msgid "Pause Timer"
+msgstr "Időzítő szüneteltetése"
+
+msgid "Start Timer"
+msgstr "Időzítő indítása"
+
+msgid "Scroll or use plus and minus keys to adjust duration"
+msgstr "Görgetéssel vagy a plusz/mínusz gombokkal állítható az időtartam"
+
+msgid "Sound"
+msgstr "Hang"
+
+msgid "Set Timer"
+msgstr "Időzítő beállítása"
+
+msgctxt "high / low temperature"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+msgctxt "precipitation in inches"
+msgid "%1 in"
+msgstr "%1 hüvelyk"
+
+msgctxt "precipitation in mm"
+msgid "%1 mm"
+msgstr "%1 mm"
+
+msgid "Snooze 1 minute"
+msgid_plural "Snooze %1 minutes"
+msgstr[0] "Szundi 1 percre"
+msgstr[1] "Szundi %1 percre"
+
+msgctxt "%1 = 15 minutes, %2 = event title"
+msgid "In %1: %2"
+msgstr "%1 múlva: %2"
+
+msgctxt "invitation, %1 = organizer"
+msgid "From %1"
+msgstr "Feladó: %1"
+
+msgctxt "%1 = event title"
+msgid "Invitation: %1"
+msgstr "Meghívó: %1"
+
+msgctxt "daily agenda, %1 = event title"
+msgid "All day: %1"
+msgstr "Egész napos: %1"
+
+msgctxt "daily agenda, more events"
+msgid "+%1 more"
+msgid_plural "+%1 more"
+msgstr[0] "+%1 további"
+msgstr[1] "+%1 további"
+
+msgid "Today: %1 event"
+msgid_plural "Today: %1 events"
+msgstr[0] "Ma: %1 esemény"
+msgstr[1] "Ma: %1 esemény"
+
+msgid "Nothing planned today"
+msgstr "Mára nincs semmi betervezve"
+
+msgid "Open Agenda"
+msgstr "Agenda megnyitása"
+
+msgctxt "%1 = time"
+msgid "tomorrow %1"
+msgstr "holnap %1"
+
+msgctxt "%1 = 3h20m"
+msgid "(in %1)"
+msgstr "(%1 múlva)"
+
+msgctxt "%1 = event title, %2 = end time"
+msgid "Now: %1, until %2"
+msgstr "Most: %1, eddig: %2"
+
+msgctxt "%1 = event title, %2 = when"
+msgid "Next: %1, %2"
+msgstr "Következő: %1, %2"
+
+msgid "Set a location in Settings > Weather to see the forecast here."
+msgstr "Az előrejelzéshez adj meg helyet a Beállítások → Időjárás alatt."
+
+msgid "Loading weather…"
+msgstr "Időjárás betöltése…"
+
+msgctxt "current weather"
+msgid "Now"
+msgstr "Most"
+
+msgctxt "weather of the day shown in the Day view"
+msgid "Forecast"
+msgstr "Előrejelzés"
+
+msgctxt "high / low temperature"
+msgid "High %1 · Low %2"
+msgstr "Max. %1 · Min. %2"
+
+msgctxt "precipitation during the day"
+msgid "Rain: %1"
+msgstr "Eső: %1"
+
+msgctxt "today's high / low temperature"
+msgid "Today: high %1, low %2"
+msgstr "Ma: max. %1, min. %2"
+
+msgctxt "precipitation"
+msgid "rain %1"
+msgstr "eső %1"
+
+msgid "No forecast for this day."
+msgstr "Erre a napra nincs előrejelzés."
+
+msgid "Next 12 hours"
+msgstr "Következő 12 óra"
+
+msgctxt "weather by hour of the shown day"
+msgid "During the day"
+msgstr "A nap folyamán"
+
+msgid "Next days"
+msgstr "Következő napok"
+
+msgctxt "%1 = time zone, %2 = a date"
+msgid "%1\nThe time difference changes during these days: the hours shown are those of %2."
+msgstr "%1\nA időeltolódás ezekben a napokban változik: a megjelenített órák %2 szerintiek."
+
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] "%1 nap"
+msgstr[1] "%1 nap"
+
+msgctxt "more events not shown"
+msgid "+%1"
+msgstr "+%1"
+
+msgctxt "%1 = Home, Office, ..."
+msgid "Working location: %1"
+msgstr "Munkavégzés helye: %1"
+

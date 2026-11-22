@@ -1,0 +1,3329 @@
+{
+ "format": "florum-plants-db",
+ "app": "Florum 1.33.2",
+ "file": "plants-db.json",
+ "version": "2026.10.9",
+ "updated": "2026-10-25",
+ "count": 82,
+ "source": "Florum beépített adatbázis",
+ "license": "Saját összeállítás, szabadon használható és bővíthető.",
+ "plants": [
+  {
+   "id": "monstera-deliciosa",
+   "name": "Monstera",
+   "latin": "Monstera deliciosa",
+   "aliases": [
+    "lyukas levelű filodendron",
+    "svájci sajt növény"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "18–27 °C",
+   "soil": "Laza, levegős keverék: virágföld + perlit + kéreg",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárguló alsó levelek – túlöntözés",
+    "Barna levélszél – száraz levegő",
+    "Levélfoltok – pangó víz"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Adj neki támasztékot, a légzőgyökereket ne vágd le.",
+    "Nyáron hetente töröld át a leveleit nedves ruhával."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "dracaena-trifasciata",
+   "name": "Anyósnyelv",
+   "latin": "Dracaena trifasciata",
+   "aliases": [
+    "Sansevieria",
+    "szobai kardvirág"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Árnyékos",
+   "water": 18,
+   "waterWinter": 28,
+   "fert": 60,
+   "mist": 0,
+   "repot": 36,
+   "humidity": "30–50%",
+   "temp": "15–29 °C",
+   "soil": "Homokos, kavicsos, nagyon jó vízelvezetés",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Gyökérrothadás – túlöntözés",
+    "Puha, sárga levél – hideg + nedvesség"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Inkább kevesebb víz: szárazon hetekig elvan.",
+    "Télen alig locsold, 12 °C fölé ne vidd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "epipremnum-aureum",
+   "name": "Aranypothos",
+   "latin": "Epipremnum aureum",
+   "aliases": [
+    "pothos",
+    "sárga levelű filodendron"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Közepes",
+   "water": 8,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "18–29 °C",
+   "soil": "Általános virágföld, jó vízelvezetéssel",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárga levelek – túlöntözés",
+    "Kopasz, hosszú hajtások – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Dugványozni sima pohár vízben is lehet.",
+    "A tarka fajtáknak több fény kell a mintázathoz."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "zamioculcas-zamiifolia",
+   "name": "Zamioculcas",
+   "latin": "Zamioculcas zamiifolia",
+   "aliases": [
+    "zamiokulkász",
+    "ZZ növény"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Árnyékos",
+   "water": 18,
+   "waterWinter": 25,
+   "fert": 60,
+   "mist": 0,
+   "repot": 36,
+   "humidity": "30–50%",
+   "temp": "16–26 °C",
+   "soil": "Laza, homokos, kaktuszfölddel keverve",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Gyökérrothadás – túl gyakori öntözés",
+    "Sárga levélke – pangó víz a cserépben"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Víztároló gumója miatt hetekig bírja locsolás nélkül.",
+    "Sötét sarokba is jó, de lassabban nő."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "ficus-elastica",
+   "name": "Gumifa",
+   "latin": "Ficus elastica",
+   "aliases": [
+    "szobafikusz",
+    "kaucsukfa"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "16–27 °C",
+   "soil": "Tápdús, jó vízelvezetésű virágföld",
+   "toxic": "Mérgező (fehér nedv) macskára és kutyára",
+   "diseases": [
+    "Levélesés – huzat vagy helyváltoztatás",
+    "Barna foltok – hideg öntözővíz"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Ne mozgasd gyakran, szereti a stabil helyet.",
+    "A port nedves ruhával töröld le a levelekről."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "ficus-lyrata",
+   "name": "Hegedűlevelű fikusz",
+   "latin": "Ficus lyrata",
+   "aliases": [
+    "fiddle leaf fig"
+   ],
+   "difficulty": "Nehéz",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "18–24 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Barna levélszél – alulöntözés vagy száraz levegő",
+    "Levélesés – huzat"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Ne forgasd, ne költöztesd – nagyon érzékeny a változásra.",
+    "Csak langyos, állott vízzel öntözd."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "ficus-benjamina",
+   "name": "Csüngő fikusz",
+   "latin": "Ficus benjamina",
+   "aliases": [
+    "benjámin fikusz"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 6,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "16–26 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Levélesés stresszre (huzat, költöztetés, szárazság)",
+    "Barna levélcsúcs – vízkő"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Levélesés után ne öntözd túl – előbb a stresszt szüntesd meg.",
+    "Szereti a szórt fényt, de a déli tűző napot nem."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "phalaenopsis",
+   "name": "Orchidea",
+   "latin": "Phalaenopsis",
+   "aliases": [
+    "pillangóorchidea"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 10,
+   "waterWinter": 14,
+   "fert": 30,
+   "mist": 5,
+   "repot": 24,
+   "humidity": "50–70%",
+   "temp": "18–27 °C",
+   "soil": "Kéregkeverék – nem sima virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – pangó víz a cserép alján",
+    "Ráncos, petyhüdt levél – kevés víz"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Meztelen csigák"
+   ],
+   "tips": [
+    "Áztasd 10 percre, majd hagyd teljesen lecsöpögni.",
+    "A még zöld virágszárat ne vágd le, hozhat új bimbót."
+   ],
+   "mistWater": "eso",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi."
+  },
+  {
+   "id": "spathiphyllum",
+   "name": "Békeliliom",
+   "latin": "Spathiphyllum",
+   "aliases": [
+    "fehér vitorlavirág"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 6,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "50–70%",
+   "temp": "18–27 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Barna levélszél – vízkő vagy száraz levegő",
+    "Nem virágzik – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A lógó levelei jelzik az öntözést – utána gyorsan helyrejön.",
+    "Szűrt vagy langyos vízzel locsold, virágzáskor tápoldatozd."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "chlorophytum-comosum",
+   "name": "Csüngő csillagfürt",
+   "latin": "Chlorophytum comosum",
+   "aliases": [
+    "póknövény",
+    "póknövényke"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 7,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "15–26 °C",
+   "soil": "Általános virágföld",
+   "toxic": "Nem mérgező – kisállatbarát",
+   "diseases": [
+    "Barna levélcsúcs – fluoros vagy vízköves víz"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Az indáin növő sarjakat tedd vízbe gyökerezni.",
+    "Lógó edénybe való, de fény közelébe."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "dracaena-marginata",
+   "name": "Sárkányfa",
+   "latin": "Dracaena marginata",
+   "aliases": [
+    "madagaskári sárkányfa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 10,
+   "waterWinter": 15,
+   "fert": 45,
+   "mist": 14,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "18–25 °C",
+   "soil": "Laza, homokos virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Barna levélcsúcs – száraz levegő, fluor"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Tripsz"
+   ],
+   "tips": [
+    "Langyos, szűrt víz – érzékeny a víz fluorjára.",
+    "Az alsó levelek elsárgulása természetes öregedés."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "yucca-elephantipes",
+   "name": "Pálmaliliom",
+   "latin": "Yucca elephantipes",
+   "aliases": [
+    "jukka",
+    "szobai pálmaliliom"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 12,
+   "waterWinter": 20,
+   "fert": 60,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "30–50%",
+   "temp": "15–27 °C",
+   "soil": "Homokos, kavicsos, jó vízelvezetés",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Gyökérrothadás – túlöntözés",
+    "Alsó levelek sárgulása – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Nyáron akár az erkélyre is kiviheted.",
+    "Fény felé nő, forgasd el időnként."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "aloe-vera",
+   "name": "Aloé",
+   "latin": "Aloe vera",
+   "aliases": [
+    "orvosi aloé"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 18,
+   "waterWinter": 30,
+   "fert": 60,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "30–50%",
+   "temp": "15–30 °C",
+   "soil": "Kaktuszföld + homok vagy perlit",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Nyálkás, barna levélalap – túlöntözés",
+    "Vékony, széteső levél – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Öntözés után a föld száradjon ki teljesen.",
+    "Télen 10–15 °C-on szinte szárazon tartsd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "haworthia-fasciata",
+   "name": "Gyöngyvirág-pozsgás",
+   "latin": "Haworthia fasciata",
+   "aliases": [
+    "zebrapozsgás"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 18,
+   "waterWinter": 28,
+   "fert": 60,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "30–50%",
+   "temp": "15–28 °C",
+   "soil": "Kaktuszföld + ásványi anyag",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – pangó víz",
+    "Megnyúlt levél – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Kis cserépben érzi jól magát – ne ültesd túl nagyba.",
+    "Nyáron a reggeli napot szereti."
+   ],
+   "mistWater": "nem",
+   "fertKind": "kaktusz",
+   "fertNpk": "N-P-K 3-5-7 (kaktusz/pozsgás)",
+   "fertDose": "1 ml / 1 l víz",
+   "fertFrom": 4,
+   "fertTo": 8,
+   "fertNote": "Csak a növekedési időszakban, élő, nedves földre; ősszel állj le vele."
+  },
+  {
+   "id": "echeveria-elegans",
+   "name": "Echeveria",
+   "latin": "Echeveria elegans",
+   "aliases": [
+    "pozsgás rozetta",
+    "kőrózsa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 14,
+   "waterWinter": 24,
+   "fert": 60,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "30–50%",
+   "temp": "10–28 °C",
+   "soil": "Kaktuszföld + perlit",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Megnyúlt rozetta – kevés fény",
+    "Rothadás – túlöntözés"
+   ],
+   "pests": [
+    "Lisztes tetű",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Sok napfény kell a tömör, színes formához.",
+    "Öntözd a földet, ne a levélrózsát."
+   ],
+   "mistWater": "nem",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi."
+  },
+  {
+   "id": "crassula-ovata",
+   "name": "Pénzfa",
+   "latin": "Crassula ovata",
+   "aliases": [
+    "jade növény",
+    "szerencsefa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 14,
+   "waterWinter": 24,
+   "fert": 60,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "30–50%",
+   "temp": "15–27 °C",
+   "soil": "Laza, ásványi anyagokban gazdag",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Hulló levél – túlöntözés vagy hideg",
+    "Megnyúlt hajtás – kevés fény"
+   ],
+   "pests": [
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "A levélhullás gyakran túlöntözés jele – adj neki száraz napokat.",
+    "Nyáron kiváló az erkély, télen hűvös pihenő."
+   ],
+   "mistWater": "nem",
+   "fertKind": "kaktusz",
+   "fertNpk": "N-P-K 3-5-7 (kaktusz/pozsgás)",
+   "fertDose": "1 ml / 1 l víz",
+   "fertFrom": 4,
+   "fertTo": 8,
+   "fertNote": "Csak a növekedési időszakban, élő, nedves földre; ősszel állj le vele."
+  },
+  {
+   "id": "schlumbergera",
+   "name": "Karácsonyi kaktusz",
+   "latin": "Schlumbergera",
+   "aliases": [
+    "schlumbergera",
+    "karácsonyi kaktusz"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 10,
+   "waterWinter": 14,
+   "fert": 30,
+   "mist": 14,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "18–25 °C",
+   "soil": "Laza, tőzeges, jó vízelvezetés",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Rügyhullás – huzat, szárazság",
+    "Rothadás – pangó víz"
+   ],
+   "pests": [
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "Virágzáshoz ősszel 14 óra sötétség kell.",
+    "Bimbósan ne forgasd, ne mozgasd."
+   ],
+   "mistWater": "eso",
+   "fertKind": "kaktusz",
+   "fertNpk": "N-P-K 3-5-7 (kaktusz/pozsgás)",
+   "fertDose": "1 ml / 1 l víz",
+   "fertFrom": 4,
+   "fertTo": 8,
+   "fertNote": "Csak a növekedési időszakban, élő, nedves földre; ősszel állj le vele."
+  },
+  {
+   "id": "goeppertia",
+   "name": "Kalatea",
+   "latin": "Goeppertia",
+   "aliases": [
+    "Calathea",
+    "pávalevél"
+   ],
+   "difficulty": "Nehéz",
+   "light": "Közepes",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 3,
+   "repot": 18,
+   "humidity": "60–70%",
+   "temp": "18–26 °C",
+   "soil": "Laza, tőzeges, levegős",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélszél – vízkő vagy száraz levegő",
+    "Feltekeredő levél – huzat"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Tripsz"
+   ],
+   "tips": [
+    "Csak langyos, szűrt vagy desztillált víz.",
+    "Ne tedd huzatra vagy radiátor mellé."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "maranta-leuconeura",
+   "name": "Imanövény",
+   "latin": "Maranta leuconeura",
+   "aliases": [
+    "imalevél",
+    "maranta"
+   ],
+   "difficulty": "Közepes",
+   "light": "Közepes",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 3,
+   "repot": 18,
+   "humidity": "60–70%",
+   "temp": "18–26 °C",
+   "soil": "Laza, tőzeges",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélszél – száraz levegő",
+    "Elszíntelenedő minta – erős fény"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Esténként összecsukja a leveleit – ez normális.",
+    "Párás hely (fürdőszoba) kedvez neki."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "nephrolepis-exaltata",
+   "name": "Boston páfrány",
+   "latin": "Nephrolepis exaltata",
+   "aliases": [
+    "bostoni páfrány"
+   ],
+   "difficulty": "Közepes",
+   "light": "Közepes",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 3,
+   "repot": 18,
+   "humidity": "60–70%",
+   "temp": "16–24 °C",
+   "soil": "Tőzeges, laza",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna, száraz levélke – száraz levegő",
+    "Levélhullás – huzat"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "A fürdőszoba párás levegője ideális neki.",
+    "Ne engedd teljesen kiszáradni a földjét."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "asplenium-nidus",
+   "name": "Madárfészek páfrány",
+   "latin": "Asplenium nidus",
+   "aliases": [
+    "fészekpáfrány"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 5,
+   "repot": 24,
+   "humidity": "50–70%",
+   "temp": "18–26 °C",
+   "soil": "Laza kéregkeverék, levegős",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélszél – száraz levegő",
+    "Rothadás a fészek közepén – túlöntözés"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A levelek közé ne önts vizet – a földet locsold.",
+    "Félárnyékos, párás hely a legjobb."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "hedera-helix",
+   "name": "Borostyán",
+   "latin": "Hedera helix",
+   "aliases": [
+    "közönséges borostyán"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 7,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "12–22 °C",
+   "soil": "Általános virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Levélfoltok – hideg, nedves föld",
+    "Ritkuló hajtás – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Télen szereti a hűvös (10–18 °C) helyet.",
+    "Támasszal vagy csüngő edényben is szép."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "tradescantia-zebrina",
+   "name": "Zebratradescantia",
+   "latin": "Tradescantia zebrina",
+   "aliases": [
+    "tradeszkancia",
+    "vándorló zsidó"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 7,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "15–27 °C",
+   "soil": "Általános virágföld",
+   "toxic": "Enyhén mérgező macskára és kutyára",
+   "diseases": [
+    "Kopasz, megnyúlt hajtás – kevés fény",
+    "Foltosodó levél – hideg víz"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Vágd vissza bátran, sűrűbb és színesebb lesz.",
+    "A végét dugványként vízbe teheted."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "saintpaulia-ionantha",
+   "name": "Afrikai ibolya",
+   "latin": "Saintpaulia ionantha",
+   "aliases": [
+    "saintpaulia"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 21,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "50–60%",
+   "temp": "18–24 °C",
+   "soil": "Laza, tőzeges, alulról öntözve",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Levélfoltok – hideg víz a levélen",
+    "Rothadás – pangó víz a cserépaljban"
+   ],
+   "pests": [
+    "Tripsz",
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "Alulról öntözd, a levelei ne legyenek vizesek.",
+    "A túl nagy cserép lassítja a virágzást."
+   ],
+   "mistWater": "nem",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi."
+  },
+  {
+   "id": "begonia-rex",
+   "name": "Begónia",
+   "latin": "Begonia rex",
+   "aliases": [
+    "levéldíszbegónia"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 6,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "18–24 °C",
+   "soil": "Laza, tőzeges",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Lisztes harmat – párás, hűvös levegő",
+    "Szárrothadás – túlöntözés"
+   ],
+   "pests": [
+    "Tripsz"
+   ],
+   "tips": [
+    "Ne permetezd a levelét – foltosodik.",
+    "A fényes, szórt hely adja a levélmintázatot."
+   ],
+   "mistWater": "nem",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi."
+  },
+  {
+   "id": "anthurium-andraeanum",
+   "name": "Flamingóvirág",
+   "latin": "Anthurium andraeanum",
+   "aliases": [
+    "anthurium"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "60–70%",
+   "temp": "18–27 °C",
+   "soil": "Laza, levegős: kéreg + perlit + tőzeg",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Barna levélszél – száraz levegő",
+    "Rothadás – pangó víz"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A „virág” valójában fellevel – a valódi virágok rajta aprók.",
+    "Virágzáshoz világos, de nem tűző hely kell."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "syngonium-podophyllum",
+   "name": "Syngonium",
+   "latin": "Syngonium podophyllum",
+   "aliases": [
+    "nyíllevelű"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "50–70%",
+   "temp": "18–27 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárguló levél – túlöntözés",
+    "Megnyúlt hajtás – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Fiatalon tömör, később kúszik – adj neki támogatást.",
+    "Könnyen gyökerezik vízben."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "philodendron-hederaceum",
+   "name": "Kúszó filodendron",
+   "latin": "Philodendron hederaceum",
+   "aliases": [
+    "szívdobogás filodendron"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "50–70%",
+   "temp": "18–27 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárga levelek – túlöntözés",
+    "Kis levelek – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Minden leveles csomónál gyökérered, könnyen szaporítható.",
+    "Mossa le a poros leveleket."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "aglaonema-commutatum",
+   "name": "Aglaonema",
+   "latin": "Aglaonema commutatum",
+   "aliases": [
+    "kínai örökzöld",
+    "ezüstös aglaonema"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Árnyékos",
+   "water": 8,
+   "waterWinter": 12,
+   "fert": 45,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "18–27 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárguló levél – hideg vagy túlöntözés",
+    "Megnyúlt szár – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Szereti a meleget – 15 °C alatt megáll a növekedése.",
+    "Sötétebb helyet is elvisel, de lassabban nő."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "dieffenbachia-seguine",
+   "name": "Dieffenbachia",
+   "latin": "Dieffenbachia seguine",
+   "aliases": [
+    "szobadíszlevél"
+   ],
+   "difficulty": "Közepes",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 7,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "18–27 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Erősen mérgező macskára és kutyára, emberre is",
+   "diseases": [
+    "Alsó levelek sárgulása – túlöntözés",
+    "Megnyúlt szár – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A nedve bőrirritáló – metssz kesztyűben.",
+    "Ne tedd kisgyermekes helyre kézmagasságba."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "citrus-microcarpa",
+   "name": "Citrus",
+   "latin": "Citrus microcarpa",
+   "aliases": [
+    "calamondin",
+    "szobai citromfa"
+   ],
+   "difficulty": "Nehéz",
+   "light": "Napos / déli ablak",
+   "water": 5,
+   "waterWinter": 7,
+   "fert": 21,
+   "mist": 14,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "15–25 °C",
+   "soil": "Tápdús, savanyú kémhatású citrusföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Levélesés – kevés fény vagy hőingás",
+    "Sárga levél – tápanyaghiány"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "Nyáron vidd ki az erkélyre, télen 10–15 °C-on teleljen.",
+    "Tavasszal metssz vissza a bokrosodáshoz."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "hoya-carnosa",
+   "name": "Viaszvirág",
+   "latin": "Hoya carnosa",
+   "aliases": [
+    "hoya"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 10,
+   "waterWinter": 18,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "18–27 °C",
+   "soil": "Laza, levegős keverék",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Bimbóhullás – mozgatásra, huzatra",
+    "Levélfoltok – pangó víz"
+   ],
+   "pests": [
+    "Lisztes tetű",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A virágzó kocsányt ne vágd le – ott virágzik újra.",
+    "Kis cserépben virágzik a legszebben."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "peperomia-obtusifolia",
+   "name": "Peperomia",
+   "latin": "Peperomia obtusifolia",
+   "aliases": [
+    "kereklevelű peperomia"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 10,
+   "waterWinter": 15,
+   "fert": 30,
+   "mist": 5,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "18–26 °C",
+   "soil": "Laza, levegős virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Rothadó szár – túlöntözés",
+    "Fonnyadó levél – kiszáradás"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Félpozsgás: a földje öntözés között száradjon ki.",
+    "Kicsi cserépben gyönyörűen mutat."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "pilea-peperomioides",
+   "name": "Pilea",
+   "latin": "Pilea peperomioides",
+   "aliases": [
+    "pénzérme növény"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 8,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 5,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "18–24 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Alsó levelek sárgulása – túlöntözés",
+    "Apró, göcsörtös levél – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Hetente forgasd el – a növekedés a fény felé húz.",
+    "Az indáin növő sarjakat könnyű leválasztani."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "kalanchoe-blossfeldiana",
+   "name": "Kalanchoe",
+   "latin": "Kalanchoe blossfeldiana",
+   "aliases": [
+    "korallvirág"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 10,
+   "waterWinter": 18,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "18–26 °C",
+   "soil": "Kaktuszföld, jó vízelvezetés",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Megnyúlt hajtás – kevés fény",
+    "Rothadás – túlöntözés"
+   ],
+   "pests": [
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "Az elnyílt virágokat vágd le – újra hoz bimbót.",
+    "Nyáron napos, télen világos helyen tartsd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "schefflera-arboricola",
+   "name": "Ernyőfa",
+   "latin": "Schefflera arboricola",
+   "aliases": [
+    "schefflera",
+    "ernyős fa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 8,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "40–60%",
+   "temp": "16–26 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Lehulló levél – huzat, hideg",
+    "Barna levélcsúcs – száraz levegő"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "A leveleket időnként permetezd be langyos vízzel.",
+    "Ne tedd huzatos ajtó közelébe."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "codiaeum-variegatum",
+   "name": "Kroton",
+   "latin": "Codiaeum variegatum",
+   "aliases": [
+    "csodacserje"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 14,
+   "repot": 24,
+   "humidity": "50–70%",
+   "temp": "18–27 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Levélesés – huzat, hideg",
+    "Színtelen levél – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Huzat- és hidegérzékeny – 18 °C alatt hullajtja a leveleit.",
+    "A színes levélhez sok szórt fény kell."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "chamaedorea-elegans",
+   "name": "Hegyi pálma",
+   "latin": "Chamaedorea elegans",
+   "aliases": [
+    "szobai pálma",
+    "chamaedorea"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 45,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "18–26 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélcsúcs – száraz levegő",
+    "Pajzstetű a levélhónaljban"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Alacsony, szűrt fényt is elvisel.",
+    "Ne engedd kiszárítani – vékony a gyökérzete."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "fittonia-albivenis",
+   "name": "Fittonia",
+   "latin": "Fittonia albivenis",
+   "aliases": [
+    "ideglevélke",
+    "mozaiknövény"
+   ],
+   "difficulty": "Nehéz",
+   "light": "Közepes",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 3,
+   "repot": 18,
+   "humidity": "60–70%",
+   "temp": "18–25 °C",
+   "soil": "Laza, tőzeges",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Azonnal elernyed – kiszáradás",
+    "Száraz levélszél – száraz levegő"
+   ],
+   "pests": [
+    "Takácsatka"
+   ],
+   "tips": [
+    "Drámai jelzőnövény: ha elernyed, azonnal öntözd meg.",
+    "Párás, meleg hely (üvegház, fürdő) ideális."
+   ],
+   "mistWater": "ion",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "alocasia-amazonica",
+   "name": "Alocasia",
+   "latin": "Alocasia amazonica",
+   "aliases": [
+    "elefántfül"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "60–70%",
+   "temp": "18–27 °C",
+   "soil": "Laza, levegős: kéreg + perlit",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Sárguló levél – pangó víz",
+    "Barna levélcsúcs – száraz levegő"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Tripsz"
+   ],
+   "tips": [
+    "Télen dobhatja a leveleit és pihen – ez normális.",
+    "A gumót tartsd csak enyhén nedvesen a szünetben."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "cactaceae",
+   "name": "Kaktusz",
+   "latin": "Cactaceae",
+   "aliases": [
+    "kaktusz"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Napos / déli ablak",
+   "water": 21,
+   "waterWinter": 35,
+   "fert": 60,
+   "mist": 0,
+   "repot": 36,
+   "humidity": "20–40%",
+   "temp": "10–30 °C",
+   "soil": "Kaktuszföld + homok vagy perlit",
+   "toxic": "Fajfüggő",
+   "diseases": [
+    "Rothadás – túlöntözés",
+    "Vékony, nyúlt növés – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Télen hűvös (8–12 °C) és szinte száraz pihenő kell.",
+    "Nyáron csak a föld kiszáradása után öntözd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "kaktusz",
+   "fertNpk": "N-P-K 3-5-7 (kaktusz/pozsgás)",
+   "fertDose": "1 ml / 1 l víz",
+   "fertFrom": 4,
+   "fertTo": 8,
+   "fertNote": "Csak a növekedési időszakban, élő, nedves földre; ősszel állj le vele."
+  },
+  {
+   "id": "senecio-rowleyanus",
+   "name": "Gyöngyfüzér",
+   "latin": "Senecio rowleyanus",
+   "aliases": [
+    "borsós nyaklánc",
+    "gyöngyvirág-pozsgás"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 14,
+   "waterWinter": 24,
+   "fert": 60,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "30–50%",
+   "temp": "15–27 °C",
+   "soil": "Kaktuszföld + perlit",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Zsugorodó szemek – kevés víz",
+    "Rothadó szár – túlöntözés"
+   ],
+   "pests": [
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "Csüngő edényben, fény felé nő a legszebben.",
+    "A földje öntözés között száradjon ki teljesen."
+   ],
+   "mistWater": "nem",
+   "fertKind": "kaktusz",
+   "fertNpk": "N-P-K 3-5-7 (kaktusz/pozsgás)",
+   "fertDose": "1 ml / 1 l víz",
+   "fertFrom": 4,
+   "fertTo": 8,
+   "fertNote": "Csak a növekedési időszakban, élő, nedves földre; ősszel állj le vele."
+  },
+  {
+   "id": "coffea-arabica",
+   "name": "Kávécserje",
+   "latin": "Coffea arabica",
+   "aliases": [
+    "szobai kávéfa"
+   ],
+   "difficulty": "Közepes",
+   "light": "Közepes",
+   "water": 7,
+   "waterWinter": 11,
+   "fert": 30,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "60–70%",
+   "temp": "18–24 °C",
+   "soil": "Laza, tápdús, savanyú kémhatású",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Barna levélfoltok – száraz levegő",
+    "Levélesés – huzat"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Szereti a párás, meleg, szórt fényes helyet.",
+    "Ne hagyd kiszáradni – vékonyak a levelei."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "ocimum-basilicum",
+   "name": "Bazsalikom",
+   "latin": "Ocimum basilicum",
+   "aliases": [
+    "bazsalikus",
+    "fűszernövény"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 3,
+   "waterWinter": 4,
+   "fert": 14,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "50–60%",
+   "temp": "20–26 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Elernyedő levél – kiszáradás",
+    "Megnyúlt szár – kevés fény"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "A virágot csípd le, hogy a levél maradjon a főszerepben.",
+    "Tartsd a konyha legvilágosabb, meleg helyén."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "mentha-spicata",
+   "name": "Menta",
+   "latin": "Mentha spicata",
+   "aliases": [
+    "fodormenta",
+    "fűszernövény"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 3,
+   "waterWinter": 4,
+   "fert": 14,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "50–60%",
+   "temp": "18–25 °C",
+   "soil": "Tápdús, nyirkos virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Sárguló levél – túlöntözés",
+    "Elszáradás – kiszáradás"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Tartsd nyirkosan, de ne álljon vízben.",
+    "Folyamatos szedéssel bokrosodik."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "salvia-rosmarinus",
+   "name": "Rozmaring",
+   "latin": "Salvia rosmarinus",
+   "aliases": [
+    "rosmarinus officinalis",
+    "fűszernövény"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "40–50%",
+   "temp": "15–25 °C",
+   "soil": "Homokos, jó vízelvezetésű",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Elszáradó levél – kiszáradás",
+    "Gyökérrothadás – pangó víz"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Szereti a sok napot és a jó szellőzést.",
+    "Télen hűvös, világos helyen tartsd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "lavandula-angustifolia",
+   "name": "Levendula",
+   "latin": "Lavandula angustifolia",
+   "aliases": [
+    "lavendula",
+    "fűszernövény"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 10,
+   "waterWinter": 16,
+   "fert": 45,
+   "mist": 0,
+   "repot": 24,
+   "humidity": "30–50%",
+   "temp": "12–25 °C",
+   "soil": "Homokos, meszes, jó vízelvezetés",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Gyökérrothadás – pangó víz",
+    "Nyúlt növés – kevés fény"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Imádja a napot és a száraz földet.",
+    "Virágzás után vágd vissza a felét."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "cyclamen-persicum",
+   "name": "Ciklámen",
+   "latin": "Cyclamen persicum",
+   "aliases": [
+    "álciklámen"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 5,
+   "waterWinter": 7,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "10–18 °C",
+   "soil": "Laza, tőzeges, jó vízelvezetés",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Rothadó gumó – víz a levélrózsában",
+    "Bimbóhullás – túl meleg"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Hűvös (10–18 °C) helyen virágzik sokáig.",
+    "Alulról öntözd, a gumót ne áztasd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi."
+  },
+  {
+   "id": "clivia-miniata",
+   "name": "Klívia",
+   "latin": "Clivia miniata",
+   "aliases": [
+    "szobaliliom",
+    "kafferliliom",
+    "clivia",
+    "kafirliliom"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 21,
+   "fert": 14,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "40–60%",
+   "temp": "10–20 °C (télen 10–12 °C)",
+   "soil": "Laza, tápdús, jó vízelvezetésű – a vastag gyökereket ne bolygasd",
+   "toxic": "Mérgező macskára és kutyára",
+   "diseases": [
+    "Gyökérrothadás – pangó víz a cserép alján",
+    "Levélfoltok – hideg víz a levélrózsába",
+    "Nincs virágzás – elmaradt a téli hideghatás",
+    "Bimbóbeszorulás – túl korán kapott meleget",
+    "Megnyúlt, sápadt levél – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "A virágzás titka a téli pihentetés: októbertől januárig 10–12 °C, szinte semmi víz, nulla tápoldat.",
+    "Ne forgasd és ne mozgasd – a bimbók elhalhatnak. Jelöld meg az ablak felőli oldalát.",
+    "Csak akkor vidd vissza a meleg (18–20 °C) szobába, ha a virágszár már 10–15 cm-es.",
+    "Bimbózáshoz kálium- és foszforgazdag (virágzó növényeknek való) tápoldat, tavasztól 2 hetente.",
+    "Szűk cserépben virágzik a legszebben – átültetni 2–3 évente, közvetlenül virágzás után.",
+    "Keleti vagy északi ablak a legjobb, nyáron ne érje tűző nap, mert megég a levél.",
+    "A leveleit ne permetezd: a levélrózsába jutó víz rothadást okoz."
+   ],
+   "mistWater": "nem",
+   "fertKind": "viragzo",
+   "fertNpk": "N-P-K 5-7-6 (P + K túlsúly)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Bimbózás előtt kezdd, virágzás közben is adható; télen semmi.",
+   "fertWinter": 0,
+   "coldWinter": true
+  },
+  {
+   "id": "zingiber-officinale",
+   "name": "Gyömbér",
+   "latin": "Zingiber officinale",
+   "aliases": [
+    "gyömbérgyökér",
+    "konyhai gyömbér",
+    "magról nevelhető"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 6,
+   "waterWinter": 14,
+   "fert": 21,
+   "mist": 7,
+   "repot": 12,
+   "humidity": "50–70%",
+   "temp": "20–28 °C",
+   "soil": "Laza, tápdús virágföld + perlit",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Sárguló levél – túlöntözés vagy téli pangó víz",
+    "Rothadó gumó – víz a cserép alján",
+    "Barna levélszél – száraz levegő"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "A bolti gyömbérgumót áztasd be, majd fektesd sekélyen nedves földbe, a rügyek felfelé.",
+    "Levelei dísznövényként is mutatósak – 60–90 cm-re is megnő.",
+    "Télen hűvösebb, világos helyen tartsd, és alig locsold."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "persea-americana",
+   "name": "Avokádó",
+   "latin": "Persea americana",
+   "aliases": [
+    "avokádófa",
+    "avokádó mag",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 7,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 14,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "18–27 °C",
+   "soil": "Laza, tápdús, jó vízelvezetésű virágföld",
+   "toxic": "Mérgező macskára és kutyára (a levele és a mag)",
+   "diseases": [
+    "Barna levélcsúcs – vízkő vagy száraz levegő",
+    "Levélhullás – hideg, huzat vagy túlöntözés",
+    "Kopasz, nyúlánk szár – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű",
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "A magot fogpiszkálóval víz fölé tedd – 3–6 hét alatt gyökerezik, de földbe fektetve is kihajt.",
+    "Ha kopaszra nő, vágd vissza a csúcsát – bokrosodni fog.",
+    "Szobában dísznövény: termést csak kertben, nagy fával hoz."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "curcuma-longa",
+   "name": "Kurkuma",
+   "latin": "Curcuma longa",
+   "aliases": [
+    "indiai sáfrány",
+    "kurkumagyökér",
+    "magról nevelhető"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 6,
+   "waterWinter": 14,
+   "fert": 21,
+   "mist": 7,
+   "repot": 12,
+   "humidity": "50–70%",
+   "temp": "20–28 °C",
+   "soil": "Laza, tápdús virágföld + perlit",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Sárguló levél – túlöntözés vagy pangó víz",
+    "Ősszel elszáradó levél – természetes pihenő"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A bolti kurkumagyökérből ugyanúgy hajt, mint a gyömbér.",
+    "Ősszel levelei elsárgulnak és behúznak, télen a gumó pihen – tavasszal újra hajt.",
+    "Nagy, díszes levelei miatt kedvelt szobanövény."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "ananas-comosus",
+   "name": "Ananász",
+   "latin": "Ananas comosus",
+   "aliases": [
+    "ananászfej",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 10,
+   "waterWinter": 18,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "50–60%",
+   "temp": "18–28 °C",
+   "soil": "Kaktuszföld és virágföld keveréke, jó vízelvezetés",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Rothadó levélrózsa – víz a levelek közepén",
+    "Barna levélcsúcs – száraz levegő"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A bolti ananász fejét csavard le, az alsó leveleket hámozd le, 2 napig szárítsd, majd ültesd laza földbe.",
+    "Lassan nő, de a levélrózsa mutatós dísz.",
+    "Télen kevesebb vizet adj, és ne locsold a levélrózsa közepét."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "ipomoea-batatas",
+   "name": "Édesburgonya",
+   "latin": "Ipomoea batatas",
+   "aliases": [
+    "batáta",
+    "indiai burgonya",
+    "magról nevelhető"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 4,
+   "waterWinter": 7,
+   "fert": 21,
+   "mist": 7,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "20–28 °C",
+   "soil": "Laza, homokos virágföld, jó vízelvezetés",
+   "toxic": "Enyhén mérgező kisállatokra (a levelei)",
+   "diseases": [
+    "Sárguló levél – túlöntözés",
+    "Rothadó gumó – pangó víz",
+    "Megnyúlt hajtás – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Levéltetű"
+   ],
+   "tips": [
+    "Egy bolti édesburgonyát félbevágva, fogpiszkálóval víz fölé téve 2–3 hét alatt gyökerezik és hajt.",
+    "A hajtásait vízben is gyökereztetheted, majd földbe ültetve futó dísznövény lesz.",
+    "Kedveli a meleget – 18 °C alatt alig nő."
+   ],
+   "mistWater": "eso",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "allium-sativum",
+   "name": "Fokhagyma",
+   "latin": "Allium sativum",
+   "aliases": [
+    "fokhagymazöld",
+    "hagymazöld",
+    "újhagyma zöldje",
+    "magról nevelhető"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Világos, szórt",
+   "water": 4,
+   "waterWinter": 7,
+   "fert": 21,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "15–24 °C",
+   "soil": "Általános, lazább virágföld",
+   "toxic": "Mérgező macskára és kutyára (hagymafélék)",
+   "diseases": [
+    "Sárguló levélcsúcs – túlöntözés",
+    "Elszáradó levél – kiszáradás"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Egy gerezd fokhagymát tedd cserépbe, hegyes végével felfelé – 1–2 hét alatt zöldje nő.",
+    "A zöldjét vágd le, a hagyma a földben marad és újra hajt.",
+    "Világos ablakban tartsd, nyáron a konyhakertbe is kivihető."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha."
+  },
+  {
+   "id": "citrus-spp",
+   "name": "Citrusmag",
+   "latin": "Citrus spp.",
+   "aliases": [
+    "citrommag",
+    "narancsmag",
+    "citrusfa magról",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 21,
+   "mist": 14,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "18–26 °C",
+   "soil": "Tápdús, savanyú kémhatású citrusföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Levélesés – huzat, hőingás",
+    "Sárga levél – tápanyaghiány",
+    "Barna levélcsúcs – száraz levegő"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Lisztes tetű"
+   ],
+   "tips": [
+    "A friss magot 1 napig áztasd, majd 1 cm mélyre ültesd laza földbe – 2–4 hét alatt kikel.",
+    "Sok fényt és meleget kér, télen 12–15 °C-on teleljen.",
+    "Szobában dísznövény: virágzás csak idővel, nagyobb példányon várható."
+   ],
+   "mistWater": "ion",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "phoenix-dactylifera",
+   "name": "Datolyapálma",
+   "latin": "Phoenix dactylifera",
+   "aliases": [
+    "datolyamag",
+    "datolya",
+    "magról nevelhető"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 7,
+   "waterWinter": 12,
+   "fert": 30,
+   "mist": 7,
+   "repot": 24,
+   "humidity": "40–50%",
+   "temp": "18–28 °C",
+   "soil": "Laza, homokos, jó vízelvezetés",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélcsúcs – száraz levegő",
+    "Rothadó mag – túl nedves föld",
+    "Megnyúlt levél – kevés fény"
+   ],
+   "pests": [
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A kimagozott datolyát 1–2 napig áztasd, majd ültesd – 4–8 hét alatt kikel.",
+    "Lassan nő, de a szúrós, legyezős levél nagyon mutatós.",
+    "Sok fényt és meleget szeret, nyáron az erkélyre is kivihető."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "mangifera-indica",
+   "name": "Mangófa",
+   "latin": "Mangifera indica",
+   "aliases": [
+    "mangómag",
+    "mangó",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 6,
+   "waterWinter": 10,
+   "fert": 30,
+   "mist": 10,
+   "repot": 24,
+   "humidity": "50–70%",
+   "temp": "20–28 °C",
+   "soil": "Laza, tápdús virágföld + perlit",
+   "toxic": "Enyhén mérgező kisállatokra",
+   "diseases": [
+    "Barna levélcsúcs – száraz levegő",
+    "Levélesés – hideg, huzat",
+    "Rothadó mag – túlöntözés"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "A magot bontsd ki a hüvelyéből, 2–3 napig szárítsd, majd lapjával fektesd félig földbe.",
+    "Gyorsan nő, de a hideget nem bírja – télen meleg, világos hely kell.",
+    "Ha túl nyúlánk, vágd vissza a csúcsát – bokrosodni fog."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "actinidia-deliciosa",
+   "name": "Kivi",
+   "latin": "Actinidia deliciosa",
+   "aliases": [
+    "kivimag",
+    "kivifa",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 21,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "18–26 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélcsúcs – száraz levegő",
+    "Sárguló levél – túlöntözés",
+    "Megnyúlt hajtás – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Pajzstetű"
+   ],
+   "tips": [
+    "Érett kiviből szedd ki a magokat, mosd meg és pár napig szárítsd.",
+    "Vetés után 3–6 hét alatt kel – melegen, fólia alatt gyorsabb.",
+    "Kúszónövény: adj neki támrudat, hogy felkapaszkodjon."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "passiflora-edulis",
+   "name": "Maracuja",
+   "latin": "Passiflora edulis",
+   "aliases": [
+    "passion fruit",
+    "passiógyümölcs",
+    "golgotavirág",
+    "magról nevelhető"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 4,
+   "waterWinter": 7,
+   "fert": 21,
+   "mist": 10,
+   "repot": 18,
+   "humidity": "50–60%",
+   "temp": "18–28 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Barna levélfoltok – pangó víz",
+    "Levélesés – huzat, hideg",
+    "Nem virágzik – kevés fény"
+   ],
+   "pests": [
+    "Takácsatka",
+    "Levéltetű"
+   ],
+   "tips": [
+    "A friss termésből kivett magot mosd meg, majd ültesd – 2–4 hét alatt kikel.",
+    "Gyorsan kúszik: rácson neveld, és metszd, hogy ne nyúljon meg.",
+    "Nyáron sok vizet és fényt kér, télen hűvösebb, világos helyen tartsd."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 + magnézium",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Termésérés alatt káliumot is adjon (pl. paradicsomtápoldat)."
+  },
+  {
+   "id": "petroselinum-crispum",
+   "name": "Petrezselyem",
+   "latin": "Petroselinum crispum",
+   "aliases": [
+    "fűszernövény",
+    "petrezselyemzöld"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 3,
+   "waterWinter": 5,
+   "fert": 14,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "15–25 °C",
+   "soil": "Tápdús, laza virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Sárguló levél – túlöntözés",
+    "Elszáradás – kiszáradás"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "A szárát vágd, ne a levelek közepét – így újra hajt.",
+    "Hűvösebb, világos helyen érzi jól magát, nyáron kint is tartható.",
+    "A magja lassan kel (2–4 hét) – áztatás után gyorsabb."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "allium-schoenoprasum",
+   "name": "Snidling",
+   "latin": "Allium schoenoprasum",
+   "aliases": [
+    "fűszernövény",
+    "metélőhagyma"
+   ],
+   "difficulty": "Nagyon könnyű",
+   "light": "Világos, szórt",
+   "water": 3,
+   "waterWinter": 5,
+   "fert": 21,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "15–22 °C",
+   "soil": "Tápdús virágföld",
+   "toxic": "Mérgező macskára és kutyára (hagymafélék)",
+   "diseases": [
+    "Sárguló levélcsúcs – túlöntözés",
+    "Elszáradás – kiszáradás"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "2–3 cm-re a föld felett vágd, gyorsan újra hajt.",
+    "Nyáron hozott lila virágai ehetők is.",
+    "Hűvösebb, világos hely a legjobb neki."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "origanum-vulgare",
+   "name": "Oregánó",
+   "latin": "Origanum vulgare",
+   "aliases": [
+    "fűszernövény",
+    "szurokfű"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 4,
+   "waterWinter": 6,
+   "fert": 21,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "40–50%",
+   "temp": "15–25 °C",
+   "soil": "Laza, homokos, jó vízelvezetés",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – pangó víz",
+    "Megnyúlt szár – kevés fény",
+    "Barna levél – szárazság"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Sok napot és kevés vizet szeret.",
+    "A virágzó csúcsot csípd le, így a levelei tömöttebbek maradnak.",
+    "Nyáron az erkélyre is kivihető."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "thymus-vulgaris",
+   "name": "Kakukkfű",
+   "latin": "Thymus vulgaris",
+   "aliases": [
+    "fűszernövény",
+    "timián"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "30–50%",
+   "temp": "15–25 °C",
+   "soil": "Homokos, kavicsos, jó vízelvezetés",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – túlöntözés",
+    "Kopaszodó tövű növény – kevés fény"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Mediterrán növény: száraz föld, sok fény, jó szellőzés.",
+    "Öntözés között hagyd kiszáradni a földjét.",
+    "Télen hűvös, világos helyen tartsd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "salvia-officinalis",
+   "name": "Zsálya",
+   "latin": "Salvia officinalis",
+   "aliases": [
+    "fűszernövény"
+   ],
+   "difficulty": "Közepes",
+   "light": "Napos / déli ablak",
+   "water": 5,
+   "waterWinter": 8,
+   "fert": 30,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "40–50%",
+   "temp": "15–25 °C",
+   "soil": "Homokos, laza virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – pangó víz",
+    "Elszáradó levél – száraz, meleg levegő"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "A fűtött szoba száraz neki – hűvösebb, világos hely kedvez.",
+    "Metszd virágzás előtt, hogy ne forduljon el virágba.",
+    "Az alsó leveleit szedd, ne a csúcsokat."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "coriandrum-sativum",
+   "name": "Koriander",
+   "latin": "Coriandrum sativum",
+   "aliases": [
+    "fűszernövény",
+    "korianderzöld"
+   ],
+   "difficulty": "Közepes",
+   "light": "Világos, szórt",
+   "water": 3,
+   "waterWinter": 5,
+   "fert": 14,
+   "mist": 0,
+   "repot": 12,
+   "humidity": "40–60%",
+   "temp": "15–24 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Megnyúlt szár – kevés fény",
+    "Sárguló levél – túlöntözés",
+    "Hamar virágba fordul – meleg"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Hűvös, világos helyen lassabban fordul virágba.",
+    "2–3 hetente vess új adagot, mert hamar befejezi.",
+    "A levelét szedd, a virágzó szárat vágd le."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "melissa-officinalis",
+   "name": "Citromfű",
+   "latin": "Melissa officinalis",
+   "aliases": [
+    "fűszernövény",
+    "melissza"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Közepes",
+   "water": 3,
+   "waterWinter": 5,
+   "fert": 21,
+   "mist": 5,
+   "repot": 18,
+   "humidity": "40–60%",
+   "temp": "15–25 °C",
+   "soil": "Laza, tápdús virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Levélfoltok – túlöntözés",
+    "Megnyúlt szár – kevés fény"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Citromos illatú, teának kiváló – rendszeres szedéssel bokrosodik.",
+    "Virágzás előtt vágd le, akkor a legillatosabb.",
+    "Nyáron a félárnyékot is elviseli."
+   ],
+   "mistWater": "eso",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "origanum-majorana",
+   "name": "Majoranna",
+   "latin": "Origanum majorana",
+   "aliases": [
+    "fűszernövény",
+    "majoránna"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 4,
+   "waterWinter": 6,
+   "fert": 21,
+   "mist": 0,
+   "repot": 18,
+   "humidity": "40–50%",
+   "temp": "18–26 °C",
+   "soil": "Laza, homokos virágföld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Gyökérrothadás – pangó víz",
+    "Megnyúlt szár – kevés fény"
+   ],
+   "pests": [
+    "Levéltetű"
+   ],
+   "tips": [
+    "Meleget és sok napot szeret – a legnaposabb ablak jó neki.",
+    "Vágd a csúcsokat használatkor, így sűrű marad.",
+    "Télen világos, hűvösebb helyen tartsd."
+   ],
+   "mistWater": "nem",
+   "fertKind": "level",
+   "fertNpk": "N-P-K 7-3-5 (univerzális, hígabban)",
+   "fertDose": "1 ml / 1 l víz (fél adag)",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Fél adag elég: a túl sok nitrogén ízt ront és levéltetvet hoz."
+  },
+  {
+   "id": "drimiopsis-maculata",
+   "name": "Leopárdnövény",
+   "latin": "Drimiopsis maculata",
+   "aliases": [
+    "leopárdnövény",
+    "pöttyös leopárdnövény",
+    "pettyes leopárdnövény",
+    "Ledebouria petiolata",
+    "afrikai pöttyös hagymás"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 10,
+   "waterWinter": 18,
+   "fert": 30,
+   "mist": 0,
+   "repot": 30,
+   "humidity": "40–60%",
+   "temp": "18–24 °C",
+   "soil": "Laza, jó vízelvezetésű keverék: virágföld + perlit + homok",
+   "toxic": "Nem ismert mérgező hatása – kisállatbarát",
+   "diseases": [
+    "Gyökérrothadás – túlöntözés, pangó víz",
+    "Sárguló, puha levél – télen hideg és nedves föld",
+    "Barna levélcsúcs – meszes öntözővíz"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Két öntözés között a föld felszíne száradjon ki – a hagyma a pangó vizet nem bírja.",
+    "A pettyek kontrasztja szórt fényben erősödik, tűző napon kifakulhat.",
+    "Lassan nő: csak 2-3 évente ültesd át, a kisebb cserépben is jól érzi magát.",
+    "Tavasszal fehér fürtvirágzatot hoz a levelek fölé.",
+    "Magyar webshopból beszerezhető (tropusinoveny.hu), 12 cm-es cserépben, több tővel érkezik."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha.",
+   "fertWinter": 0
+  },
+  {
+   "id": "beaucarnea-recurvata",
+   "name": "Elefántláb",
+   "latin": "Beaucarnea recurvata",
+   "aliases": [
+    "elefántláb",
+    "elefantlab",
+    "palackfa",
+    "nolina",
+    "lófarkú pálma",
+    "Nolina recurvata",
+    "bokorliliom-fa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos / déli ablak",
+   "water": 14,
+   "waterWinter": 35,
+   "fert": 30,
+   "mist": 0,
+   "repot": 24,
+   "humidity": "30–50%",
+   "temp": "18–27 °C (télen legalább 10 °C)",
+   "soil": "Kaktuszföld + kevés tőzeg, jó vízelvezetéssel – a szűk cserép jó neki",
+   "toxic": "Nem mérgező – kisállatbarát",
+   "diseases": [
+    "Szárrothadás – a leggyakoribb ok a túlöntözés",
+    "Levélfoltosság – pangó víz, rossz szellőzés",
+    "Bakteriális levélfoltosság – nedves levélzet",
+    "Gyökérrothadás – nem tud kiszikkadni a föld"
+   ],
+   "pests": [
+    "Pajzstetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "A megvastagodott törzs nedvességtároló: tavasztól őszig mérsékelten öntözd, télen szinte szárazon tartsd.",
+    "A kaktuszföld + tőzeg keverék és a szűk cserép védi a legjobban a szárrothadástól.",
+    "Télen világos, hűvös hely (legalább 10 °C) kell neki – nyáron a védett erkély is jó.",
+    "Tavasztól őszig havonta tápoldat, októbertől február végéig semmi.",
+    "Ha nagyobb példányt szeretnél, évente tavasszal ültesd át – ha pedig maradjon kicsi, elég 2–3 évente.",
+    "Forrás: szobakertesz.hu – Elefántláb gondozása (részletes útmutató)."
+   ],
+   "mistWater": "nem",
+   "fertKind": "tapoldat",
+   "fertNpk": "N-P-K 7-3-5 (univerzális)",
+   "fertDose": "2 ml / 1 l víz",
+   "fertFrom": 3,
+   "fertTo": 9,
+   "fertNote": "Mindig nedves földre, öntözés helyett – száraz földre soha.",
+   "fertWinter": 0
+  },
+  {
+   "id": "allium-cepa",
+   "name": "Vöröshagyma",
+   "latin": "Allium cepa",
+   "aliases": [
+    "hagyma",
+    "dughagyma",
+    "vöröshagyma",
+    "kerti hagyma"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 7,
+   "waterWinter": 0,
+   "fert": 30,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "40–60%",
+   "temp": "10–25 °C",
+   "soil": "Laza, humuszos, jó vízelvezetésű kerti talaj",
+   "toxic": "Mérgező macskára és kutyára (hagymafélék)",
+   "diseases": [
+    "Peronoszpóra – csapadékos, hűvös idő",
+    "Hagymalégy – sárguló, lankadó levél",
+    "Rothadás – pangó víz a talajban"
+   ],
+   "pests": [
+    "Hagymalégy",
+    "Tripsz"
+   ],
+   "tips": [
+    "Ne öntözd túl: a hagyma a pangó vizet nem szereti, könnyen rothad.",
+    "A leveleit ne vágd le a betakarítás előtt – azok táplálják a hagymát.",
+    "Ugyanarra az ágyásra 3–4 évig ne kerüljön újra hagymaféle."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 8,
+   "sow": "március–április (magról vagy dughagymából)",
+   "harvest": "július–augusztus",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "2–3 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Ültetés előtt a talajba dolgozva; műtrágya helyett komposzt."
+  },
+  {
+   "id": "allium-sativum",
+   "name": "Kerti fokhagyma",
+   "latin": "Allium sativum",
+   "aliases": [
+    "fokhagyma",
+    "dughagymás fokhagyma",
+    "őszi fokhagyma"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 8,
+   "waterWinter": 0,
+   "fert": 45,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "40–60%",
+   "temp": "8–25 °C",
+   "soil": "Laza, tápdús, jó vízelvezetésű talaj",
+   "toxic": "Mérgező macskára és kutyára (hagymafélék)",
+   "diseases": [
+    "Rozsda – narancssárga levélfoltok",
+    "Baktériumos rothadás – pangó víz",
+    "Fehérpenész – túl sűrű vetés"
+   ],
+   "pests": [
+    "Hagymalégy"
+   ],
+   "tips": [
+    "A gerezdeket hegyes végükkel felfelé, 5 cm mélyre tedd.",
+    "A virágzó szárat vágd le, hogy a hagymába menjen az erő.",
+    "Akkor szedd fel, amikor a levelek alsó harmada már sárgul."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 7,
+   "sow": "október–november (gerezdenként) vagy kora tavasszal",
+   "harvest": "június–július",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "2 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Csak a tavaszi növekedéskor; nyáron már ne kapjon nitrogént."
+  },
+  {
+   "id": "daucus-carota",
+   "name": "Sárgarépa",
+   "latin": "Daucus carota",
+   "aliases": [
+    "répa",
+    "sárgarépa",
+    "kerti répa"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 5,
+   "waterWinter": 0,
+   "fert": 30,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–70%",
+   "temp": "10–24 °C",
+   "soil": "Mély, laza, kőmentes talaj – a görcsös répa jele a köves föld",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Répa-légy – kis lyukak a gyökéren",
+    "Sárguló levél – tápanyaghiány",
+    "Villás, görcsös gyökér – köves, tömör talaj"
+   ],
+   "pests": [
+    "Répa-légy",
+    "Levéltetű"
+   ],
+   "tips": [
+    "Vékonyítsd ki 4–6 cm-re, különben apró répák lesznek.",
+    "A magot ne takard be mélyen – 1 cm elég, és tartsd nedvesen a kelésig.",
+    "Homokos, laza földben lesz egyenes és szép."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 10,
+   "sow": "március–június (2–3 hetente, elhúzva)",
+   "harvest": "július–október",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "2–3 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Friss istállótrágyát ne kapjon – villás gyökeret okoz."
+  },
+  {
+   "id": "beta-vulgaris",
+   "name": "Cékla",
+   "latin": "Beta vulgaris",
+   "aliases": [
+    "céklarépa",
+    "vörös cékla",
+    "béta"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 5,
+   "waterWinter": 0,
+   "fert": 30,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–70%",
+   "temp": "10–25 °C",
+   "soil": "Laza, humuszos, enyhén meszes talaj",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Levélfoltosság – nedves lombozat",
+    "Rothadó gyökér – pangó víz"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Földibolha"
+   ],
+   "tips": [
+    "A magot 2–3 cm mélyre vesd, a sort 25–30 cm-re hagyd.",
+    "Ritkítsd 8–10 cm-re; a kitépett levelet meg is eheted.",
+    "A levelét is használhatod – salátába kiváló."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 4,
+   "seasonTo": 10,
+   "sow": "április–június",
+   "harvest": "július–október",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "2–3 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Bórax (bór) hiányában fekete folt jelenhet meg a gyökéren."
+  },
+  {
+   "id": "raphanus-sativus",
+   "name": "Retek",
+   "latin": "Raphanus sativus",
+   "aliases": [
+    "hónapos retek",
+    "piros retek",
+    "jégcsap retek"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 4,
+   "waterWinter": 0,
+   "fert": 30,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–70%",
+   "temp": "10–22 °C",
+   "soil": "Laza, homokos, tápdús talaj",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Csípős, üreges gyökér – vízhiány",
+    "Földibolha – lyukas levelek"
+   ],
+   "pests": [
+    "Földibolha",
+    "Répa-légy"
+   ],
+   "tips": [
+    "A legkönnyebb kerti növény: 25–30 nap alatt már szedhető.",
+    "Ne hagyd kiszáradni – a vízhiánytól csípős és üreges lesz.",
+    "Nyárra félárnyékba vesd, mert a melegben hamar virágzik."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 9,
+   "sow": "március–augusztus (2 hetente)",
+   "harvest": "április–október",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "1–2 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Sokat nem kér – a friss trágya csúf, leveles növést okoz."
+  },
+  {
+   "id": "lactuca-sativa",
+   "name": "Fejes saláta",
+   "latin": "Lactuca sativa",
+   "aliases": [
+    "saláta",
+    "fejes saláta",
+    "jégsaláta"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Világos, szórt",
+   "water": 4,
+   "waterWinter": 0,
+   "fert": 21,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "60–70%",
+   "temp": "10–22 °C",
+   "soil": "Laza, tápdús, nyirkos talaj",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Csúcsrothadás – kalciumhiány, egyenetlen öntözés",
+    "Levéltetű a fej belsejében",
+    "Nyálkás rothadás – túlöntözés"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Csigák"
+   ],
+   "tips": [
+    "Egyenletesen öntözd – a hirtelen szárazság után csúcsrothadás jön.",
+    "Nyáron árnyékold, mert 25 °C felett magba szökik.",
+    "Fejenként 2–3 hetente vess egy adagot, hogy folyamatos legyen a szedés."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 9,
+   "sow": "március–augusztus (folyamatosan)",
+   "harvest": "május–október",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "1–2 marék érett komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Nitrogénből sokat kér, de friss trágyától nyálkás lesz."
+  },
+  {
+   "id": "solanum-lycopersicum",
+   "name": "Paradicsom",
+   "latin": "Solanum lycopersicum",
+   "aliases": [
+    "paradicsom",
+    "kerti paradicsom",
+    "koktélparadicsom"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 3,
+   "waterWinter": 0,
+   "fert": 14,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–65%",
+   "temp": "15–28 °C",
+   "soil": "Tápdús, laza, komposzttal javított talaj",
+   "toxic": "Mérgező macskára és kutyára (levél, zöld termés)",
+   "diseases": [
+    "Fitoftóra – barna foltok, esős-hűvös idő",
+    "Csúcsrothadás – kalciumhiány",
+    "Repedő termés – egyenetlen öntözés",
+    "Lisztharmat – rossz szellőzés"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Takácsatka",
+    "Bagolylepke"
+   ],
+   "tips": [
+    "Karózva neveld, és a hónaljhajtásokat törd le – így lesz termés.",
+    "Leveleit alulról szedd, hogy szellőzzön és ne kapjon fitoftórát.",
+    "Terméséréskor káliumos tápoldatot adjon (nem nitrogént)."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 4,
+   "seasonTo": 10,
+   "sow": "február–március (palántának), kiültetés májusban",
+   "harvest": "július–október",
+   "fertKind": "komposzt",
+   "fertNpk": "magas kálium (pl. N-P-K 5-5-10)",
+   "fertDose": "3 marék komposzt / m² + 2 hetente káliumos tápoldat",
+   "fertFrom": 5,
+   "fertTo": 8,
+   "fertNote": "Palántázás után 2 héttel kezdd; virágzástól káliumtúlsúly."
+  },
+  {
+   "id": "capsicum-annuum",
+   "name": "Paprika",
+   "latin": "Capsicum annuum",
+   "aliases": [
+    "kerti paprika",
+    "csípős paprika",
+    "kaliforniai paprika"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 4,
+   "waterWinter": 0,
+   "fert": 21,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–65%",
+   "temp": "18–28 °C",
+   "soil": "Tápdús, laza, meleg talaj",
+   "toxic": "Nem mérgező (a szem (mag) enyhén irritáló)",
+   "diseases": [
+    "Csúcsrothadás – kalciumhiány",
+    "Lombkorhadás – túlöntözés",
+    "Napégés – hirtelen tűző nap"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Meleget kér: 15 °C alatt megáll a növekedése.",
+    "Kiültetés előtt szoktasd a naphoz és a kinti levegőhöz.",
+    "A termést éretten szedd – a piros/sárga szín a jel."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 4,
+   "seasonTo": 10,
+   "sow": "február–március (palánta), kiültetés májusban",
+   "harvest": "július–október",
+   "fertKind": "komposzt",
+   "fertNpk": "kiegyenlített, kevés nitrogén",
+   "fertDose": "3 marék komposzt / m² + 3 hetente tápoldat",
+   "fertFrom": 5,
+   "fertTo": 8,
+   "fertNote": "Virágzás után kálium felé toljuk; nitrogént csak tavasszal."
+  },
+  {
+   "id": "cucumis-sativus",
+   "name": "Uborka",
+   "latin": "Cucumis sativus",
+   "aliases": [
+    "kerti uborka",
+    "kígyóuborka",
+    "befőttes uborka"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 2,
+   "waterWinter": 0,
+   "fert": 14,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "60–80%",
+   "temp": "18–28 °C",
+   "soil": "Tápdús, laza, nyirkos talaj – sok komposzt",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Lisztharmat – fehér bevonat a levélen",
+    "Peronoszpóra – sárguló foltok",
+    "Keserű termés – vízhiány vagy hőstressz"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Takácsatka"
+   ],
+   "tips": [
+    "Naponta-kétnaponta öntözd – a rendszertelen víz keserű termést ad.",
+    "Kúszva vagy rácson is nevelhető; a rácson szebb, egyenes termés lesz.",
+    "A termést fiatalon szedd, akkor folyamatosan hoz újat."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 4,
+   "seasonTo": 9,
+   "sow": "április–május (vagy palántából májusban)",
+   "harvest": "június–szeptember",
+   "fertKind": "komposzt",
+   "fertNpk": "N-P-K 7-3-5 (sok vizet és nitrogént kér)",
+   "fertDose": "3 marék komposzt / m² + 2 hetente tápoldat",
+   "fertFrom": 5,
+   "fertTo": 8,
+   "fertNote": "Öntözéssel együtt, mindig nedves földre."
+  },
+  {
+   "id": "solanum-tuberosum",
+   "name": "Burgonya",
+   "latin": "Solanum tuberosum",
+   "aliases": [
+    "krumpli",
+    "kerti burgonya",
+    "korai burgonya"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 5,
+   "waterWinter": 0,
+   "fert": 30,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–70%",
+   "temp": "12–25 °C",
+   "soil": "Laza, humuszos, mély talaj",
+   "toxic": "Mérgező macskára és kutyára (zöld gumó, levél)",
+   "diseases": [
+    "Burgonyabogár – lerágott levél",
+    "Fitoftóra – barna foltok, esős idő",
+    "Zöld gumó – fény éri a gumókat"
+   ],
+   "pests": [
+    "Burgonyabogár",
+    "Levéltetű"
+   ],
+   "tips": [
+    "Töltögesd fel a tövét – a fényt kapó gumó megzöldül és mérgező lesz.",
+    "A gumót csak a virágzás után kezdd kiásni, akkor nagyobb.",
+    "Ugyanoda 3 évig ne kerüljön – a talajban maradó betegségek miatt."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 9,
+   "sow": "március–április (csíráztatott gumóval)",
+   "harvest": "július–szeptember",
+   "fertKind": "istallo",
+   "fertNpk": "",
+   "fertDose": "3–4 marék érett istállótrágya / m² ősszel",
+   "fertFrom": 9,
+   "fertTo": 10,
+   "fertNote": "Istállótrágyát ősszel a talajba; tavasszal komposzt is elég."
+  },
+  {
+   "id": "fragaria-ananassa",
+   "name": "Eper",
+   "latin": "Fragaria × ananassa",
+   "aliases": [
+    "kerti eper",
+    "szamóca",
+    "eperpalánta"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 4,
+   "waterWinter": 0,
+   "fert": 21,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "60–70%",
+   "temp": "12–26 °C",
+   "soil": "Laza, tápdús, enyhén savanyú talaj",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Szürkepenész – nedves, meleg idő",
+    "Levélfoltosság",
+    "Gyökérrothadás – pangó víz"
+   ],
+   "pests": [
+    "Levéltetű",
+    "Csigák",
+    "Madarak"
+   ],
+   "tips": [
+    "A töveket 25–30 cm-re ültesd, a szívlevél a talajszinten legyen.",
+    "Szalmával takard a tövét – így a termés tiszta marad.",
+    "Szedés után vágd vissza az indákat, és ritkítsd a töveket."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 10,
+   "sow": "augusztus–szeptember (tővel) vagy tavasszal",
+   "harvest": "május–június",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "2 marék komposzt / m² tavasszal",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Terméséréskor már ne kapjon nitrogént – az a levelet növeli."
+  },
+  {
+   "id": "pisum-sativum",
+   "name": "Zöldborsó",
+   "latin": "Pisum sativum",
+   "aliases": [
+    "borsó",
+    "zöldborsó",
+    "kifejtő borsó"
+   ],
+   "difficulty": "Könnyű",
+   "light": "Napos",
+   "water": 4,
+   "waterWinter": 0,
+   "fert": 45,
+   "mist": 0,
+   "repot": 0,
+   "humidity": "50–70%",
+   "temp": "8–22 °C",
+   "soil": "Laza, meszes, jó vízelvezetésű talaj",
+   "toxic": "Nem mérgező",
+   "diseases": [
+    "Lisztharmat – nyár végi fehér bevonat",
+    "Borsó-levéltetű",
+    "Gyökérrothadás – pangó víz"
+   ],
+   "pests": [
+    "Borsó-levéltetű",
+    "Borsómoly"
+   ],
+   "tips": [
+    "A borsó maga köti a nitrogént – utána zöldséget érdemes utána vetni.",
+    "Kapaszkodó ágat adj neki, vagy vessük sűrűbben.",
+    "A hüvelyt fiatalon szedd, akkor édes."
+   ],
+   "mistWater": "nem",
+   "fertWinter": 0,
+   "garden": true,
+   "seasonFrom": 3,
+   "seasonTo": 8,
+   "sow": "március–április (minél előbb)",
+   "harvest": "június–július",
+   "fertKind": "komposzt",
+   "fertNpk": "",
+   "fertDose": "1 marék komposzt / m²",
+   "fertFrom": 4,
+   "fertTo": 7,
+   "fertNote": "Nitrogén-trágyát ne kapjon: maga is köti a levegőből."
+  }
+ ]
+}

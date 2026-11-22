@@ -1,0 +1,13 @@
+<!-- FLORUM 1.7.0 · otthoni növénygondozó · fájl: florum.svg (ikon) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f9b6b"/>
+      <stop offset="1" stop-color="#1f5c3c"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#bg)"/>
+  <path d="M47 15c0 15.5-8.6 26-19 26-2 0-3.9-.4-5.5-1.1C21 25.5 29.5 15 47 15Z" fill="#d7f0e0"/>
+  <path d="M15 52c2.8-11.4 7.6-18.6 14.8-23.4" stroke="#d7f0e0" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  <path d="M27 36c-1-6.6 1.2-11.4 5.6-14.6" stroke="#1f5c3c" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".35"/>
+</svg>

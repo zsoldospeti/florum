@@ -1,0 +1,53 @@
+# ==============================================================
+#  FLORUM – docker compose (Arcane-barát)
+#
+#  Ez a fájl az „igazság forrása”: ha Arcane Git-szinkronnal
+#  követi a repót, akkor ez a compose.yaml telepíti a konténert.
+#
+#  Indítás kézzel:
+#      docker compose -f docker/compose.yaml up -d
+#
+#  Arcane-ban: Stacks → Create Stack → másold be ezt a fájlt,
+#  vagy Git Sync-kel kösd össze a repót (path: docker/compose.yaml).
+# ==============================================================
+name: florum
+
+services:
+  florum:
+    # ha nem építed magad, használhatsz saját regisztrációs címkét is
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        FLORUM_VERSION: "1.33.2"
+    image: florum:${FLORUM_VERSION:-1.33.2}
+    container_name: florum
+    restart: unless-stopped
+    ports:
+      # CSAK a helyi gépről legyen elérhető. Ha a hálózaton is kell,
+      # írd át így:  "8777:8777"  – de akkor tedd tűzfal mögé!
+      - "127.0.0.1:8777:8777"
+    environment:
+      TZ: Europe/Budapest
+      # a program ezt használja adatmappának; a kötet ide csatolódik
+      FLORUM_DATA: /data
+    volumes:
+      # ── EZ A LÉNYEG: az adatok a gazdagépen maradnak ──
+      # a bal oldal a gazdagép mappája (Arcane alatt a ./data a stack mappájában van),
+      # a jobb oldal a konténeren belüli /data
+      - ./data:/data
+    # a Florum nem root-ként fut (a Dockerfile-ban uid 1000)
+    user: "1000:1000"
+    healthcheck:
+      test: ["CMD", "python3", "-c",
+             "import urllib.request,sys;sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8777/api/info',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      # ne nőjön a napló a végtelenségig
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

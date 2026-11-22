@@ -1,0 +1,586 @@
+==============================================================
+ FLORUM 1.33.2  ·  otthoni növénygondozó
+ KDE panel – Digitális óra, naptár (.ics) és figyelmeztetés
+==============================================================
+
+MI ÚJ EBBEN A VERZIÓBAN?
+  A Florum teendőit naptárfájlba (.ics) írja, amit a KDE
+  panel Digitális órája eseményként tud mutatni – és
+  figyelmeztetni is tud rájuk.
+
+  * GITHUB – VERZIÓKÖVETÉS ÉS FRISSÍTÉS (1.33.2)
+    A program felkerülhet GitHubra (privát repó), és
+    onnantól a frissítés egy parancs. A növényeid,
+    méréseid, fotóid NEM mennek fel (a .gitignore kizárja).
+
+    Egyszeri beállítás:
+
+        cd ~/florum
+        bash florum-kiadas.sh --git-elokeszites
+        git remote add origin \
+            git@github.com:FELHASZNALONEV/florum.git
+        git push -u origin main
+
+    Új verzió kiadása (verzió mindenhol + build + teszt + zip):
+
+        bash florum-kiadas.sh --uj 1.33.3 --epit --csomag
+        bash florum-kiadas.sh --feltoltes
+
+    Frissítés a gépeden:
+
+        cd ~/florum && git pull && bash florum-frissites.sh
+
+    Dockerben: bash docker/florum-docker.sh frissit
+    Arcane: Git Syncs → a repó → Auto Sync.
+    Részletek és hibaüzenet-táblázat: README 24. fejezet.
+
+  * „NEM FRISSÜL A MUNKATERÜLET” – MEGOLDVA (1.33.2)
+    A munkaterületen három florum.html van, és a
+    build két lépésből áll. Ha a második kimarad,
+    a felület a régi példányt mutatja:
+
+        cd ~/florum
+        python3 build-plant-db.py --html \
+            ~/minden_html-original/florum/florum.html
+        bash kinezet-egyesites.sh
+
+    Ellenőrzés (mostantól ezt is nézi):
+
+        python3 teszt-verzio.py      # 31/0
+
+    A teszt elbukik, ha a három példány verziója
+    eltér, vagy ha az egyesített példány lemaradt.
+    Részletek: README 23. fejezet.
+
+  * HŐMÉRSÉKLET-GRAFIKON (1.33.2)
+    A Hőmérséklet fülön a kártyák alatt most van egy
+    rendes diagram: helyiségenként külön vonal, °C-tengely,
+    zöld „ideális sáv” a növények hőmérséklet-tartományából,
+    mai nap jelölve, 7 / 14 / 30 / 90 napos időtartam.
+
+    A vonal a mérések között egyenesen vezet át (a szoba
+    hőmérséklete nem ugrik), a pontok a mérések – egérrel
+    a dátum és az érték is látszik. Alatta összegzés:
+    utolsó érték, min, max, átlag, ingás helyiségenként.
+
+    Nem kell hozzá internet és külső könyvtár.
+
+  * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.2)
+    A Florumhoz kész Docker-kép és Arcane-barát compose fájl van:
+
+        docker/Dockerfile        a kép (nem root, /data kötet, healthcheck)
+        docker/compose.yaml      docker compose / Arcane stack
+        docker/florum-docker.sh  egyparancsos segéd
+
+    A LÉNYEG: az adat köteten legyen, ne a konténerben.
+
+        volumes:
+          - ./data:/data
+
+    Frissítés (a legegyszerűbb ma este):
+
+        unzip -o florum-1.33.2-tiszta.zip -d ~/florum-uj
+        cd ~/florum-uj/florum
+        bash docker/florum-docker.sh frissit
+
+    Vagy Arcane-ban: Git Syncs → repository + docker/compose.yaml → Auto Sync.
+    Attól kezdve egy git push = új verzió, az adat megmarad.
+
+    Hasznos parancsok:
+        bash docker/florum-docker.sh allapot     (fut-e, hol az adat, mekkora)
+        bash docker/florum-docker.sh mentes      (ZIP a kötetből, frissítés előtt)
+        bash docker/florum-docker.sh ellenorzes  (a futó példány /api/info-ja)
+
+    FIGYELEM: Arcane-ban a „container restart" NEM frissít – a régi képet
+    indítja újra. A stacket kell újraépíteni (Rebuild/Pull).
+
+    HA EZT ÍRJA: „Conflict. The container name /florum is already in use”
+      → a régi konténer még létezik. NE töröld előbb! Előbb mentés:
+
+        bash docker/florum-docker.sh atvesz
+
+      Ez kimásolja a régi konténer adatait a docker/data mappába
+      (és egyesíti, ha ott már van valami), kiírja hány növény/napló/mérés
+      van benne, csak utána törli a régi konténert, és indítja az újat.
+
+      Kézzel, lépésenként:
+        bash docker/florum-docker.sh utkozes      (mi fut, hol az adat)
+        bash docker/florum-docker.sh mentes-regi  (mentés)
+        docker rm -f florum                       (csak ezután!)
+        bash docker/florum-docker.sh indit
+    Asztali értesítés (notify-send) konténerben nincs; a naptár .ics és a
+    felület emlékeztetője viszont működik.
+
+  * HŐMÉRSÉKLET MODUL – HELYISÉGENKÉNTI MÉRÉS (1.32.0)
+    Új fül: Hőmérséklet. Ide írod be, amit a hőmérőn látsz –
+    helyiségenként, naponta.
+
+        Hőmérséklet fül → Mérés rögzítése
+          · helyiség (a növények helyiségei + „Új helyiség”)
+          · hőmérséklet (a magyar vessző is jó: 22,5)
+          · páratartalom, nap, megjegyzés – nem kötelező
+          · „Minden helyiség ma” – sorban bekéri a többit
+          · CSV letöltés táblázatkezelőbe
+
+    Mit számol belőle:
+      · helyiségenként: mai érték, 7 és 30 napos átlag, hőingás,
+        trend (melegszik / hűl), 14 napos kis grafikon
+      · AZ ÖNTÖZÉS A MÉRÉSHEZ IGAZODIK, nem a naptárhoz és nem a
+        havi átlaghoz: 28 °C-on egy 7 napos növény 5 napos lesz,
+        18 °C-on egy 12 napos 14 napos
+      · a trend is számít (a cserép földje lassan követi a szobát)
+      · 10 napnál régebbi mérés nem számít – onnantól a havi átlag lép be
+
+    Hol látszik még:
+      · Ma fül: helyiségenként egy kocka a mai hőmérséklettel
+      · Naptár (Nap/Hónap): a rács fölött havi hőmérséklet-sáv
+      · Növények fül: „🌡 ×0,70” a kártyán
+      · teendő-sor: „🌡 meleg szoba, hamarabb (×0,70)” + magyarázat
+
+    A mérések a florum-data.json-ba mentődnek (max. 4000 mérés),
+    és a florum-atkoltoztetes.sh is átviszi őket.
+
+  * HŐMÉRSÉKLET SZERINTI ÖNTÖZÉS (1.31.0)
+    Eddig a naptár döntött (nyári / téli időköz). Mostantól bekapcsolható,
+    hogy a szoba hőmérséklete is számítson:
+
+        Beállítások → Szoba hőmérséklete → kapcsoló be
+
+      · add meg a 12 hónap átlagát (előre kitöltve: nyár 27–28 °C, tél 21 °C)
+      · gyorsgombok: Nyári átlag · Téli átlag · Vissza az alapértékre
+      · a növény űrlapján: „Hőmérséklet, amit szeret (°C)” (pl. 15–27) –
+        a linkről kiolvasott adatból ez magától kitöltődik
+
+    Mit jelent: melegben sűrűbben, hűvösben ritkábban jelez öntözést
+    (×0,70 … ×1,40 között). Nyáron 28 °C-on egy 7 napos növény 5 napos
+    lesz; télen 21 °C-on a 12 napos 12–13 napos marad.
+
+      · a tápoldatozást NEM igazítja – azt a szezon vezérli
+      · a téli szünet (okt. 1. – febr. vége) sérthetetlen
+      · kikapcsolva minden pontosan úgy megy, mint eddig
+
+    Hol látszik: a teendő-sorban „🌡 meleg szoba, hamarabb (×0,70)”,
+    a Növények fülön a kártyán „🌡 ×0,70”, az űrlapon magyarázó sor.
+
+  * NAPTÁRVÁLASZTÓ A KDE ABLAKBAN (1.30.6)
+    A dátummezőknél a választó eddig a böngészőmotor külön felugró
+    ablaka volt – a KDE-s ablakban ez felugrott és azonnal eltűnt.
+    Most saját naptár van, a lapon belül:
+
+      · szövegmező + naptár gomb (2026. 11. 15.)
+      · hónap- és év-léptetés, a mai nap bekeretezve
+      · Ma · Holnap · Törlés  gyorsgombok
+      · görgetésre NEM csukódik be, csak követi a mezőt
+      · kézzel is beírható: 2026. 11. 15. / 2026-11-15 / 2026/11/15
+      · Esc vagy kívülre kattintás zárja be
+    A naptár „Ugrás dátumra”, az űrlap dátumai és a beállítások
+    ünnepnapjai is ezt használják.
+
+  * „VÁRATLAN HIBA … entry is not defined” – MEGSZÜNT (1.30.6)
+    A linkről kiolvasott adatlap („Mit találtam?”) rajzolója egy nem
+    létező változóra hivatkozott, ha az adatban tápoldat vagy kerti
+    adat volt. Javítva. Ha a régi példány fut, indítsd újra:
+
+        bash florum-verzio.sh --ujraindit
+
+  * ADATOK SAJÁT MAPPÁBA (1.30.5)
+    A `--data-dir` csak EGY indításra érvényes: ha utána a menüből indítod,
+    a Florum visszaáll az alapértelmezett mappára, és úgy tűnik, elveszett
+    minden. Nem veszett el – csak másik mappát néz. Helyette:
+
+        bash florum-atkoltoztetes.sh ~/Florum-adat
+
+      · leállítja a futó példányt,
+      · átmásolja: florum-data.json, photos/ (képek), mentes/ (pillanatképek),
+        notify-state.json – a naptárfájl újraíródik,
+      · ellenőrzi: ugyanannyi növény és naplóbejegyzés van-e,
+      · beírja a mappát a florum-adat.conf-ba → a menü, a panel, a frissítő
+        és a háttérszolgáltatás is EZT használja,
+      · elindítja a szervert az új mappával.
+    A régi mappát NEM törli – megnézheted, aztán törölheted.
+
+      bash florum-atkoltoztetes.sh --mi        (melyik mappát használja?)
+      bash florum-atkoltoztetes.sh --vissza    (vissza az alapértelmezettre)
+      python3 florum.py --data-dir X --atkoltoztetes Y   (csak másolás)
+
+  * EGY FLORUM A PANELEN (1.30.4)
+    Ha két Florum-ikon volt a panelen: nem te raktad ki kétszer, hanem
+    két menübejegyzést telepítettünk (florum.desktop ÉS florum-kde.desktop).
+    Mostantól EGY van:
+      · a panel-widget mutatja a számot ÉS meg is nyitja az appot,
+      · a lista alján: „Florum megnyitása” gomb (a fejlécben is),
+      · kattintásra alapból a lista nyílik; a widget beállításaiban
+        „Kattintásra a Florum nyíljon meg” → kattintásra rögtön az ablak,
+      · középső gombbal mindig megnyílik,
+      · a menüben egy bejegyzés: florum.desktop → florum-megnyitas.sh
+        (ez választ: futó ablak előtérbe / KDE-ablak / böngésző, és ha kell,
+         elindítja a háttérszervert is).
+    Áttérés, ha most két ikon van:
+      1) jobb klikk a fölösleges ikonon → „Eltávolítás a panelről”
+      2) bash install.sh            (a régi másodikat félreteszi)
+      3) bash telepites-florum-panel.sh
+    Ellenőrzés: bash florum-megnyitas.sh --allapot
+                bash florum-megnyitas.sh --dry-run
+
+  * A KERTI NÖVÉNY MÁS SZÍNŰ (1.30.3)
+    A Növények fülön a kerti növény kártyája zöld:
+      · zöld bal szegély + halványzöld felső átmenet,
+      · KERT szalag a név mellett (szóban is, nem csak színnel),
+      · a kereső mellett jelmagyarázat: „zöld szegély = kerti növény (N)”,
+      · sötét témában is jól olvasható.
+    A szobanövények maradnak fehérek, így a két csoport egy pillantással
+    elválik. Zöld kártyát az is kap, akit nem jelöltél be kerti növénynek,
+    de kerti Faj (répa, paradicsom, paprika…) – ez nem hiba.
+
+  * LENYÍLÓK: FELIRATOK ÉS BÖNGÉSZÉS (1.30.2)
+    Két hiba volt, egyik sem a te hibád:
+      · „water Öntözés” felirat: a listában az ikon belső neve látszott
+        szövegként. Most csak a magyar szó: Öntözés, Tápoldat, Permetezés,
+        Átültetés (az ikon képként jelenik meg).
+      · „Helyiséget nem lehet böngészni”: a lista a görgethető panelba
+        volt zárva (levágta az alsó helyiségeket), és minden görgetésre
+        bezárult. Most:
+          - a lista a gombhoz igazodik, kilóg a panelből, felfelé is nyílik,
+          - a listában LEHET görgetni (egérkerékkel is), nem csukódik be,
+          - 8-nál több elemnél KERESŐMEZŐ van a lista tetején: írd be,
+            hogy „nap”, „kert” vagy ékezet nélkül „uveg” → Üvegház,
+          - Enter = az első találat kiválasztása, ↑/↓ a láthatók között lép.
+
+  * NAPLÓ: JELENTÉS-TÁBLÁZAT (1.30.1)
+    Eddig a Napló egy oszlopos kártyalista volt („Átültetés”, „Öntözés”…),
+    mostantól igazi jelentés, négy oszloppal:
+      Dátum · Növény · Tevékenység · Részletek
+    · a „Részletek” a növény beállításaiból dolgozik: „30 havonta · 18 cm cserép”,
+      „2 ml/l · N-P-K 7-3-5 · március–szeptember”, „permetezés: csapvíz”
+    · fent 4 szám: összes · e havi · mai · érintett növény
+    · típus-chipek darabszámmal (Öntözés 5 / Átültetés 2) – kattintásra szűr
+    · napok sávokba rendezve: „2026.10.22. · 2 bejegyzés”
+    · oszlopfejlécre kattintva rendezés (dátum / növény / tevékenység)
+    · „Napló letöltése (CSV)”: Dátum;Idő;Növény;Hely;Tevékenység;Részletek
+      – pontosvesszős, UTF-8, a magyar Excel/LibreOffice azonnal nyitja
+    · a kihagyott tevékenység is látszik, „kihagyva” jelöléssel
+
+  * KERT FÜL: NINCS TÖBBÉ ÜRES FÜL (1.30.0)
+    Ha eddig azt láttad, hogy „a Kert fülön nincs növény” – nem te rontottad el.
+    A fül csak a KERTI növényeket mutatja, és eddig csak akkor lett valami
+    kerti, ha a Hely mezőben kertet választottál. Most:
+      · elég a faj nevét felvenni: a répa, hagyma, paradicsom, paprika, uborka,
+        cékla, retek, saláta, burgonya, eper, zöldborsó magától kerti növény
+        (szezon, vetés, betakarítás, komposzt: a program pótolja)
+      · a Kert fül alján MINDIG ott a lista az összes nem kerti növényedről,
+        „Áthelyezés a kertbe” gombbal – egy kattintás
+      · a fejléc kiírja: „Összes növényed: N · ebből kerti: M”
+      · ha a fül rajzolása hibára fut: piros kártya az üzenettel (nem üresség)
+      · diagnózis: python3 florum.py --kert  → soronként ✓/✗
+
+  * NAPLÓ, LENYÍLÓK, VERZIÓ 
+    · A Napló fül nem marad üresen: megnyitáskor mindig friss rajzot ad.
+      Ami eddig elrontotta:
+        - hiányzó/hibás időbélyeg → az egész fül hibára futott
+        - törölt növényre mutató szűrő → minden bejegyzés kiesett
+        - a fület megnyitáskor nem rajzolta újra
+      Új: „Szűrők törlése” gomb, darabszám, „Dátum nélkül” csoport,
+      és hiba esetén piros hibaüzenet (nem néma üresség).
+    · A legördülők SAJÁTOK (nem a böngésző natív listája), ezért a KDE-s
+      ablakban (QtWebEngine) is kinyílnak – felfelé is, ha nincs hely.
+      Érintett: Hely, Fény, Permetezés vize, Tápoldat típusa, hónapok,
+      a Napló szűrői és a Beállítások keresője.
+    · „Felül új, lent régi” verzió: NEM te rontottad el.
+      A felső szám a megnyitott FÁJLBÓL jön, az alsó a FUTÓ szerverből,
+      és a Python a kódot indításkor tölti a memóriába – tehát amíg a régi
+      példány fut, a régi verziót mondja.
+        bash florum-verzio.sh              (mi fut valójában? több porton)
+        bash florum-verzio.sh --ujraindit  (leállít + újraindít)
+      Utána a böngészőben Ctrl+Shift+R (a KDE-ablaknál bezárás + újranyitás).
+      Ha a régi verzió minden indításnál visszatér, az autostart/szolgáltatás
+      még a régi mappára mutat:
+        grep -H Exec ~/.config/autostart/florum.desktop
+        systemctl --user cat florum-szerver | grep ExecStart
+
+  * KERT FÜL 
+    Javítás: a „Hely” mezőben már van Kert / Kerti ágyás / Üvegház.
+    · ha ilyen helyet választasz, a növény magától kerti növény lesz,
+      és megjelenik a Kert fülön (nem kell külön jelölőt keresgélni)
+    · a korábban felvett, „Kert” helyű növények automatikusan átkerülnek
+    · a Kert fül alján „Áthelyezés a kertbe”: egy kattintás, és kész
+    · a „+ Kerti növény” űrlap már Kert hellyel nyílik
+    A kerti növényeknek külön fülük van (a Naptár mellett): „Kert”.
+    · fejléc: hány növény van szezonban / pihen, melyik hónap van
+    · 4 szám: szezonban · ma esedékes · szedhető · pihen
+    · 12 hónapos szezon-csík minden növényen (a mai hónap bekeretezve)
+    · vetés / betakarítás, szedési időben „most szedhető” jelzés
+    · a szezonban lévő növények kártyákon, Kész gombokkal
+    · a pihenők külön listán: „újraindul: március 1. (127 nap)”
+    · a fülön szám-jelző, ha kerti teendő esedékes
+    · „+ Kerti növény”: az űrlap kerti módban nyílik (szezon 4–10, komposzt)
+
+  * TÁPOLDATOZÁS + KERTI NÖVÉNYEK 
+    A tápoldatozás most pontosan megadható: mivel, mennyit, milyen
+    összetétellel és MELYIK HÓNAPOKBAN.
+    · az űrlapon: típus (tápoldat / levél / virágzó / kaktusz / szemcsés /
+      komposzt / istállótrágya / nem tápoldatozom), adag, N-P-K, hónap-ablak
+    · a hónap-ablakon kívül nincs tápoldat-teendő (se listán, se naptárban,
+      se panelen, se .ics-ben); a pihenő után az ablak első napján indul újra
+    · kerti növények: hagyma, fokhagyma, répa, cékla, retek, saláta,
+      paradicsom, paprika, uborka, burgonya, eper, zöldborsó (12 faj)
+        - „Kerti növény (szezonális)” jelölő: szezon tól–ig, vetés, betakarítás
+        - szezonon kívül EGYETLEN teendő sincs (télen a kert pihen)
+        - szezonon belül a felirat „Trágyázás”, komposzt/istállótrágya adaggal
+    · adatbázis: 82 növény (70 szoba + 12 kerti), v2026.10.9
+
+  * ÚJ NÖVÉNY LINKRŐL (1.25.0)
+    A + Új növény ablakban a név alatt: „Adatok kiolvasása”. Beírod a linket
+    (pl. szobakertesz.hu gondozási útmutató), és a program kitölti az öntözést,
+    tápoldatot, permetezést, átültetést, fényt, hőmérsékletet, talajt, kártevőket.
+    Ha az oldal robotvédett („One moment, please…”): nyisd meg, Ctrl+A, Ctrl+C,
+    a Florumban „Szöveg beillesztése”, Ctrl+V, majd újra kiolvasás.
+
+  * naptar_ics.py      iCalendar (.ics) írás – ugyanazzal az
+                       ütemezéssel, mint a felület
+  * emlekezteto.py     háttér-démon: notify-send + napi zárás
+  * florum-emlekezteto.service   systemd --user egység
+  * Beállítások → „KDE panel – Digitális óra és figyelmeztetés”
+  * Naptár eszköztár: „.ics” gyorsgomb
+  * 1.15.0: másolat az Event Calendar widget adatmappájába
+    (a widget csak onnan olvas .ics-t) + magyar felirat a
+    widgethez (forditas/, 587 szöveg)
+  * 1.16.0: diagnózis + a widget beállításának javítása
+    (kde-eventcalendar-diagnosztika.sh)
+  * 1.24.1: „FELÜL ÚJ, LENT RÉGI” – A FUTÓ PÉLDÁNY
+    Ha frissítés után a fejléc új verziót, a lábléc régit mutat,
+    akkor a RÉGI folyamat még fut (a kódot a memóriában tartja),
+    és az új példány csendben a következő portra csúszott.
+    Egy paranccsal rendbe jön:
+      bash florum-frissites.sh              (leállít + újraindít + ellenőriz)
+      bash florum-frissites.sh --csak-nez   (csak megmutatja, mi fut)
+    Kézzel:
+      python3 florum.py --leallit
+      python3 florum.py --verzio
+      systemctl --user restart florum-szerver
+    Utána a böngészőben: Ctrl+Shift+R.
+    A program ezt mostantól maga is jelzi: piros sáv a felület
+    alján + „1.22.0 (fut) / 1.24.1 (fájl)” a láblécben, és
+    indításkor a terminál is figyelmeztet, ha a port foglalt.
+  * 1.24.0: KDE-ABLAK – SAJÁT PROGRAM A BÖNGÉSZŐ-FÜL HELYETT
+    A Florum most natív KDE-ablakban is fut (nem kell böngésző):
+      sudo pacman -S pyside6 qt6-webengine qt6-declarative
+      bash telepites-florum-kde.sh
+      florum-kde
+    Az ablak: toolbár (vissza, újratöltés, kezdőlap, 📷 fotók,
+    📅 naptárfájl), tálcaikon menüvel, értesítés a lejárt/mai
+    teendőkről, F5 / Ctrl+Q / Alt+← gyorsbillentyűk.
+    A felület és az adatok ugyanazok – a háttérszervert az ablak
+    magától elindítja (8777-es port, mint a panel-widget).
+    Ha nincs Qt a gépen: kiírja a telepítési parancsot, és a
+    böngészőben nyitja meg – nem omlik össze.
+    Önellenőrzés Qt nélkül is:  python3 florum-kde.py --teszt
+  * 1.23.0: FOTÓNÉZET – FEH / CHAFA / BÖNGÉSZŐ
+    A növényfotókat most háromféleképpen lehet nagyban látni,
+    és egyik sem kötelező:
+      - Böngészős nagy nézet:  http://127.0.0.1:8777/foto
+        (kattints a képre → nagy nézet, ←/→ lapozás, Esc, letöltés)
+      - Külső nézegető: a galériában a „Külső nézegető” vagy a
+        képen a ↗ gomb → a géped saját képmegnézője nyílik meg
+        (feh, gwenview, loupe, eog, imv, nsxiv, sxiv, ristretto, xdg-open)
+      - Terminálos kép:  python3 florum.py --foto "Név" --terminal
+        (chafa, viu, timg, catimg, img2txt)
+    Telepítés (CachyOS):
+      sudo pacman -S feh          # grafikus nézegető
+      sudo pacman -S chafa        # kép a terminálban
+    Ha nincs telepítve, a Florum megmondja, mit kell telepíteni –
+    a böngészős nagy nézet viszont mindig működik, program nélkül is.
+    Új parancsok:
+      python3 fotonezo.py --lista
+      python3 florum.py --foto                    # fotók listája
+      python3 florum.py --foto "Monstera"         # megnyitás
+      python3 florum.py --foto "Monstera" --terminal
+      python3 florum.py --foto "Monstera" --nezo=feh
+  * 1.23.0: LEOPÁRDNÖVÉNY A ADATBÁZISBAN
+    Új faj: Drimiopsis maculata (Leopárdnövény) – 69. növény.
+    Világos, szórt fény, 10 naponta öntözés (télen 18), 30 naponta
+    tápoldat, télen nincs (hagymás pihenő), permetezést nem kér,
+    30 havonta átültetés, 18–24 °C. A kereső ismeri a „leopárd”,
+    „pöttyös”, „Ledebouria petiolata” neveket is.
+  * 1.22.4: A NAPTÁR-ESEMÉNYEK A NAPTÁRNÉZETBEN IS
+    A Google Naptár / .ics eseményei eddig csak a panel-widgetben
+    látszottak. Most a Florum naptárában is:
+      · 📅 sorok a hónap/nap rács napjaiban (+ 📅N jelzés)
+      · külön „📅 Naptár” szakasz a nap-kártyán
+      · új 📅 KPI-kártya + „naptár” szűrő (a hónap eseményei)
+      · jelmagyarázat, forrás-szín szerinti pötty
+    A Florum a LÁTHATÓ időszakot kéri le (/api/calendars?from&days),
+    ezért az előző hónapba átnyúló napok is mutatják az eseményeket.
+    Forrás nélkül a naptárnézet változatlan.
+  * 1.22.3: PERMETEZÉS – MILYEN VÍZZEL?
+    Új mező a növény adatlapján: „Permetezés vize”
+      nincs megadva · csapvíz · esővíz · ioncserélt · nem szereti
+    A teendő szövegébe bekerül: „Permetezés esővízzel, reggel.”
+    Aki nem szereti a permetezést, annak nincs permetezés-teendő
+    (sem a listán, sem a naptárban, sem a panelen, sem értesítésben).
+    Az adatbázis minden növényhez hoz javaslatot (ioncserélt /
+    esővíz / nem). Új fájl: permetviz.py (+ teszt-permet.py).
+    Javítás: a Naptár-források (Google Naptár) panel 1.22.0-ban
+    a generált fájlba került, ezért a kinézet-egyesítés törölte –
+    most a forrásban van (minden_html-original), így megmarad.
+  * 1.22.2: SZOLGÁLTATÁS-TELEPÍTÉS JAVÍTÁSA
+    A `systemctl --user start florum-szerver` eddig azért nem
+    működött („Unit florum-szerver.service not found”), mert a
+    .service fájlt a telepítő csak `--autostart` mellett írta be.
+    Most a telepítő MINDIG beírja (bekapcsolni csak --autostart-tal
+    kapcsolja be), és van rá külön, önálló szkript:
+        bash florum-szolgaltatas.sh allapot|telepit|indit|naplo|
+                                     kikapcsol|eltavolit
+    Az `indit` magától beírja az egységet, ha hiányzik.
+  * 1.22.1: QML-javítás – az implicitWidth/implicitHeight csak
+    olvasható tulajdonság, ezért a widget Layout.preferred*-t
+    használ (ez volt a main.qml:220 hiba); a világos/sötét panel
+    eldöntése hslLightness-szel (a hsvValue a színezet volt, ezért
+    sötét panelen sötét ikont választott)
+    + a telepítő törli a QML-gyorsítótárat
+  * 1.22.0: KÜLSŐ NAPTÁR-FORRÁSOK (naptar_forras.py)
+    Google Naptár / tetszőleges .ics beolvasása a Florumba –
+    OAuth, Akonadi és icalendar modul nélkül is működik.
+    Beállítások → Naptár-források → Hozzáadás (+ Próba gomb).
+    A panelen 📅 = naptár, 💧🌿💦🪴 = növény, dátum szerint egy
+    listában. 30 perces helyi gyorsítótár → offline is látszik.
+  * 1.21.0: CSAK EGY démon futhat – a háttérszerver és az
+    emlékeztető démon együtt DUPLA értesítést adott; a
+    telepítők mostantól kikapcsolják a másikat
+    + `--allapot` (utolsó értesítés) és `--naplo` kapcsoló
+  * 1.20.0: monokróm panel-ikon (symbolic + sötét/világos
+    változat) – a widget a panel színéhez igazodik
+  * 1.19.0: a Florum mindig a 8777-es porton figyel (eddig
+    véletlen portot választott → a widget nem találta meg);
+    8777 foglalt → 8778, 8779…  + szerver-leíró fájl
+    (szerver.json) + `--szerver` fejetlen mód +
+    florum-szerver.service (systemd --user)
+  * 1.18.0: SAJÁT panel-widget (florum-panel) – nem kell hozzá
+    Event Calendar, Akonadi, PIM-plugin vagy icalendar modul;
+    az adatot a futó Florum adja (/api/panel.json)
+    Telepítés: bash telepites-florum-panel.sh
+  * 1.18.0: a tápoldat-tiltás (fertWinter = 0) mostantól az
+    emlékeztetőben és a panelen is érvényes – nem csak a
+    naptárban
+  * 1.17.0: a téli időszak határa EGYSÉGESEN okt. 1. – febr.
+    vége mindenhol (felület, .ics, panel, emlékeztető); a
+    florum.html most az EGYSÉGES („kék”) kinézetű példány
+  * 1.14.1: ÁLLANDÓ esemény-UID (nem függ a dátumtól és a
+    névtől) – ez volt a panel-fagyás egyik fő kiváltója
+
+GYORS INDÍTÁS
+  1) Futtatás:        python3 florum.py --app
+  2) Naptárfájl:      ~/.local/share/florum/florum.ics
+                      (minden mentésnél magától frissül)
+  3) KDE panel:       sudo pacman -S kdepim-addons
+     jobb klikk a Digitális órára → Beállítások → Naptár →
+     PIM Events Plugin bejelölése → PIM fül → Akonadi iCal-fájl
+     erőforrás: file:///home/<felhasználó>/.local/share/florum/florum.ics
+  4) Figyelmeztetés:  python3 emlekezteto.py --daemon
+     vagy:            systemctl --user enable --now florum-emlekezteto
+     (az install.sh ezt be is állítja)
+
+EVENT CALENDAR WIDGET – MIÉRT NEM MUTATOTT SEMMIT?
+  A widget csak a SAJÁT adatmappájából hajlandó .ics fájlt olvasni
+  (biztonsági ok): ~/.local/share/plasma_org.kde.plasma.eventcalendar
+  Máshol ezt írja: „Local calendar file path is invalid”.
+  A Florum 1.15.0 óta ezért minden mentésnél oda is ír másolatot:
+    ~/.local/share/plasma_org.kde.plasma.eventcalendar/florum.ics
+  A widgetben EZT az útvonalat add meg:
+    Calendars → Add → ICS file → (a fenti útvonal)
+
+  HA A WIDGET MÉGSEM MUTAT SEMMIT
+  A widget beállítás-oldala CSENDBEN elutasítja a rossz útvonalat
+  (a mező üresen marad), és akkor sem tölt be, ha a naptár
+  nincs beikszelve, vagy hiányzik a Python-modul. Ezt egy
+  lépésben ellenőrzi és javítja:
+
+    bash kde-eventcalendar-diagnosztika.sh             (vizsgálat)
+    bash kde-eventcalendar-diagnosztika.sh --javitas   (rendbetétel)
+    bash kde-eventcalendar-fuggoseg.sh                 (Python-modulok)
+
+  A --javitas biztonsági mentést készít, majd a Florum naptárát
+  beírja a widget beállításába (helyes útvonal, show=true).
+
+  MAGYAR FELIRAT A WIDGETHEZ
+  Az Event Calendar plasmoidhoz nincs hivatalos magyar fordítás –
+  ez a csomag pótolja (587/587 szöveg, 100%):
+    bash kde-eventcalendar-magyar.sh
+  A nyelvi fájl ide kerül:
+    ~/.local/share/locale/hu/LC_MESSAGES/
+      plasma_applet_org.kde.plasma.eventcalendar.mo
+  Visszavonás: a .mo törlése + panel újraindítás.
+
+HA A PIM FÜL ÜRES, VAGY A PANEL LEFAGY  (ismert KDE-hiba!)
+  A Digitális óra naptár-pluginja (kdepim-addons) nagy naptárnál
+  befagyasztja a plasmashelt – bugs.kde.org 526769, 493415,
+  523046, 442100. A KOrganizer telepítése NEM segít: ugyanazt az
+  Akonadi-utat használja, a hiba a pluginban van.
+
+   1) bash kde-pim-kikapcsolas.sh
+        → kikapcsolja a fagyó plugint (biztonsági mentéssel)
+   2) bash kde-allapot.sh
+        → mit lát a rendszer? (csomagok, Akonadi, beállítás,
+          naptárfájl, értesítés – csak olvas)
+   3) bash kde-eventcalendar-telepites.sh
+        → Event Calendar plasmoid: a .ics FÁJLT olvassa,
+          Akonadi nélkül, tehát nem fagy le
+   4) python3 emlekezteto.py --daemon
+        → a legbiztosabb: asztali értesítés, panel nélkül
+
+  Ha a panelen sok esemény lenne: a Beállításokban csökkentsd
+  az előretekintést 30–60 napra (a felület 120 fölött figyelmeztet).
+
+PARANCSOK
+  python3 emlekezteto.py --lista      mai teendők szövegesen
+  python3 emlekezteto.py --json       JSON (panel-szöveg, feed)
+  python3 emlekezteto.py --panel      egysoros összefoglaló
+  python3 emlekezteto.py --teszt      próbaértesítés
+  python3 emlekezteto.py --ics        csak a naptár újragenerálása
+  python3 florum.py --ics-days 120 --ics-alarm 7
+  python3 naptar_ics.py --print --days 30
+  python3 teszt-naptar.py             32 automatikus teszt
+
+MIT TARTALMAZ A ZIP?
+  florum.html                    a felület (1.23.0, EGYSÉGES kinézet)
+  kinezet-egyesites.sh           a közös téma újrabeépítése a felületbe
+  telepites-florum-panel.sh      a SAJÁT panel-widget telepítése
+  florum-panel/                  a panel-widget csomagja (metadata, QML)
+  florum-szerver.service         háttérszerver egység (systemd --user)
+  florum-szolgaltatas.sh         ennek telepítése/indítása/állapota
+  permetviz.py                   permetezés vize – közös tábla (ÚJ)
+  panel-ikon.png                 a monokróm ikon mintája
+  teszt-panel.py                 a widget és a /api/panel.json tesztjei
+  naptar_forras.py               külső naptárak (Google, .ics) olvasása
+  teszt-forras.py                a naptár-források tesztjei
+  panel-elonezet.html            így néz ki a widget a panelen
+  florum.py                      indító + helyi szerver
+  naptar_ics.py                  .ics export (KDE panel)
+  emlekezteto.py                 emlékeztető démon
+  florum-emlekezteto.service     systemd egység
+  kde-allapot.sh                 KDE-diagnózis (csak olvas)
+  kde-pim-kikapcsolas.sh         a fagyó PIM plugin kikapcsolása
+  kde-eventcalendar-telepites.sh Event Calendar (.ics) telepítő
+  kde-eventcalendar-magyar.sh    magyar felirat a widgethez
+  kde-eventcalendar-diagnosztika.sh / eventcalendar-diagnosztika.py
+                                 diagnózis + a widget beállításának javítása
+  kde-eventcalendar-fuggoseg.sh  Python-modulok a widget saját mappájába
+  forditas/                      hu.po + .mo + készítő (587 szöveg)
+  mentes.py                      előzményes mentés
+  plants-db.json                 82 növény adatbázisa (v2026.10.9)
+  build-plant-db.py              adatbázis-építő
+  novenykereso.py                új növény kiolvasása linkről / szövegből
+  install.sh                     menüparancs + démon telepítése
+  florum.desktop, florum.svg     indító + ikon
+  README.md                      teljes leírás
+  előnézetek:                    kde-elonezet.html, naptar-elonezet.html,
+                                 naptar-169-elonezet.html,
+                                 linkek-elonezet.html, sajat-nev-elonezet.html
+  teszt-dom.js, teszt-naptar.py, teszt-forditas.py,
+  teszt-eventcal.py, teszt-panel.py  tesztek (113 + 35 + 7 + 11 + 20)
+
+JÓ TUDNI
+  * A .ics csak a florum.py-val indított módban készül.
+  * A lejárt teendő a mai napra kerül, „(lejárt)” jelöléssel.
+  * A napi emlékeztető naponta egyszer szól; új teendőnél újra.
+  * Ha nincs értesítés: sudo pacman -S libnotify
+==============================================================

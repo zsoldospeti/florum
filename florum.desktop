@@ -1,0 +1,21 @@
+# ==============================================================
+#  FLORUM 1.33.2  ·  otthoni növénygondozó
+#  Fájl:    florum.desktop  (programindító)
+#  Licenc:  szabadon használható
+# ==============================================================
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Florum
+Name[hu]=Florum növénygondozó
+Name[en]=Florum plant care
+GenericName=Plant Care Tracker
+GenericName[hu]=Növénygondozó
+Comment=Otthoni növények locsolása, tápoldatozása, átültetése
+Comment[hu]=Otthoni növények locsolása, tápoldatozása, átültetése
+Exec=bash /home/user/florum/florum-megnyitas.sh
+Icon=org.gnome.Todo-symbolic
+Terminal=false
+Categories=Utility;Education;
+Keywords=plant;növény;watering;öntözés;garden;kert;
+StartupWMClass=Florum

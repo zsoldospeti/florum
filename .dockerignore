@@ -1,0 +1,18 @@
+# ==============================================================
+#  FLORUM – mi NE kerüljön a Docker képbe
+#  (a build kontextus a florum/ mappa, ezért itt van ez a fájl)
+# ==============================================================
+_*
+teszt-*
+*-elonezet.html
+docker/
+__pycache__/
+*.pyc
+*.zip
+*.bak.json
+florum-data.json
+photos/
+mentes/
+node_modules/
+jsd/
+.git/
