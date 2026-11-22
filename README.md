@@ -2556,11 +2556,117 @@ bash docker/florum-docker.sh frissit     # git pull + újraépítés, az adat a 
 Attól kezdve a `git push` = új verzió a gépen, a `docker/data` érintetlen.
 (Emlékeztető: Arcane-ban a „container restart” **nem** frissít – a stacket kell újraépíteni.)
 
-### 24.5. Ha a git „elakad”
+### 24.5. „Permission denied (publickey)” – a leggyakoribb hiba
+
+Ez a hibaüzenet **mindig ugyanazt jelenti: a GitHub nem ismeri fel a gépedet.**
+Semmi köze a repó jogosultságához, a fájlokhoz vagy a Florumhoz. A sorrend ugyanis ez:
+
+```
+1. ssh-kulcs a gépen  →  2. a NYILVÁNOS kulcs fent a GitHubon  →  3. ssh -T próba  →  4. git push
+```
+
+Amikor ezt látod:
+
+```
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' to the list of known hosts.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+```
+
+* a **`yes` helyes volt** – az a GitHub valódi host-kulcsa (ez az ujjlenyomat a hivatalos);
+* a `known_hosts`-ba bekerült, tehát **a hálózat jó és a github.com elérhető**;
+* a 3. lépés hiányzik: **a kulcsod nincs fent a GitHubon** (vagy nem azt a kulcsot kínálja).
+
+Egy paranccsal kiderül, melyik:
+
+```bash
+cd ~/florum
+bash github-beallitas.sh
+```
+
+A diagnózis megmondja, van-e kulcs, van-e `origin`, és lefuttatja a tényleges próbát.
+A javítás három útja – a szkript ezeket is elvégzi:
+
+```bash
+# ① kulcs készítése + a nyilvános kulcs kiírása (ezt másold a GitHubra)
+bash github-beallitas.sh --kulcs
+#    → https://github.com/settings/keys → New SSH key → beillesztés
+
+# ② ha a 22-es portot tiltja a hálózat (ritka, de létezik)
+#    ~/.ssh/config:
+#        Host github.com
+#            HostName ssh.github.com
+#            Port 443
+#            User git
+
+# ③ SSH helyett HTTPS + token (SSH nélkül is működik)
+bash github-beallitas.sh --https FELHASZNALONEV/florum
+#    → https://github.com/settings/tokens → token → jelszó helyett a token
+#    → git config --global credential.helper store
+```
+
+Újra ellenőrzés (ennél a siker így néz ki: `Hi FELHASZNALONEV! You've successfully authenticated`):
+
+```bash
+bash github-beallitas.sh --proba
+```
+
+> **A privát kulcs (`~/.ssh/id_ed25519`) soha nem hagyja el a gépedet.** Csak a `.pub`
+> végű nyilvános kulcs megy fel a GitHubra. A szkript a `.pub`-ot írja ki, a privátot soha.
+
+### 24.6. A „Repository not found” – a következő lépcső
+
+Ha az azonosítás már rendben (`Hi FELHASZNALO! You've successfully authenticated`), de a
+`--feltoltes` mégis elbukik, szinte mindig **ez** jön:
+
+```
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+```
+
+Ez azt jelenti: **a repó még nem létezik a GitHubon** (vagy más a neve / más a felhasználónév).
+A GitHub szándékosan ugyanezt írja, ha nincs jogosultságod – nem árulja el, melyik a kettő.
+
+**A sorrend, ami működik:**
+
+```bash
+# 1) a repó létrehozása ÜRESEN (böngészőben!)
+#    https://github.com/new
+#      Repository name:  florum
+#      Private           ✔
+#      Add a README file ✗ NE
+#      .gitignore/licence ✗ NE
+
+# 2) a név ellenőrzése
+git remote -v
+#    helyes alak:  git@github.com:ZSOLDOSPETI/florum.git
+
+# 3) ha más a név:
+bash github-beallitas.sh --ssh ZSOLDOSPETI/az-igazi-nev
+
+# 4) feltöltés
+bash florum-kiadas.sh --feltoltes
+```
+
+Siker esetén ezt látod:
+
+```
+ * [new branch]      HEAD -> main
+ ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.2)
+```
+
+> Ha a repó létrehozásakor **mégis** bepipáltad a README-t, a push ezt adja:
+> `! [rejected] main -> main (fetch first)`. Nem kell törölni semmit:
+> `git pull --rebase origin main`, majd újra `--feltoltes`. A `--rebase` a te commitjaidat
+> teszi a behúzottak **után**, nem töröl semmit.
+
+### 24.7. Ha a git „elakad”
 
 | Hibaüzenet | Mit jelent | Megoldás |
 |---|---|---|
-| `Permission denied (publickey)` | nincs SSH-kulcs a GitHubon | 24.1/b vége |
+| `Permission denied (publickey)` | a GitHub nem ismeri a géped kulcsát | **24.5** (a leggyakoribb) |
 | `Authentication failed` | HTTPS + jelszó helyett token kell | 24.1/b, token |
 | `rejected – non-fast-forward` | a GitHubon is van új commit | `git pull --rebase && git push` |
 | `no changes added to commit` | nincs változás | nincs teendő, csak `git push` |
@@ -2575,11 +2681,12 @@ git revert <commit>         # biztonságos visszavonás (nem töröl történelm
 git push
 ```
 
-### 24.6. Ellenőrzés
+### 24.8. Ellenőrzés
 
 ```bash
-python3 teszt-verzio.py     # 31/0 – a verzió, a három példány, a zip és a szkriptek
+python3 teszt-verzio.py            # 43/0 – verzió, három példány, zip, szkriptek, .gitignore, GitHub-segéd
 bash florum-kiadas.sh --allapot
+bash github-beallitas.sh           # GitHub-hozzáférés diagnózisa (nem változtat semmit)
 ```
 
 A `teszt-verzio.py` a **szkriptek futtathatóságát** is nézi (`florum-kiadas.sh`,

@@ -41,6 +41,7 @@ VERZIOS_FAJLOK=(
   florum.html
   plants-db.json
   florum-kiadas.sh
+  github-beallitas.sh
   README.md
   OLVASSEL.txt
   florum.py
@@ -284,17 +285,76 @@ feltoltes() {
   fi
 
   # 4. push
-  git push -u origin HEAD 2>&1 | sed 's/^/  /'
-  local s=${PIPESTATUS[0]}
+  local kimenet
+  kimenet="$(git push -u origin HEAD 2>&1)"
+  local s=$?
+  printf '%s\n' "$kimenet" | sed 's/^/  /'
   if [ "$s" -eq 0 ]; then
     ok "fent van a GitHubon: $(git remote get-url origin) ($(jelenlegi))"
     echo
     sarga "  Arcane / másik gép frissítése:"
     echo "      git pull && bash florum-kiadas.sh --csomag   # vagy docker/florum-docker.sh frissit"
-  else
-    hiba "a push nem sikerült (jogosultság? SSH-kulcs? – lásd a fenti sort)"
-    return 1
+    return 0
   fi
+
+  # ---- a hibák lefordítása magyarra (mind más-más megoldás) --------------
+  echo
+  hiba "a push nem sikerült – a hiba oka:"
+  if printf '%s' "$kimenet" | grep -qi "Repository not found"; then
+    cat <<EOF
+
+    A REPÓ MÉG NEM LÉTEZIK a GitHubon (vagy rossz a név/felhasználó).
+    A GitHub ezt „Repository not found”-nak írja, ha azonosítva vagy,
+    de a repó nincs meg – ilyenkor nem árulja el, melyik a kettő.
+
+    1) Hozd létre ÜRESEN (ne legyen benne README/gitignore!):
+           https://github.com/new
+           Repository name: florum
+           Private  ✔
+           Add a README file:  ✗ NEM
+           .gitignore / license: ✗ NEM
+
+    2) Ellenőrizd, hogy a név stimmel:
+           git remote -v
+           # helyes alak: git@github.com:ZSOLDOSPETI/florum.git
+
+    3) Ha más a név, állítsd át:
+           bash github-beallitas.sh --ssh ZSOLDOSPETI/az-igazi-nev
+
+    4) Újra:
+           bash florum-kiadas.sh --feltoltes
+
+EOF
+  elif printf '%s' "$kimenet" | grep -qi "Permission denied (publickey)"; then
+    cat <<EOF
+
+    Az SSH-kulcs még mindig nem jó. Diagnózis:
+           bash github-beallitas.sh
+
+EOF
+  elif printf '%s' "$kimenet" | grep -qiE "non-fast-forward|rejected|fetch first"; then
+    cat <<EOF
+
+    A GitHubon már van olyan commit, ami nálad nincs (pl. README-t hoztál
+    létre a repóban). Ilyenkor előbb be kell húzni, utána tolható:
+
+           git pull --rebase origin main
+           bash florum-kiadas.sh --feltoltes
+
+    (A --rebase a te commitjaidat teszi a behúzottak UTÁN – nem töröl semmit.)
+
+EOF
+  elif printf '%s' "$kimenet" | grep -qi "could not read Username\|Authentication failed"; then
+    cat <<EOF
+
+    Ez HTTPS-es remote, és a GitHub nem fogadja el a jelszót – TOKEN kell.
+           bash github-beallitas.sh --https ZSOLDOSPETI/florum
+
+EOF
+  else
+    echo "    (a fenti nyers hibaüzenet alapján) Diagnózis: bash github-beallitas.sh"
+  fi
+  return 1
 }
 
 # ---- main -----------------------------------------------------------------

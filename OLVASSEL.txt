@@ -21,6 +21,48 @@ MI ÚJ EBBEN A VERZIÓBAN?
             git@github.com:FELHASZNALONEV/florum.git
         git push -u origin main
 
+    HA EZT LÁTOD:
+        git@github.com: Permission denied (publickey).
+
+    ...akkor a GitHub nem ismeri a géped kulcsát (nem a
+    repó a hibás). Egy paranccsal kiderül:
+
+        cd ~/florum
+        bash github-beallitas.sh
+
+    Javítás (kulcs készítése + kimásolás):
+
+        bash github-beallitas.sh --kulcs
+        # a kiírt sort: github.com/settings/keys → New SSH key
+
+    Vagy SSH helyett HTTPS + token:
+
+        bash github-beallitas.sh --https NEVED/florum
+
+    Ha az azonosítás már jó („Hi NEVED! You've successfully
+    authenticated”), de a feltöltés mégis elbukik, ez jön:
+
+        ERROR: Repository not found.
+
+    Ez azt jelenti: A REPÓ MÉG NEM LÉTEZIK. Előbb hozd
+    létre ÜRESEN a böngészőben:
+
+        https://github.com/new
+          Repository name:  florum
+          Private           ✔
+          Add a README      ✗ NE
+          .gitignore        ✗ NE
+
+    Aztán:
+
+        git remote add origin \
+            git@github.com:ZSOLDOSPETI/florum.git
+        bash florum-kiadas.sh --feltoltes
+
+    A „rejected (fetch first)” hiba (ha mégis lett README):
+        git pull --rebase origin main
+        bash florum-kiadas.sh --feltoltes
+
     Új verzió kiadása (verzió mindenhol + build + teszt + zip):
 
         bash florum-kiadas.sh --uj 1.33.3 --epit --csomag

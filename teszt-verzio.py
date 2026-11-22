@@ -284,6 +284,83 @@ class KiadasGit(unittest.TestCase):
                                  "a .gitignore nem zárja ki: %s (adat kerülne fel!)" % nev)
 
 
+class GithubBeallitas(unittest.TestCase):
+    """A GitHub-hibaüzenet lefordítása magyarra (Permission denied (publickey)).
+
+    A hiba, amit ez őriz:
+        a felhasználó ezt látta: „Permission denied (publickey) / Could not read
+        from remote repository”. Ez NEM repó-jogosultság kérdése, hanem azé, hogy
+        a GitHub nem ismeri a gép kulcsát. Ha ezt nem mondja meg senki, napokat
+        lehet a rossz helyen keresni.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.ut = os.path.join(HERE, "github-beallitas.sh")
+
+    def test_letezik_es_futtathato(self):
+        self.assertTrue(os.path.isfile(self.ut), "hiányzik a github-beallitas.sh")
+        self.assertTrue(os.access(self.ut, os.X_OK), "nem futtatható (chmod +x)")
+
+    def test_szintaxis(self):
+        r = subprocess.run(["bash", "-n", self.ut], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+
+    def test_diagnozis_lefut(self):
+        """Diagnózis módban hibakód nélkül fusson le (nem változtat semmit)."""
+        with tempfile.TemporaryDirectory() as d:
+            r = subprocess.run(["bash", self.ut], capture_output=True, text=True,
+                               cwd=HERE, env=dict(os.environ, HOME=d), timeout=90)
+        self.assertEqual(r.returncode, 0, r.stderr[-500:])
+        # a magyarázat akkor is ott legyen, ha épp nincs kulcs
+        egyutt = r.stdout + r.stderr
+        self.assertIn("SSH-kulcsok", egyutt)
+        self.assertIn("github", egyutt.lower())
+        self.assertIn("bash " + os.path.basename(self.ut), egyutt,
+                      "ne a szkript nevét írja, hanem futtatható parancsot")
+
+    def test_ismeri_a_harom_utat(self):
+        """SSH-kulcs, SSH 443-as port, HTTPS token – mind a három említve legyen."""
+        with io.open(self.ut, encoding="utf-8") as fh:
+            sh = fh.read()
+        self.assertIn("settings/keys", sh, "nincs útmutató a kulcs felvételéhez")
+        self.assertIn("ssh.github.com", sh, "nincs a 443-as port tartalék megoldása")
+        self.assertIn("--https", sh, "nincs HTTPS + token lehetőség")
+        self.assertIn("settings/tokens", sh, "nincs token-készítés helye")
+        self.assertIn("Permission denied (publickey)", sh,
+                      "a konkrét hibaüzenetre nem ad magyarázatot")
+
+    def test_nem_irja_ki_a_privát_kulcsot(self):
+        """A diagnózis SOHA ne írja ki a privát kulcs tartalmát."""
+        with io.open(self.ut, encoding="utf-8") as fh:
+            sh = fh.read()
+        self.assertIn(".pub", sh)
+        # a privát kulcs tartalmát csak a .pub-ból olvassa
+        self.assertNotIn('cat "$SSH_KONYVTAR/id_ed25519"', sh,
+                         "a privát kulcs tartalmát ne írja ki")
+
+    def test_push_hibak_leforditva(self):
+        """A négy tipikus push-hibára legyen magyar magyarázat és megoldás."""
+        with io.open(os.path.join(HERE, "florum-kiadas.sh"), encoding="utf-8") as fh:
+            sh = fh.read()
+        for minta, magyar in (
+            ("Repository not found", "A REPÓ MÉG NEM LÉTEZIK"),
+            ("Permission denied (publickey)", "SSH-kulcs még mindig nem jó"),
+            ("non-fast-forward", "előbb be kell húzni"),
+            ("Authentication failed", "TOKEN kell"),
+        ):
+            self.assertIn(minta, sh, "nincs ág erre: " + minta)
+            self.assertIn(magyar, sh, "nincs magyarázat erre: " + minta)
+        self.assertIn("github.com/new", sh, "nincs útmutató a repó létrehozásához")
+        self.assertIn("git pull --rebase", sh, "nincs megoldás a „rejected” hibára")
+
+    def test_https_nem_irja_a_tokent_fajlba(self):
+        with io.open(self.ut, encoding="utf-8") as fh:
+            sh = fh.read()
+        self.assertIn("credential.helper", sh,
+                      "a tokenhez hitelesítés-tároló kell, nem fájlba írt jelszó")
+
+
 class ApiInfo(unittest.TestCase):
     """/api/info adja a fájl verzióját is, ne csak a futóét."""
 
