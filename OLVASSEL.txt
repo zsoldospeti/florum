@@ -190,9 +190,10 @@ MI ÚJ EBBEN A VERZIÓBAN?
   * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.4)
     A Florumhoz kész Docker-kép és Arcane-barát compose fájl van:
 
-        docker/Dockerfile        a kép (nem root, /data kötet, healthcheck)
-        docker/compose.yaml      docker compose / Arcane stack
-        docker/florum-docker.sh  egyparancsos segéd
+        docker/Dockerfile          a kép (nem root, /data kötet, healthcheck)
+        docker/compose.yaml        kézi docker compose (build: context: ..)
+        docker/arcane/compose.yaml Arcane-hez (build NÉLKÜL, generált)
+        docker/florum-docker.sh    egyparancsos segéd
 
     A LÉNYEG: az adat köteten legyen, ne a konténerben.
 
@@ -205,16 +206,31 @@ MI ÚJ EBBEN A VERZIÓBAN?
         cd ~/florum-uj/florum
         bash docker/florum-docker.sh frissit
 
-    Vagy Arcane-ban: Git Syncs → repository + docker/compose.yaml → Auto Sync.
-    Attól kezdve egy git push = új verzió, az adat megmarad.
+    Vagy Arcane-ban: Git Syncs → repository + docker/arcane/compose.yaml
+    → Auto Sync. Attól kezdve egy git push = új verzió, az adat megmarad.
 
     Hasznos parancsok:
         bash docker/florum-docker.sh allapot     (fut-e, hol az adat, mekkora)
         bash docker/florum-docker.sh mentes      (ZIP a kötetből, frissítés előtt)
         bash docker/florum-docker.sh ellenorzes  (a futó példány /api/info-ja)
+        bash docker/florum-docker.sh ujraindit   (új konténer a friss képpel)
+        bash docker/florum-docker.sh verziok     (fájl / kép / futó példány)
 
     FIGYELEM: Arcane-ban a „container restart" NEM frissít – a régi képet
     indítja újra. A stacket kell újraépíteni (Rebuild/Pull).
+
+    HA FRISS A KÉP, MÉGIS RÉGI VERZIÓ FUT (1.33.4 – README 22.10)
+      1) a régi konténer fut tovább az azonos címkéjű kép mellett
+         → bash docker/florum-docker.sh ujraindit   (Arcane: Redeploy)
+      2) a kép a régi florum.html-t tartalmazza (a felület a HTML-ben van!)
+         → bash docker/florum-docker.sh verziok    → mutatja: elavult=True
+         → bash docker/florum-docker.sh epites
+      3) a böngésző cache-el → Ctrl+Shift+R
+
+    A kép a VERSION fájlt tartalmazza (nem a build-arg-ot), és az epites
+    ELŐBB ellenőrzi, hogy a HTML verziója egyezik-e – nem épít „új”
+    címkét régi felületre. Az „Arcane: helyi összeállítás" nem hiba:
+    a helyben épített florum:<verzió> képet indítja.
 
     HA EZT ÍRJA: „Conflict. The container name /florum is already in use”
       → a régi konténer még létezik. NE töröld előbb! Előbb mentés:

@@ -14,6 +14,8 @@
 #    bash docker/florum-docker.sh naplo         # élő napló (Ctrl+C kilép)
 #    bash docker/florum-docker.sh leallit       # leállítás (az adat megmarad)
 #    bash docker/florum-docker.sh torol         # leállítás + kép törlése (az adat NEM)
+#    bash docker/florum-docker.sh ujraindit     # új konténer a friss képpel (címke-csere)
+#    bash docker/florum-docker.sh verziok       # mi fut / mit tartalmaz a kép
 #    bash docker/florum-docker.sh ellenorzes    # a futó példány /api/info-ja
 #    bash docker/florum-docker.sh utkozes       # „name is already in use” – mi a teendő
 #    bash docker/florum-docker.sh atvesz        # a régi konténer ADATAINAK átmentése + csere
@@ -25,11 +27,38 @@ GYOKER="$(cd "$ITT/.." && pwd)"
 KONTENER="florum"
 KEP="florum:$(cat "$GYOKER/VERSION" 2>/dev/null || echo latest)"
 PORT="${FLORUM_PORT:-8777}"
+KEPVER="$(cat "$GYOKER/VERSION" 2>/dev/null || echo latest)"
 
 piros()  { printf '\033[31m%s\033[0m\n' "$*"; }
 zold()   { printf '\033[32m%s\033[0m\n' "$*"; }
 sarga()  { printf '\033[33m%s\033[0m\n' "$*"; }
 cim()    { printf '\n\033[1m== %s ==\033[0m\n' "$*"; }
+
+# A florum.html-be égetett felületverzió (a szerver ugyanezt olvassa).
+html_verzio() {
+  # a HTML a saját verzióját a <meta name="florum-version" content="…">-ban hordozza
+  grep -o -m1 'name="florum-version"[^>]*content="[^"]*"' "$GYOKER/florum.html" 2>/dev/null \
+    | sed 's/.*content="\([^"]*\)".*/\1/' || true
+}
+
+# A kép akkor „hazudik”, ha a HTML régebbi, mint a VERSION fájl – ilyenkor a
+# felület a régi, hiába friss a program. Ez a leggyakoribb „miért 1.33.2?”
+# ok Dockerben, mert a HTML a KÉPBE van égetve (a konténer nem látja a repót).
+verzio_ellenorzes() {
+  local v html
+  v="$(cat "$GYOKER/VERSION" 2>/dev/null || echo 0)"
+  html="$(html_verzio)"
+  printf '  VERSION fájl:      %s\n' "$v"
+  printf '  florum.html:       %s\n' "${html:-?}"
+  printf '  florum.py:         %s\n' "$(grep -o -m1 -E '^APP_VERSION *= *"[0-9.]+"' "$GYOKER/florum.py" 2>/dev/null | grep -o -E '[0-9]+\.[0-9]+(\.[0-9]+)?' || echo '?')"
+  if [ -n "$html" ] && [ "$html" != "$v" ]; then
+    sarga "  ⚠ A felület ($html) és a VERSION ($v) ELTÉR!"
+    echo "    A kép a florum.html-t is bemásolja → a böngésző a régi felületet"
+    echo "    mutatná. Előbb:  bash florum-verzio.sh --uj $v   (vagy --epit)"
+    return 1
+  fi
+  return 0
+}
 
 docker_van() {
   if ! command -v docker >/dev/null 2>&1; then
@@ -133,10 +162,20 @@ case "$eset" in
   epites)
     docker_van
     cim "Kép építése: $KEP"
+    # MIÉRT: a HTML és a florum.py is a KÉPBE kerül. Ha a HTML régebbi, a kép
+    # „új” címkét kapna, de a felület régi lenne → csendben rossz verzió.
+    if ! verzio_ellenorzes; then
+      piros "  Megállok: előbb a felületet kell a VERSION-höz igazítani."
+      echo "    bash florum-verzio.sh --uj $(cat "$GYOKER/VERSION" 2>/dev/null || echo 1.0.0)"
+      exit 1
+    fi
     docker build -f "$ITT/Dockerfile" -t "$KEP" \
-      --build-arg "FLORUM_VERSION=$(cat "$GYOKER/VERSION" 2>/dev/null || echo 0)" "$GYOKER" || exit 1
+      --build-arg "FLORUM_VERSION=$KEPVER" "$GYOKER" || exit 1
     zold "Kész: $KEP"
-    docker image ls | grep -E "^florum" || true
+    docker image ls --format '  {{.Repository}}:{{.Tag}}  {{.ID}}  {{.CreatedSince}}' | grep florum || true
+    sarga "  FIGYELEM: az azonos címke (florum:$(cat "$GYOKER/VERSION" 2>/dev/null)) felülírja a régit."
+    echo "  A már FUTÓ konténer ezt nem veszi észre → újra kell indítani:"
+    echo "    bash docker/florum-docker.sh ujraindit    (Arcane: Redeploy)"
     ;;
 
   indit)
@@ -258,6 +297,46 @@ case "$eset" in
     echo "  Ha a felület üres lenne, a mentés itt van: ls -1 $GYOKER/docker/regi-kontener-mentes-*"
     ;;
 
+  ujraindit|ujra)
+    # MIÉRT KELL: azonos címke (pl. florum:1.33.4) esetén a Docker a MEGLÉVŐ
+    # konténert hagyja futni – hiába épült új kép. Ez a leggyakoribb
+    # „miért a régi verzió fut?” ok. Itt a régi konténert eldobjuk és újat
+    # indítunk (az adat a ./data kötetben marad).
+    docker_van
+    cim "Konténer újraindítása a friss képpel"
+    if docker ps -a --format '{{.Names}}' | grep -qx "$KONTENER"; then
+      docker rm -f "$KONTENER" >/dev/null 2>&1 || true
+    fi
+    if [ -f "$GYOKER/docker/arcane/compose.yaml" ] && [ -d "$GYOKER/docker/arcane" ]; then
+      ( cd "$GYOKER/docker/arcane" && compose up -d --force-recreate ) || exit 1
+    else
+      ( cd "$GYOKER/docker" && compose up -d --force-recreate ) || exit 1
+    fi
+    sleep 3
+    "$0" ellenorzes
+    "$0" verziok
+    ;;
+
+  verziok|verzio)
+    # Mi fut, mi van a lemezen, és a kép mit tartalmaz? Egy helyen.
+    cim "Verziók (mi fut / mi van a gépen)"
+    verzio_ellenorzes || true
+    if docker ps --format '{{.Names}}' 2>/dev/null | grep -qx "$KONTENER"; then
+      printf '  futó kép:          %s\n' "$(docker inspect -f '{{.Config.Image}}' "$KONTENER" 2>/dev/null)"
+      printf '  a képben a VERSION: %s\n' \
+        "$(docker exec "$KONTENER" cat /app/VERSION 2>/dev/null || echo '?')"
+    else
+      sarga "  a konténer nem fut"
+    fi
+    if command -v curl >/dev/null 2>&1; then
+      # FIGYELEM: a futó példány lehet RÉGEBBI, mint a fájlok – ez a
+      # „friss a kép, mégis régi verzió fut” eset (README 22.10)
+      curl -fsS --max-time 4 "http://127.0.0.1:${PORT}/api/info" 2>/dev/null \
+        | python3 -c 'import json,sys;d=json.load(sys.stdin);v=lambda k:(d.get(k) or "-");print("  /api/info:         app=%s felület=%s kép=%s elavult=%s"%(v("appVersion"),v("htmlVersion"),v("imageVersion"),"igen" if d.get("staleImage") else "nem"))' \
+        2>/dev/null || sarga "  /api/info: nem válaszol"
+    fi
+    ;;
+
   ellenorzes)
     cim "A futó példány válasza (/api/info)"
     if curl -fsS --max-time 5 "http://127.0.0.1:${PORT}/api/info" 2>/dev/null | python3 -m json.tool 2>/dev/null | head -20; then
@@ -291,21 +370,27 @@ case "$eset" in
     docker_van
     cim "Frissítés (az adat megmarad)"
     # 1) új kód (ha git repó és van remote)
+    elotte="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
     if [ -d "$GYOKER/.git" ]; then
-      local elotte; elotte="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
       echo "  · git pull"
       if git -C "$GYOKER" pull --ff-only 2>&1 | sed 's/^/    /'; then :; else
         sarga "  a git pull nem sikerült (kézi módosítás? nincs remote?) – a mostani fájlokkal folytatom"
       fi
-      local utana; utana="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
-      if [ "$elotte" != "$utana" ]; then zold "  verzió: $elotte → $utana"; fi
+    fi
+    utana="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
+    if [ "$elotte" != "$utana" ]; then
+      zold "  verzió: $elotte → $utana"
+      # a VERSION és a HTML együtt mozog: ha a pull csak a VERSION-t hozta,
+      # a kép a régi felületet öntené be → inkább szólunk, mint hazudjunk
+      KEPVER="$utana"; KEP="florum:$utana"
+      echo "  · Arcane compose + .env frissítése az új verzióra"
+      "$0" compose-frissit >/dev/null || true
     fi
     # 2) új kép (a helyes build-kontextussal, lásd: compose-frissit)
     echo "  · új kép építése"
     "$0" epites || exit 1
     echo "  · konténer cseréje"
-    ( cd "$GYOKER/docker" && compose up -d --build ) || exit 1
-    sleep 3
+    "$0" ujraindit
     "$0" ellenorzes
     zold "A régi kép megmaradt visszaállításhoz: docker image ls | grep florum"
     ;;
@@ -326,7 +411,7 @@ case "$eset" in
     # ==================================================================
     # ehhez NEM kell futó docker – csak egy fájlt írunk (Arcane-hoz)
     cel="$GYOKER/docker/arcane/compose.yaml"
-    v="$(cat "$GYOKER/VERSION" 2>/dev/null || echo 0)"
+    v="${KEPVER:-$(cat "$GYOKER/VERSION" 2>/dev/null || echo 0)}"
     mkdir -p "$(dirname "$cel")"
     cat > "$cel" <<YAML
 # ==============================================================

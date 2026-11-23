@@ -2551,6 +2551,31 @@ tbody tr:hover > td { background: color-mix(in srgb, var(--f-accent) 7%, transpa
     if (!info || !info.appVersion || !FILE_VERSION) return;
     if (String(info.appVersion) === String(FILE_VERSION)) return;
     if (document.getElementById('verBanner')) return;
+    // Dockerben a HTML és a program EGYÜTT van a képbe égetve – ha a kép
+    // elavult (staleImage), a szerver ezt külön jelzi: a tanács nem a
+    // „szerver újraindítása”, hanem az újraépítés.
+    if (info.staleImage || (info.imageVersion && String(info.imageVersion) !== String(info.appVersion))) {
+      document.body.appendChild(document.createElement('div'));
+      var kep = document.body.lastChild;
+      kep.id = 'verBanner';
+      kep.setAttribute('style', [
+        'position:fixed', 'left:0', 'right:0', 'bottom:0', 'z-index:9999',
+        'background:#5a3d10', 'color:#ffeecc', 'padding:10px 16px',
+        'font:13px/1.45 ui-sans-serif,system-ui,Sans-Serif',
+        'box-shadow:0 -6px 24px -12px #000'
+      ].join(';'));
+      kep.innerHTML =
+        '<b>⚠ Elavult Docker-kép fut.</b>' +
+        '<span>A képbe égetett felület <b>' + esc(String(info.imageVersion || FILE_VERSION)) +
+        '</b>, a képben lévő program <b>' + esc(String(info.appVersion)) + '</b>' +
+        (info.fileVersion ? ', a VERSION fájl <b>' + esc(String(info.fileVersion)) + '</b>' : '') +
+        '. A konténer nem látja a repót, ezért a képet újra kell építeni.</span>' +
+        '<span style="margin-left:auto"><code style="background:#00000040;padding:2px 6px;border-radius:6px">' +
+        'bash docker/florum-docker.sh epites</code></span>' +
+        '<button type="button" style="background:none;border:1px solid #ffeecc;color:#ffeecc;' +
+        'border-radius:8px;padding:3px 9px;cursor:pointer" onclick="this.parentNode.remove()">✕</button>';
+      return;
+    }
     var sav = document.createElement('div');
     sav.id = 'verBanner';
     sav.setAttribute('style', [

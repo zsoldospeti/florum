@@ -10,15 +10,17 @@
 #      megmaradnak,
 #    · nem root-ként fut (uid 1000), csak a /data-hoz kell joga.
 #
-#  Építés (a zip kicsomagolt mappájában, ahol a florum.py van):
-#      docker build -f docker/Dockerfile -t florum:1.33.4 .
-#  vagy a kényelmi szkripttel:
-#      bash docker/epit-es-indit.sh
+#  Építés (a repó gyökerében, ahol a florum.py van):
+#      bash docker/florum-docker.sh epites
+#  (ez a VERSION fájlból veszi a címkét ÉS ellenőrzi, hogy a HTML nem régebbi)
+#
+#  A VERZIÓ EGYETLEN igazsága a VERSION fájl – nem a --build-arg.
 # ==============================================================
 FROM python:3.13-slim
 
-# a kép verziója – a felület ezt írja ki a «futó példány» helyén
-ARG FLORUM_VERSION=1.33.4
+# --build-arg csak tartalék (ha a VERSION fájl hiányozna); az építés után a
+# VERSION fájl tartalma a mérvadó. Így a kép nem hazudhat verziót.
+ARG FLORUM_VERSION=""
 ENV FLORUM_IMAGE_VERSION=${FLORUM_VERSION}
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -35,10 +37,21 @@ WORKDIR /app
 COPY florum.py florum.html plants-db.json VERSION /app/
 COPY naptar_ics.py naptar_forras.py mentes.py permetviz.py fotonezo.py \
      novenykereso.py emlekezteto.py florum.svg README.md OLVASSEL.txt /app/
-# a VERSION a build-argumentumból íródik felül (így a kép sosem hazudik verziót)
-ARG FLORUM_VERSION=1.33.4
-RUN printf '%s\n' "$FLORUM_VERSION" > /app/VERSION \
- && chown -R florum:florum /app
+# A VERSION fájl a repóból jön (COPY ... VERSION) – NEM írjuk felül a
+# build-argumentummal. MIÉRT: ha a --build-arg és a VERSION eltér, a régi kód
+# «új» verziót hazudna. Ellenőrizzük és figyelmeztetünk.
+ARG FLORUM_VERSION=""
+RUN set -eu; \
+    felirt="$(cat /app/VERSION 2>/dev/null || true)"; \
+    if [ -z "$felirt" ]; then \
+      printf '%s\n' "${FLORUM_VERSION:-ismeretlen}" > /app/VERSION; \
+      echo "VERSION fájl nem volt a repóban – a build-arg került a helyére"; \
+    elif [ -n "$FLORUM_VERSION" ] && [ "$FLORUM_VERSION" != "$felirt" ]; then \
+      echo "FIGYELEM: --build-arg=$FLORUM_VERSION, a VERSION fájl=$felirt"; \
+      echo "          A VERSION fájl nyer (a kép nem hazudik verziót)."; \
+    fi; \
+    echo "Florum kép verziója: $(cat /app/VERSION)"; \
+    chown -R florum:florum /app
 
 USER florum
 

@@ -504,6 +504,85 @@ class ArcaneGitSync(unittest.TestCase):
                       "a frissit ne csak képet építsen, húzza be az új kódot is")
 
 
+class KepNemHazudik(unittest.TestCase):
+    """A Docker-kép verziója ne hazudhasson.
+
+    MI TÖRTÉNT (valódi eset):
+        a gazdagépen 1.33.4 kép épült, a böngésző viszont 1.33.2-t mutatott,
+        az Arcane pedig „helyi összeállítás”-t írt. Okok:
+          1) a régi KONTÉNER fut tovább az azonos címkéjű kép mellett,
+          2) a Dockerfile a VERSION-t felülírta a --build-arg-gal,
+             így egy régi HTML-t tartalmazó kép is „új” verziót írt ki.
+    """
+
+    def setUp(self):
+        self.dockerfile = io.open(os.path.join(HERE, "docker", "Dockerfile"),
+                                  encoding="utf-8").read()
+        self.sh = io.open(os.path.join(HERE, "docker", "florum-docker.sh"),
+                          encoding="utf-8").read()
+
+    def test_dockerfile_nem_irja_felul_a_versiont(self):
+        """A VERSION a repóból jön – a build-arg nem írhatja felül csendben."""
+        self.assertNotRegex(
+            self.dockerfile,
+            r"printf[^\n]*\$FLORUM_VERSION[^\n]*>\s*/app/VERSION",
+            "a build-arg ne írja felül a VERSION fájlt (különben a régi kód "
+            "«új» verziót hazudik)")
+        self.assertIn("COPY florum.py florum.html plants-db.json VERSION /app/",
+                      self.dockerfile)
+
+    def test_dockerfile_szol_ha_eltér(self):
+        self.assertIn("FIGYELEM: --build-arg", self.dockerfile,
+                      "eltérésnél figyelmeztessen")
+        self.assertIn('felirt="$(cat /app/VERSION', self.dockerfile)
+
+    def test_epites_ellenorzi_a_felueletet(self):
+        """Ha a HTML régebbi, mint a VERSION, ne építsen „új” címkét."""
+        self.assertIn("verzio_ellenorzes", self.sh)
+        self.assertIn("html_verzio()", self.sh)
+        # a HTML verziója a meta tagból jön
+        self.assertIn('name="florum-version"', self.sh)
+        self.assertRegex(self.sh, r"epites\)[\s\S]{0,900}verzio_ellenorzes")
+
+    def test_van_ujrainditas(self):
+        """Azonos címke esetén a régi konténer fut tovább → kell force-recreate."""
+        self.assertRegex(self.sh, r"ujraindit\|ujra\)")
+        self.assertIn("--force-recreate", self.sh)
+        self.assertIn('docker rm -f "$KONTENER"', self.sh)
+
+    def test_verziok_parancs(self):
+        """Egy paranccsal látszódjon: fájl / kép / futó példány."""
+        self.assertRegex(self.sh, r"verziok\|verzio\)")
+        self.assertIn("docker exec", self.sh)
+        self.assertIn("/app/VERSION", self.sh)
+
+    def test_frissit_nem_hasznal_localt_case_agban(self):
+        """set -u + case-ágban a `local` unbound variable-t okoz."""
+        for ag in ("epites)", "frissit)", "indit)", "ujraindit|ujra)"):
+            i = self.sh.find("  " + ag)
+            if i < 0:
+                continue
+            veg = self.sh.find("    ;;", i)
+            self.assertNotIn("\n      local ", self.sh[i:veg],
+                             "a %s ágban ne legyen `local` (case-ág, nem függvény)" % ag)
+
+    def test_web_nem_hasznal_localhostot(self):
+        """A felület relatív útvonalat használjon – a konténer nem localhost."""
+        html = io.open(os.path.join(HERE, "florum.html"), encoding="utf-8").read()
+        # a szerver oldali /api/info hívás maradhat, de ne legyen beégetett port
+        self.assertNotIn("http://localhost:8777", html)
+
+    def test_api_info_elavult_kepet_jelez(self):
+        """Az /api/info mondja meg, ha a kép elavult / a HTML eltér."""
+        for kulcs in ("htmlVersion", "htmlMismatch", "imageVersion", "staleImage"):
+            self.assertIn('"%s"' % kulcs, florum.APP_VERSION and
+                          io.open(os.path.join(HERE, "florum.py"), encoding="utf-8").read())
+
+    def test_html_version_olvas(self):
+        self.assertEqual(florum.html_version(), florum.APP_VERSION,
+                         "a HTML meta verziója egyezzen a programmal")
+
+
 class ApiInfo(unittest.TestCase):
     """/api/info adja a fájl verzióját is, ne csak a futóét."""
 

@@ -35,6 +35,7 @@ import base64
 import datetime
 import json
 import os
+import re
 import shutil
 import signal
 import socket
@@ -893,6 +894,14 @@ class Handler(SimpleHTTPRequestHandler):
             "appVersion": APP_VERSION,
             "fileVersion": file_version(),
             "versionMismatch": bool(file_version()) and file_version() != APP_VERSION,
+            # a felület (florum.html) verziója – Dockerben ez is a képbe égetve van
+            "htmlVersion": html_version(),
+            "htmlMismatch": bool(html_version()) and html_version() != APP_VERSION,
+            "imageVersion": os.environ.get("FLORUM_IMAGE_VERSION", ""),
+            # igaz, ha a képbe öntött PROGRAM régebbi, mint a VERSION fájl /
+            # a repó → ilyenkor a kép elavult: újra kell építeni
+            "staleImage": bool(file_version()) and file_version() != APP_VERSION and
+                          file_version() != html_version(),
             "dataDir": self.data_dir,
             "dataFile": data_path,
             "dataExists": os.path.exists(data_path),
@@ -1619,6 +1628,39 @@ def file_version():
     return ""
 
 
+HTML_VERZIO_CACHE = []
+
+
+def html_version() -> str:
+    """A florum.html-be ÉGETETT felületverzió.
+
+    MIÉRT KELL: a felület a HTML-ben van, a szerver a florum.py-ban. Dockerben
+    mindkettő a KÉPBE kerül – ha a képet a régi HTML-lel építették (a VERSION
+    fájl viszont már új), a böngésző a régi felületet mutatja, a /api/info
+    viszont „új” programot ír. Ez a függvény a HTML saját verzióját olvassa
+    („verzió: 1.33.4” a fejlécben), hogy az eltérés kiderüljön.
+    """
+    if HTML_VERZIO_CACHE:
+        return HTML_VERZIO_CACHE[0]
+    v = ""
+    try:
+        with open(os.path.join(app_dir(), MAIN_FILE), encoding="utf-8", errors="ignore") as fh:
+            for _ in range(400):                 # csak a fejlécet nézzük
+                sor = fh.readline()
+                if not sor:
+                    break
+                # a HTML a saját verzióját a <meta name="florum-version">-ban hordozza
+                m = re.search(r'name="florum-version"[^>]*content="([^"]+)"', sor) \
+                    or re.search(r"verzi[óo]\s*:?\s*(\d+\.\d+(?:\.\d+)?)", sor, re.I)
+                if m:
+                    v = m.group(1)
+                    break
+    except OSError:
+        v = ""
+    HTML_VERZIO_CACHE.append(v)
+    return v
+
+
 def futo_peldany(port: int, host="127.0.0.1", timeout=1.5):
     """Válaszol-e már egy Florum a megadott porton? → /api/info szótára vagy None."""
     cim = "http://%s:%d/api/info" % ("127.0.0.1" if host in ("0.0.0.0", "") else host, port)
@@ -2098,6 +2140,15 @@ def main(argv=None):
                   % (mar.get("appVersion", "?"), args.port, mar.get("dataDir", "?")))
             if str(mar.get("appVersion")) != APP_VERSION:
                 print("    ⚠ ELTÉRÉS – a régi példány még fut!  →  python3 florum.py --leallit")
+            if mar.get("staleImage"):
+                print("    ⚠ ELAVULT KÉP – a futó program %s, a VERSION fájl %s."
+                      % (mar.get("appVersion"), mar.get("fileVersion")))
+                print("      A konténer a KÉPBE égetett kódot futtatja, a repót nem látja.")
+                print("      → bash docker/florum-docker.sh epites")
+            elif mar.get("htmlMismatch"):
+                print("    ⚠ a felület (florum.html) %s, a program %s"
+                      % (mar.get("htmlVersion"), mar.get("appVersion")))
+                print("      → a HTML nem egyezik: bash florum-verzio.sh --uj VAGY újraépítés")
         else:
             print("    futó szerver:      nincs (%d-es port)" % args.port)
         if len(futo_folyamatok()) > 1:

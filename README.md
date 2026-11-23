@@ -2514,6 +2514,89 @@ illetve a gazdagépen `bash docker/florum-docker.sh epites`.
 
 ---
 
+## 22.10 Miért fut régi verzió, ha friss a kép? (1.33.4)
+
+Ez a fejezet egy **valódi eset** nyomán készült: a gazdagépen lefutott az építés
+(`Successfully tagged florum:1.33.4`), az Arcane mégis *„helyi összeállítás”*-t írt, a
+böngésző pedig **1.33.2**-t mutatott. Három különböző hiba tud ugyanígy kinézni – érdemes
+mindhármat ismerni.
+
+### 22.10.1 A konténer a régi képen marad (a leggyakoribb)
+
+A Docker a **címke** szerint azonosít. Ha az új kép ugyanazt a címkét kapja
+(`florum:1.33.4`), a már futó konténer **tovább fut a régi képen** – a `docker build`
+sikere erről nem szól. A konténert újra kell *teremteni*, nem elég újraindítani:
+
+```bash
+bash docker/florum-docker.sh ujraindit     # új: régi konténer eldobása + új indítása
+bash docker/florum-docker.sh verziok       # mit tartalmaz a kép, mit ír a futó példány
+```
+
+Az Arcane megfelelője: **Redeploy** (a puszta *Restart* nem elég).
+
+### 22.10.2 A kép „új” verziót hazudott
+
+A `Dockerfile` eddig **felülírta** a képbe másolt `VERSION` fájlt a `--build-arg`-gal:
+
+```dockerfile
+ARG FLORUM_VERSION=1.33.4
+RUN printf '%s\n' "$FLORUM_VERSION" > /app/VERSION     # ← ez volt a hiba
+```
+
+Vagyis a verzió **nem a kódból** jött, hanem a build-parancsból. Ha a repóban régi
+`florum.html` volt, a kép a régi felületet öntötte be, de *új* verziót írt ki – a hiba
+csendben maradt. Most:
+
+* a `VERSION` a **repóból** jön (`COPY ... VERSION`), a build-arg csak tartalék arra az
+  esetre, ha a fájl hiányozna;
+* ha a kettő eltér, az építés **kiírja**: `FIGYELEM: --build-arg=…, a VERSION fájl=…`;
+* a `docker/florum-docker.sh epites` **előbb ellenőrzi**, hogy a `florum.html`
+  `<meta name="florum-version">` értéke egyezik-e a `VERSION`-nel, és ha nem, **megáll** –
+  nem épít „új” címkét régi felületre.
+
+### 22.10.3 A felület a HTML-ben van, nem a szerverben
+
+A Florum felülete egyetlen `florum.html`. Dockerben ez is a **képbe égetve** van, a
+konténer nem látja a repót. Ezért a kép és a felület verziója külön csúszhat el. Az
+`/api/info` mostantól négy plusz mezőt ad:
+
+| mező | jelentése |
+|---|---|
+| `appVersion` | a képben futó **program** (`florum.py`) verziója |
+| `htmlVersion` | a képbe égetett **felület** (`florum.html`) verziója |
+| `imageVersion` | a build-arg (`FLORUM_IMAGE_VERSION`), ha volt ilyen |
+| `staleImage` | `true`, ha a kép **elavult** → újra kell építeni |
+
+Ellenőrzés egy sorban:
+
+```bash
+bash docker/florum-docker.sh verziok
+#   /api/info:         app=1.33.4 felület=1.33.4 kép=1.33.4 elavult=False
+```
+
+Ha elavult képet futtatsz, a felület alján **borostyánsárga sáv** jelenik meg
+(„Elavult Docker-kép fut.”) a `bash docker/florum-docker.sh epites` parancs­sal – nem a
+félrevezető „indítsd újra a szervert” tanáccsal.
+
+### 22.10.4 „Arcane: helyi összeállítás”
+
+Ez **nem hiba**: a projekt a gazdagépen épített képet használja, nem húz registry-ből
+(nincs is fent sehol). A szöveg azt jelenti, hogy az Arcane a helyi `florum:<verzió>`
+képet indítja. Ha mellette régi verzió fut, a 22.10.1–22.10.3 valamelyike áll fenn.
+
+### 22.10.5 Ellenőrző lista frissítés után
+
+```bash
+bash docker/florum-docker.sh verziok        # 1) fájl / kép / futó példány együtt
+curl -s http://127.0.0.1:8777/api/info | python3 -m json.tool | head -8
+docker images | grep florum                 # 2) a kép dátuma a mostani építésé
+docker exec florum cat /app/VERSION         # 3) a képben mi van beégetve
+```
+
+Ha a három egyezik, a böngészőben már csak **Ctrl+Shift+R** kell (a régi lap cache-el).
+
+---
+
 ## 23. Hol van az új verzió? (1.33.4) – a munkaterület és a három példány
 
 > **A panasz:** „workspace nem frissül.”

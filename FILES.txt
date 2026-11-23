@@ -1,4 +1,4 @@
-FLORUM 1.33.3 – a csomag tartalma
+FLORUM 1.33.4 – a csomag tartalma
 ======================================================================
 
 Ez a zip CSAK a Florum fájljait tartalmazza: nincs benne
@@ -6,8 +6,8 @@ fejlesztői patch-szkript, teszt, előnézet és korábbi zip.
 
 fájl                                               méret  mi ez
 ----------------------------------------------------------------------
-florum.py                                        92.6 kB  a program (helyi szerver + fájlmentés + értesítés + --kert/--verzio/--leallit)
-florum.html                                     550.9 kB  a felület (egyetlen fájl, offline; benne van a növény-adatbázis is)
+florum.py                                        95.1 kB  a program (helyi szerver + fájlmentés + értesítés + --kert/--verzio/--leallit)
+florum.html                                     552.5 kB  a felület (egyetlen fájl, offline; benne van a növény-adatbázis is)
 plants-db.json                                   87.4 kB  növény-adatbázis (82 növény)
 VERSION                                              7 B  verziószám (mindenhonnan ez az igazság)
 mentes.py                                        14.3 kB  közös, előzményes mentés (perc/napi/havi pillanatképek)
@@ -50,9 +50,9 @@ kde-eventcalendar-fuggoseg.sh                     3.5 kB  KDE-segédszkript (ál
 kde-eventcalendar-magyar.sh                       3.8 kB  KDE-segédszkript (állapot / Event Calendar / PIM)
 kde-eventcalendar-telepites.sh                    4.3 kB  KDE-segédszkript (állapot / Event Calendar / PIM)
 kde-pim-kikapcsolas.sh                            4.5 kB  KDE-segédszkript (állapot / Event Calendar / PIM)
-docker/Dockerfile                                 2.3 kB  konténer-kép (nem root, /data kötet, healthcheck)
+docker/Dockerfile                                 3.0 kB  konténer-kép (nem root, /data kötet, healthcheck)
 docker/compose.yaml                               1.9 kB  docker compose / Arcane stack
-docker/florum-docker.sh                          18.2 kB  egyparancsos docker segéd (építés, indítás, mentés, frissítés)
+docker/florum-docker.sh                          22.5 kB  egyparancsos docker segéd (építés, indítás, mentés, frissítés)
 docker/.env.example                                265 B  docker beállítások mintája
 docker/proba-docker.py                           12.4 kB  a docker-fájlok ellenőrzése (docker nélkül is fut)
 docker/kontener-adat.py                           5.1 kB  a régi konténer adatainak vizsgálata és egyesítése
@@ -60,7 +60,7 @@ docker/arcane/compose.yaml                        1.6 kB  Arcane Git Sync-hez va
 docker/arcane/.env                                  22 B  az Arcane compose verziója (FLORUM_VERSION)
 .dockerignore                                      372 B  mi ne kerüljön a képbe
 .gitignore                                         980 B  mi ne kerüljön a git repóba (adat, fotó, zip, titkok)
-teszt-verzio.py                                  31.7 kB  
+teszt-verzio.py                                  35.5 kB  
 teszt-forras.py                                  11.3 kB  
 teszt-adatut.py                                   8.8 kB  
 teszt-homerseklet-modul.js                       20.7 kB  
@@ -73,8 +73,8 @@ teszt-lenyilo.js                                 21.6 kB
 teszt-kert.js                                    23.2 kB  
 teszt-naplo.js                                   12.8 kB  
 teszt-tragyazas.js                               14.0 kB  
-README.md                                       151.7 kB  teljes leírás + hibaelhárítás + változáslista
-OLVASSEL.txt                                     35.3 kB  rövid, lépésenkénti útmutató
+README.md                                       155.4 kB  teljes leírás + hibaelhárítás + változáslista
+OLVASSEL.txt                                     36.3 kB  rövid, lépésenkénti útmutató
 forditas/entries.json                            38.3 kB  az Event Calendar magyar fordítása
 forditas/hu-1.py                                 10.4 kB  az Event Calendar magyar fordítása
 forditas/hu-2.py                                  6.7 kB  az Event Calendar magyar fordítása
