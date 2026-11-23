@@ -443,6 +443,67 @@ class GithubBeallitas(unittest.TestCase):
                       "a tokenhez hitelesítés-tároló kell, nem fájlba írt jelszó")
 
 
+class ArcaneGitSync(unittest.TestCase):
+    """Arcane Git Sync: a compose fájlnak önmagában is működnie kell.
+
+    A hiba, amit ez őriz:
+        a docker/compose.yaml `build.context: ..` – a build a repó gyökerét várja
+        EGY szinttel feljebb. Arcane viszont csak a compose fájlt (vagy a saját
+        mappáját) másolja a projekt-mappájába, így a szülőmappa NEM a repó
+        gyökere lesz → a build elhasal („failed to read dockerfile”).
+        Ezért külön, build nélküli compose fájl kell az Arcane-hez.
+    """
+
+    ARCANE = os.path.join(HERE, "docker", "arcane", "compose.yaml")
+
+    def test_van_arcane_compose(self):
+        self.assertTrue(os.path.isfile(self.ARCANE),
+                        "hiányzik a docker/arcane/compose.yaml (bash docker/florum-docker.sh compose-frissit)")
+
+    def test_arcane_compose_nem_buildel(self):
+        """build: nélkül – különben az Arcane projekt-mappájában elhasal."""
+        with io.open(self.ARCANE, encoding="utf-8") as fh:
+            s = fh.read()
+        # csak a tényleges YAML-kulcsot nézzük – a magyarázó megjegyzésben
+        # nyugodtan szerepelhet a szó („nincs build: – a kép a gazdagépen készül”)
+        utasitas = [sor for sor in s.splitlines() if not sor.strip().startswith("#")]
+        yaml = "\n".join(utasitas)
+        self.assertNotIn("build:", yaml,
+                         "az Arcane compose ne buildeljen (a képet a gazdagép építi)")
+        self.assertIn("image:", s, "kész képet kell használnia")
+        self.assertIn("florum", s)
+
+    def test_arcane_compose_adat_megmarad(self):
+        """Az adat a compose melletti ./data mappába kerüljön (nem névtelen kötet)."""
+        with io.open(self.ARCANE, encoding="utf-8") as fh:
+            s = fh.read()
+        self.assertIn("./data:/data", s, "az adat kötete hiányzik")
+        self.assertNotIn("volumes:\n  data:", s, "ne legyen névtelen kötet")
+        self.assertIn("container_name: florum", s)
+
+    def test_verzio_a_envbol(self):
+        """A kép címkéje a .env-ből jöjjön, hogy a friss kép legyen használva."""
+        with io.open(self.ARCANE, encoding="utf-8") as fh:
+            s = fh.read()
+        self.assertIn("${FLORUM_VERSION:-", s,
+                      "a verzió legyen felülírható a .env-ből (különben a régi kép marad)")
+        env = os.path.join(HERE, "docker", "arcane", ".env")
+        self.assertTrue(os.path.isfile(env), "hiányzik a docker/arcane/.env")
+        with io.open(env, encoding="utf-8") as fh:
+            self.assertIn("FLORUM_VERSION=" + florum.APP_VERSION, fh.read())
+
+    def test_mentes_parancs_letezik(self):
+        """Arcane frissítés ELŐTT legyen adatmentés (a projekt-mappa változhat)."""
+        with io.open(os.path.join(HERE, "docker", "florum-docker.sh"), encoding="utf-8") as fh:
+            sh = fh.read()
+        self.assertIn("arcane-mentes)", sh)
+        self.assertIn("compose-frissit)", sh)
+        self.assertIn("docker cp", sh)
+        # a frissítés húzza be a git-et is
+        self.assertIn("git -C \"$GYOKER\" pull", sh,
+                      "a frissit ne csak képet építsen, húzza be az új kódot is")
+
+
 class ApiInfo(unittest.TestCase):
     """/api/info adja a fájl verzióját is, ne csak a futóét."""
 

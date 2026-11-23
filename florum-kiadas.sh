@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  kiadás: verzióváltás, szűrés, GitHubra feltöltés
+#  FLORUM 1.33.4  ·  kiadás: verzióváltás, szűrés, GitHubra feltöltés
 #  Fájl:    florum-kiadas.sh
 #
 #  MIÉRT VAN EZ?
@@ -11,8 +11,8 @@
 #
 #  HASZNÁLAT
 #      bash florum-kiadas.sh                      # mi a verzió most
-#      bash florum-kiadas.sh --uj 1.33.3          # verzióváltás mindenhol
-#      bash florum-kiadas.sh --uj 1.33.3 --csomag # + tiszta zip újragenerálása
+#      bash florum-kiadas.sh --uj 1.33.4          # verzióváltás mindenhol
+#      bash florum-kiadas.sh --uj 1.33.4 --csomag # + tiszta zip újragenerálása
 #      bash florum-kiadas.sh --git-elokeszites     # git repó + első commit
 #      bash florum-kiadas.sh --allapot             # mi van a repóban
 #      bash florum-kiadas.sh --feltoltes           # git push a GitHubra
@@ -77,7 +77,7 @@ VERZIOS_FAJLOK=(
 verzio_csere() {
   local uj="$1" regi fajl db=0
   if ! printf '%s' "$uj" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-    hiba "rossz verzióformátum: $uj (helyes: 1.33.3)"; return 1
+    hiba "rossz verzióformátum: $uj (helyes: 1.33.4)"; return 1
   fi
   regi="$(jelenlegi)"
 
@@ -508,7 +508,7 @@ EOF
 # ---- main -----------------------------------------------------------------
 case "${1:-}" in
   --uj)
-      [ $# -ge 2 ] || { echo "használat: bash florum-kiadas.sh --uj 1.33.3 [--csomag]"; exit 1; }
+      [ $# -ge 2 ] || { echo "használat: bash florum-kiadas.sh --uj 1.33.4 [--csomag]"; exit 1; }
       verzio_csere "$2" || exit 1
       for kapcs in "${@:3}"; do
         case "$kapcs" in
@@ -535,8 +535,8 @@ case "${1:-}" in
       echo "  verzió: $(jelenlegi)"
       cat <<EOF
 
-  bash florum-kiadas.sh --uj 1.33.3            verzióváltás mindenhol
-  bash florum-kiadas.sh --uj 1.33.3 --epit --csomag   + build + zip
+  bash florum-kiadas.sh --uj 1.33.4            verzióváltás mindenhol
+  bash florum-kiadas.sh --uj 1.33.4 --epit --csomag   + build + zip
   bash florum-kiadas.sh --git-elokeszites      git repó + első commit
   bash florum-kiadas.sh --allapot              mi van a repóban
   bash florum-kiadas.sh --feltoltes            feltöltés (teszt + adat-ellenőrzés után)

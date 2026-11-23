@@ -1,5 +1,5 @@
 // ==============================================================
-//  FLORUM 1.33.3  ·  KDE-ablak (QML)
+//  FLORUM 1.33.4  ·  KDE-ablak (QML)
 //  Fájl:    florum-kde.qml
 //
 //  A Florum felülete natív KDE-ablakban: toolbár, KDE-s kinézet,

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  Event Calendar plasmoid – magyar felirat
+#  FLORUM 1.33.4  ·  Event Calendar plasmoid – magyar felirat
 #  Fájl:    kde-eventcalendar-magyar.sh
 #  Futtatás:  bash kde-eventcalendar-magyar.sh
 #

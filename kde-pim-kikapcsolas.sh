@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  a Digitális óra PIM pluginjának kikapcsolása
+#  FLORUM 1.33.4  ·  a Digitális óra PIM pluginjának kikapcsolása
 #  Fájl:    kde-pim-kikapcsolas.sh
 #  Futtatás:  bash kde-pim-kikapcsolas.sh
 #

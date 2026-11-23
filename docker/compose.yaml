@@ -19,8 +19,8 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
       args:
-        FLORUM_VERSION: "1.33.3"
-    image: florum:${FLORUM_VERSION:-1.33.3}
+        FLORUM_VERSION: "1.33.4"
+    image: florum:${FLORUM_VERSION:-1.33.4}
     container_name: florum
     restart: unless-stopped
     ports:

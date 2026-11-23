@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ==============================================================
-#  FLORUM 1.33.3  ·  otthoni növénygondozó
+#  FLORUM 1.33.4  ·  otthoni növénygondozó
 #  Fájl:    fotonezo.py
 #  Szerep:  a növényfotók megnyitása külső nézegetőben
 #           (feh, böngésző, gwenview, loupe …) és a terminálban

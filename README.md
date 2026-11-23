@@ -1,8 +1,8 @@
-<!-- FLORUM 1.33.3 · otthoni növénygondozó · fájl: README.md (leírás) -->
+<!-- FLORUM 1.33.4 · otthoni növénygondozó · fájl: README.md (leírás) -->
 
 # 🌿 Florum – otthoni növénygondozó (PC-re, CachyOS/Arch)
 
-**Verzió: 1.33.3** · adatbázis: v2026.10.9 (82 növény)
+**Verzió: 1.33.4** · adatbázis: v2026.10.9 (82 növény)
 
 ## 🔎 Új növény egy linkről – nem neked kell beírni mindent
 
@@ -2202,7 +2202,7 @@ Példa (öntözés nyáron 7 nap, télen 12 nap):
 * 10 napnál régebbi mérés nem számít „most” – onnantól a havi átlag lép be, hogy egy elfelejtett
   mérés ne vezesse félre hónapokig.
 
-### 21.5. Hőmérséklet-grafikon (1.33.3)
+### 21.5. Hőmérséklet-grafikon (1.33.4)
 
 > **A kérés:** „Valamiféle hőmérséklet grafikon jó lenne.”
 
@@ -2240,7 +2240,7 @@ a naptár-sávot, a mentést/visszatöltést és a selejt-szűrést.
 
 ---
 
-## 22. Docker és Arcane (1.33.3) – konténerben, felülettel
+## 22. Docker és Arcane (1.33.4) – konténerben, felülettel
 
 > **A kérdés:** „ez dockerben fut. Hogyan frissítsem legjobban? Arcane is fent van.”
 
@@ -2289,7 +2289,7 @@ bash docker/florum-docker.sh mentes      # ZIP a kötetből (pl. frissítés el�
 **B) Kézi frissítés a segédszkripttel (ma este ez a legegyszerűbb)**
 
 ```bash
-unzip -o florum-1.33.3-tiszta.zip -d ~/florum-uj     # az új verzió
+unzip -o florum-1.33.4-tiszta.zip -d ~/florum-uj     # az új verzió
 cd ~/florum-uj/florum
 bash docker/florum-docker.sh frissit                # mentés NEM kell: az adat a köteten van
 ```
@@ -2389,9 +2389,132 @@ cp -a /az/a/mappa/. ./docker/data/                  # átmásolás
 > A `docker rm` a kötetet nem törli – de a *konténer rétegében* lévő fájlokat igen.
 > Ezért megy előbb a mentés.
 
+### 22.9. Arcane: hogyan frissül a Florum?
+
+> **A kérdés:** „Arcane hogyan frissül? (GitHubra felraktam.)”
+
+Az Arcane **Git Sync**-kel követi a repót: beállítod egyszer, utána a `git push` = frissítés.
+De a Florum compose fájljában volt egy csapda, amibe az Arcane **belefut** – ezt előbb meg kell
+oldani, különben a szinkron „sikeres”, a konténer mégsem indul.
+
+#### A hiba, amit el kell kerülni
+
+A `docker/compose.yaml`-ban ez áll:
+
+```yaml
+build:
+  context: ..            # ← a repó gyökere EGY szinttel feljebb
+  dockerfile: docker/Dockerfile
+```
+
+Ez kézi `docker compose`-nál jó, mert a `docker/` mappából indítod. Az Arcane viszont
+**csak a compose fájlt (vagy a saját mappáját) másolja** a saját projekt-mappájába – a
+szülőmappa nem a repó gyökere lesz, így a build ezt adja:
+
+```
+failed to read dockerfile: open Dockerfile: no such file or directory
+```
+
+#### A megoldás: külön compose fájl az Arcane-hez
+
+```bash
+cd ~/florum
+bash docker/florum-docker.sh compose-frissit
+```
+
+Ez létrehozza a **`docker/arcane/compose.yaml`** fájlt – `build:` **nélkül**, kész képpel:
+
+```yaml
+image: florum:${FLORUM_VERSION:-1.33.4}
+volumes:
+  - ./data:/data
+```
+
+és mellé a `docker/arcane/.env` fájlt (`FLORUM_VERSION=1.33.4`). A képet a **gazdagépen**
+építed, az Arcane csak lefuttatja – neki nem kell Dockerfile-t fordítania.
+
+#### Beállítás az Arcane-ban (egyszer)
+
+**Git Syncs → Git Repositories → Add Repository**
+– URL: `https://github.com/zsoldospeti/florum.git` (vagy SSH), hitelesítés: **HTTP + token**
+(ha privát a repó; a tokenhez `Contents: Read` elég).
+
+**Projects → Create Project → From Git Repo** (vagy *Git Syncs → Add Sync → Pull*):
+
+| Mező | Érték |
+|---|---|
+| Sync Name | `florum` (ez lesz a projekt neve) |
+| Target Type | Project |
+| Project | *Create a new project* |
+| Branch | `main` |
+| **Compose File Path** | **`docker/arcane/compose.yaml`** |
+| **Sync Files** | **BE** (a `./data` mappa és a `.env` miatt) |
+| **Auto Sync** | BE, intervallum **5–15 perc** |
+| **Pull Image After Sync** | BE |
+| **Redeploy After Sync** | BE |
+
+> ⚠️ Ha a `docker/compose.yaml`-t adod meg, a build elhasal (lásd fent).
+> A `docker/arcane/compose.yaml` az, ami Arcane alatt működik.
+
+#### A frissítés menete onnantól
+
+```bash
+cd ~/florum
+bash florum-kiadas.sh --uj 1.33.4 --epit --csomag
+bash docker/florum-docker.sh compose-frissit    # az Arcane compose + .env az új verzióra
+git add -A && git commit -m "Florum 1.33.4" && git push
+bash docker/florum-docker.sh epites             # helyben megépíted a képet
+```
+
+…majd az Arcane a **következő Auto Sync**-nél behúzza és újraindítja (5–15 perc).
+Azonnali frissítés: Arcane → a projekt → **Sync from Git** → **Redeploy**.
+
+#### Az adat: mi történik az első szinkronnál
+
+A kép adatkönyvtára a compose **melletti `./data`** mappa. Két eset:
+
+* **Ha eddig is a repó mappájából indítottad** – ugyanaz a `docker/data` lesz, az adat a helyén;
+* **Ha eddig máshonnan** – az Arcane **új projekt-mappát** hoz létre, és az új `./data`
+  **üres** lesz. Ilyenkor előbb ments ki:
+
+```bash
+bash docker/florum-docker.sh arcane-mentes      # zip a ~/ mappába, a futó konténerből
+# majd az első szinkron után:
+docker stop florum
+unzip -o ~/florum-arcane-mentes-*.zip -d /tmp/florum-vissza
+cp -a /tmp/florum-vissza/florum-data/. <arcane-projekt-mappa>/data/
+docker start florum
+```
+
+> A compose `name: florum` és a `container_name: florum` miatt a régi és az új konténer
+> **ugyanazt a nevet** akarja – ezért az első szinkron előtt állítsd le az Arcane-on kívül
+> indított példányt (`bash docker/florum-docker.sh leallit`), különben:
+> `Conflict. The container name "/florum" is already in use`.
+
+#### Ha a szinkron „sikeres”, de a régi verzió fut
+
+Ezt a leggyakrabban a **kép** okozza: a compose ugyanazt a címkét kéri, a Docker pedig
+a meglévő képet használja. Ellenőrzés:
+
+```bash
+curl -s http://127.0.0.1:8777/api/info | python3 -c "import json,sys;print(json.load(sys.stdin)['appVersion'])"
+docker images | grep florum      # a kép dátuma egyezzen az új builddel
+```
+
+Megoldás: **Pull Image After Sync = BE**, vagy az Arcane-ban *Redeploy* + *Pull image*,
+illetve a gazdagépen `bash docker/florum-docker.sh epites`.
+
+#### Hogyan NE csináld
+
+* ne add meg a `docker/compose.yaml`-t az Arcane-nak (build-kontextus hiba);
+* ne kapcsold ki a **Sync Files**-t (a `./data` és a `.env` nem kerül oda);
+* ne használj **név nélküli kötetet** (`volumes: data:`) – az adat a kötetben nehezen
+  található meg, a `./data` mappa látszik, menthető, másolható;
+* az Arcane „container restart” **nem** frissít – a projektet kell újra deploy-olni.
+
 ---
 
-## 23. Hol van az új verzió? (1.33.3) – a munkaterület és a három példány
+## 23. Hol van az új verzió? (1.33.4) – a munkaterület és a három példány
 
 > **A panasz:** „workspace nem frissül.”
 
@@ -2430,7 +2553,7 @@ A teszt mostantól azt is nézi, hogy
 * a három `florum.html` **ugyanazt a verziót** írja-e a `<meta name="florum-version">`-ben;
 * a `minden_html-egyesitett` példány **nem maradt-e el** a forrástól (a verzió és a
   legfontosabb új funkciók – jelenleg a `tempChartHTML` grafikon – megvannak-e benne);
-* a munkaterületen **csak a legfrissebb zip** van-e meg (`florum-1.33.3-tiszta.zip`);
+* a munkaterületen **csak a legfrissebb zip** van-e meg (`florum-1.33.4-tiszta.zip`);
 * a `florum/florum.html` és a `VERSION` egyezik-e.
 
 Ha bármelyik elbukik, a hibaüzenet megmondja, **melyik fájl** maradt el és **melyik
@@ -2456,7 +2579,7 @@ Ha viszont itt is az új verzió van, csak a böngésző fülét kell újratölt
 
 ---
 
-## 24. GitHub – verziókövetés és frissítés (1.33.3)
+## 24. GitHub – verziókövetés és frissítés (1.33.4)
 
 > **A kérdés:** „GitHubra hogyan tudom eltenni, hogy frissüljön ha kell?”
 
@@ -2525,7 +2648,7 @@ Amikor változtatsz valamit, **egy sorrend** van, és a szkript betartatja:
 
 ```bash
 cd ~/florum
-bash florum-kiadas.sh --uj 1.33.3 --epit --csomag   # verzió mindenhol + build + teszt + zip
+bash florum-kiadas.sh --uj 1.33.4 --epit --csomag   # verzió mindenhol + build + teszt + zip
 bash florum-kiadas.sh --feltoltes                   # commit + push (teszt és adat-ellenőrzés után)
 ```
 
@@ -2690,7 +2813,7 @@ Siker esetén ezt látod:
 ```
  ✔ a repó elérhető és még üres – az első push feltölti
  * [new branch]      HEAD -> main
- ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.3)
+ ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.4)
 ```
 
 Ha nincs kedved böngészőzni, a GitHub CLI egy lépésben megcsinálja (létrehozás + push):
@@ -2780,7 +2903,7 @@ bash florum-kiadas.sh --meghajto /run/media/peti/KINGSTON/florum.git
 
 # 2) egyetlen fájl, az egész történettel (pendrive-ra, felhőbe, e-mailbe)
 bash florum-kiadas.sh --bundle
-#    → ~/florum-1.33.3-20261122.bundle   (kb. 0,5 MB)
+#    → ~/florum-1.33.4-20261122.bundle   (kb. 0,5 MB)
 
 # 3) visszaállítás bármelyikből, bármelyik gépre
 bash florum-kiadas.sh --visszaallitas /run/media/peti/KINGSTON/florum.git ~/florum-masolat
@@ -2840,7 +2963,7 @@ bash florum-kiadas.sh --segitseg   # a három út egy helyen
 
 ---
 
-## 26. Naponta több mérés – napszak és évszak szerint (1.33.3)
+## 26. Naponta több mérés – napszak és évszak szerint (1.33.4)
 
 > **A kérés:** „Naponta akár több mérési eredmény is rögzíthető lenne, ugyanoda.
 > A statisztikák is változnának akár délelőtti-esti / helyiség, nyári-téli / helyiség stb.”

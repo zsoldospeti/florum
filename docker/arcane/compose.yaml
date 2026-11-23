@@ -1,0 +1,44 @@
+# ==============================================================
+#  FLORUM – Arcane / Git Sync compose fájl (GENERÁLT!)
+#
+#  Ezt a fájlt a docker/florum-docker.sh compose-frissit készíti.
+#  Kézzel ne írd át: a következő frissítés felülírja.
+#
+#  MIÉRT MÁS, MINT A docker/compose.yaml?
+#    · nincs build: – a képet a gazdagépen építjük (docker/florum-docker.sh epites)
+#    · nincs relatív build-kontextus, ezért Arcane Git Sync-kel is működik
+#    · az adat a compose fájl melletti ./data mappában marad (Arcane projekt-mappa)
+#
+#  Arcane beállítás ehhez a fájlhoz:
+#    Compose File Path:  docker/arcane/compose.yaml
+#    Sync Files:         BE (a data mappa és a .env miatt)
+#    Auto Sync:          BE, 5–15 perc
+#    Redeploy After Sync: BE
+# ==============================================================
+name: florum
+
+services:
+  florum:
+    # a .env-ben felülírható (FLORUM_VERSION) – így Arcane is a friss képet veszi
+    image: florum:${FLORUM_VERSION:-1.33.4}
+    container_name: florum
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8777:8777"
+    environment:
+      TZ: Europe/Budapest
+      FLORUM_DATA: /data
+    volumes:
+      - ./data:/data
+    user: "1000:1000"
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request,sys;sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8777/api/info',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

@@ -1,11 +1,44 @@
 ==============================================================
- FLORUM 1.33.3  ·  otthoni növénygondozó
+ FLORUM 1.33.4  ·  otthoni növénygondozó
  KDE panel – Digitális óra, naptár (.ics) és figyelmeztetés
 ==============================================================
 
 MI ÚJ EBBEN A VERZIÓBAN?
 
-  * NAPONTA TÖBB MÉRÉS – NAPSZAK ÉS ÉVSZAK SZERINT (1.33.3)
+  * ARCANE – HOGYAN FRISSÜL? (1.33.4)
+    Az Arcane Git Sync-kel követi a repót: egyszer
+    beállítod, utána a git push = frissítés.
+
+    EGY DOLOG KELL HOZZÁ, KÜLÖNBEN ELHASAL:
+
+        bash docker/florum-docker.sh compose-frissit
+
+    Ez létrehozza a docker/arcane/compose.yaml fájlt.
+    Az Arcane-ban EZT add meg, NE a docker/compose.yaml-t:
+
+        Compose File Path:   docker/arcane/compose.yaml
+        Sync Files:          BE
+        Auto Sync:           BE (5-15 perc)
+        Redeploy After Sync: BE
+
+    (A docker/compose.yaml `build.context: ..`-t használ,
+    ami az Arcane projekt-mappájában nem találja a
+    Dockerfile-t → „failed to read dockerfile”.)
+
+    Frissítés innentől:
+        bash florum-kiadas.sh --epit --csomag
+        bash docker/florum-docker.sh compose-frissit
+        git add -A && git commit -m "uj verzio" && git push
+        bash docker/florum-docker.sh epites
+
+    ELSŐ SZINKRON ELŐTT mentsd ki az adatot (az Arcane
+    új projekt-mappát hozhat létre, üres ./data-val):
+
+        bash docker/florum-docker.sh arcane-mentes
+
+    Részletek: README 22.9.
+
+  * NAPONTA TÖBB MÉRÉS – NAPSZAK ÉS ÉVSZAK SZERINT (1.33.4)
     Ugyanabba a helyiségbe naponta több hőmérséklet
     is rögzíthető. A rögzítésnél új „Idő (óra:perc)” mező
     van – üresen hagyva a mostani idő számít.
@@ -29,7 +62,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
     A régi mérések megmaradnak (idejük 12:00 lesz).
     Részletek: README 26. fejezet.
 
-  * GITHUB HELYETT SAJÁT MEGHAJTÓ IS ELÉG (1.33.3)
+  * GITHUB HELYETT SAJÁT MEGHAJTÓ IS ELÉG (1.33.4)
     A GitHub Free véglegesen ingyenes (korlátlan privát
     repó, 1 GB alatti repó), de nem kötelező. Ugyanez
     megy pendrive-ról vagy külső HDD-ről is:
@@ -52,7 +85,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
   panel Digitális órája eseményként tud mutatni – és
   figyelmeztetni is tud rájuk.
 
-  * GITHUB – VERZIÓKÖVETÉS ÉS FRISSÍTÉS (1.33.3)
+  * GITHUB – VERZIÓKÖVETÉS ÉS FRISSÍTÉS (1.33.4)
     A program felkerülhet GitHubra (privát repó), és
     onnantól a frissítés egy parancs. A növényeid,
     méréseid, fotóid NEM mennek fel (a .gitignore kizárja).
@@ -112,7 +145,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
 
     Új verzió kiadása (verzió mindenhol + build + teszt + zip):
 
-        bash florum-kiadas.sh --uj 1.33.3 --epit --csomag
+        bash florum-kiadas.sh --uj 1.33.4 --epit --csomag
         bash florum-kiadas.sh --feltoltes
 
     Frissítés a gépeden:
@@ -123,7 +156,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
     Arcane: Git Syncs → a repó → Auto Sync.
     Részletek és hibaüzenet-táblázat: README 24. fejezet.
 
-  * „NEM FRISSÜL A MUNKATERÜLET” – MEGOLDVA (1.33.3)
+  * „NEM FRISSÜL A MUNKATERÜLET” – MEGOLDVA (1.33.4)
     A munkaterületen három florum.html van, és a
     build két lépésből áll. Ha a második kimarad,
     a felület a régi példányt mutatja:
@@ -141,7 +174,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
     eltér, vagy ha az egyesített példány lemaradt.
     Részletek: README 23. fejezet.
 
-  * HŐMÉRSÉKLET-GRAFIKON (1.33.3)
+  * HŐMÉRSÉKLET-GRAFIKON (1.33.4)
     A Hőmérséklet fülön a kártyák alatt most van egy
     rendes diagram: helyiségenként külön vonal, °C-tengely,
     zöld „ideális sáv” a növények hőmérséklet-tartományából,
@@ -154,7 +187,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
 
     Nem kell hozzá internet és külső könyvtár.
 
-  * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.3)
+  * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.4)
     A Florumhoz kész Docker-kép és Arcane-barát compose fájl van:
 
         docker/Dockerfile        a kép (nem root, /data kötet, healthcheck)
@@ -168,7 +201,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
 
     Frissítés (a legegyszerűbb ma este):
 
-        unzip -o florum-1.33.3-tiszta.zip -d ~/florum-uj
+        unzip -o florum-1.33.4-tiszta.zip -d ~/florum-uj
         cd ~/florum-uj/florum
         bash docker/florum-docker.sh frissit
 

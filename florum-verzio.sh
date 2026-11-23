@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  „Felül új, lent régi” – verzió-ellenőrzés
+#  FLORUM 1.33.4  ·  „Felül új, lent régi” – verzió-ellenőrzés
 #  Fájl:  florum-verzio.sh
 #
 #  Megmutatja, MI FUT valójában:

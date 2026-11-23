@@ -52,13 +52,15 @@ kde-eventcalendar-telepites.sh                    4.3 kB  KDE-segédszkript (ál
 kde-pim-kikapcsolas.sh                            4.5 kB  KDE-segédszkript (állapot / Event Calendar / PIM)
 docker/Dockerfile                                 2.3 kB  konténer-kép (nem root, /data kötet, healthcheck)
 docker/compose.yaml                               1.9 kB  docker compose / Arcane stack
-docker/florum-docker.sh                          12.2 kB  egyparancsos docker segéd (építés, indítás, mentés, frissítés)
+docker/florum-docker.sh                          18.2 kB  egyparancsos docker segéd (építés, indítás, mentés, frissítés)
 docker/.env.example                                265 B  docker beállítások mintája
 docker/proba-docker.py                           12.4 kB  a docker-fájlok ellenőrzése (docker nélkül is fut)
 docker/kontener-adat.py                           5.1 kB  a régi konténer adatainak vizsgálata és egyesítése
+docker/arcane/compose.yaml                        1.6 kB  Arcane Git Sync-hez való compose (build nélkül, kész képpel)
+docker/arcane/.env                                  22 B  az Arcane compose verziója (FLORUM_VERSION)
 .dockerignore                                      372 B  mi ne kerüljön a képbe
 .gitignore                                         980 B  mi ne kerüljön a git repóba (adat, fotó, zip, titkok)
-teszt-verzio.py                                  28.5 kB  
+teszt-verzio.py                                  31.7 kB  
 teszt-forras.py                                  11.3 kB  
 teszt-adatut.py                                   8.8 kB  
 teszt-homerseklet-modul.js                       20.7 kB  
@@ -71,8 +73,8 @@ teszt-lenyilo.js                                 21.6 kB
 teszt-kert.js                                    23.2 kB  
 teszt-naplo.js                                   12.8 kB  
 teszt-tragyazas.js                               14.0 kB  
-README.md                                       147.0 kB  teljes leírás + hibaelhárítás + változáslista
-OLVASSEL.txt                                     34.2 kB  rövid, lépésenkénti útmutató
+README.md                                       151.7 kB  teljes leírás + hibaelhárítás + változáslista
+OLVASSEL.txt                                     35.3 kB  rövid, lépésenkénti útmutató
 forditas/entries.json                            38.3 kB  az Event Calendar magyar fordítása
 forditas/hu-1.py                                 10.4 kB  az Event Calendar magyar fordítása
 forditas/hu-2.py                                  6.7 kB  az Event Calendar magyar fordítása

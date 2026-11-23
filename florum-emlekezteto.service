@@ -1,5 +1,5 @@
 # ==============================================================
-#  FLORUM 1.33.3  ·  emlékeztető démon (systemd --user egység)
+#  FLORUM 1.33.4  ·  emlékeztető démon (systemd --user egység)
 #  Fájl:    florum-emlekezteto.service
 #  Telepítés (a Florum mappájában):
 #      mkdir -p ~/.config/systemd/user

@@ -11,7 +11,7 @@
         "Id": "hu.florum.panel",
         "License": "MIT",
         "Name": "Florum naptár",
-        "Version": "1.33.3"
+        "Version": "1.33.4"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "KPackageStructure": "Plasma/Applet"

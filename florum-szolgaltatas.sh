@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  háttérszerver mint systemd --user szolgáltatás
+#  FLORUM 1.33.4  ·  háttérszerver mint systemd --user szolgáltatás
 #  Fájl:    florum-szolgaltatas.sh
 #
 #  Ezzel a NEM kell tudnod, telepítve van-e a szolgáltatás:

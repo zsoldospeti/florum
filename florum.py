@@ -91,7 +91,7 @@ except Exception:                       # ha a fájl hiányzik, az app akkor is 
     naptar_ics = None
 
 APP_NAME = "Florum"
-APP_VERSION = "1.33.3"
+APP_VERSION = "1.33.4"
 MAIN_FILE = "florum.html"
 DB_FILE = "plants-db.json"
 DATA_FILE = "florum-data.json"

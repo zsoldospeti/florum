@@ -509,7 +509,7 @@ def build():
 
     db = {
         "format": "florum-plants-db",
-        "app": "Florum 1.33.3",
+        "app": "Florum 1.33.4",
         "file": "plants-db.json",
         "version": "2026.10.9",
         "updated": "2026-10-25",

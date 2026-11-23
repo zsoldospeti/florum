@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  EGYETLEN indító (a panel-widgethez és a menühöz)
+#  FLORUM 1.33.4  ·  EGYETLEN indító (a panel-widgethez és a menühöz)
 #  Fájl:    florum-megnyitas.sh
 #
 #  MIÉRT VAN EZ?

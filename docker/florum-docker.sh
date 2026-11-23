@@ -290,6 +290,17 @@ case "$eset" in
   frissit)
     docker_van
     cim "Frissítés (az adat megmarad)"
+    # 1) új kód (ha git repó és van remote)
+    if [ -d "$GYOKER/.git" ]; then
+      local elotte; elotte="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
+      echo "  · git pull"
+      if git -C "$GYOKER" pull --ff-only 2>&1 | sed 's/^/    /'; then :; else
+        sarga "  a git pull nem sikerült (kézi módosítás? nincs remote?) – a mostani fájlokkal folytatom"
+      fi
+      local utana; utana="$(cat "$GYOKER/VERSION" 2>/dev/null || echo '?')"
+      if [ "$elotte" != "$utana" ]; then zold "  verzió: $elotte → $utana"; fi
+    fi
+    # 2) új kép (a helyes build-kontextussal, lásd: compose-frissit)
     echo "  · új kép építése"
     "$0" epites || exit 1
     echo "  · konténer cseréje"
@@ -297,6 +308,129 @@ case "$eset" in
     sleep 3
     "$0" ellenorzes
     zold "A régi kép megmaradt visszaállításhoz: docker image ls | grep florum"
+    ;;
+
+  compose-frissit)
+    # ==================================================================
+    #  Arcane / Git Sync KONFIGURÁCIÓS fájl – külön mappába
+    #
+    #  MIÉRT KELL EZ?
+    #    A docker/compose.yaml `build.context: ..` – azaz a build a repó
+    #    gyökerét várja EGY szinttel feljebb. Arcane viszont csak a compose
+    #    fájlt (vagy a saját mappáját) másolja a projekt-mappájába, a
+    #    szülőmappa nem a repó gyökere lesz → a build elhasal
+    #    („failed to read dockerfile: open Dockerfile: no such file”).
+    #    Ezt a fájlt kifejezetten Arcane-hez készítjük: image: + ./data kötet,
+    #    build NÉLKÜL. A képet a gazdagépen építjük (docker/florum-docker.sh
+    #    epites), Arcane csak lefuttatja.
+    # ==================================================================
+    # ehhez NEM kell futó docker – csak egy fájlt írunk (Arcane-hoz)
+    cel="$GYOKER/docker/arcane/compose.yaml"
+    v="$(cat "$GYOKER/VERSION" 2>/dev/null || echo 0)"
+    mkdir -p "$(dirname "$cel")"
+    cat > "$cel" <<YAML
+# ==============================================================
+#  FLORUM – Arcane / Git Sync compose fájl (GENERÁLT!)
+#
+#  Ezt a fájlt a docker/florum-docker.sh compose-frissit készíti.
+#  Kézzel ne írd át: a következő frissítés felülírja.
+#
+#  MIÉRT MÁS, MINT A docker/compose.yaml?
+#    · nincs build: – a képet a gazdagépen építjük (docker/florum-docker.sh epites)
+#    · nincs relatív build-kontextus, ezért Arcane Git Sync-kel is működik
+#    · az adat a compose fájl melletti ./data mappában marad (Arcane projekt-mappa)
+#
+#  Arcane beállítás ehhez a fájlhoz:
+#    Compose File Path:  docker/arcane/compose.yaml
+#    Sync Files:         BE (a data mappa és a .env miatt)
+#    Auto Sync:          BE, 5–15 perc
+#    Redeploy After Sync: BE
+# ==============================================================
+name: florum
+
+services:
+  florum:
+    # a .env-ben felülírható (FLORUM_VERSION) – így Arcane is a friss képet veszi
+    image: florum:\${FLORUM_VERSION:-__VERZIO__}
+    container_name: florum
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8777:8777"
+    environment:
+      TZ: Europe/Budapest
+      FLORUM_DATA: /data
+    volumes:
+      - ./data:/data
+    user: "1000:1000"
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request,sys;sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8777/api/info',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+YAML
+    # herdokumentum helyett egyszerű helyettesítés (a $ {...} maradjon érintetlen)
+    python3 - "$cel" "$v" <<'PY2'
+import io, sys
+cel, v = sys.argv[1], sys.argv[2]
+s = io.open(cel, encoding="utf-8").read().replace("__VERZIO__", v)
+io.open(cel, "w", encoding="utf-8").write(s)
+PY2
+    # .env: a konkrét verzió – így az Arcane a friss képet használja
+    printf 'FLORUM_VERSION=%s\n' "$v" > "$GYOKER/docker/arcane/.env"
+    zold "Kész: $cel (verzió: $v)"
+    zold "Kész: $GYOKER/docker/arcane/.env (FLORUM_VERSION=$v)"
+    echo "  Arcane-ban ezt add meg: Compose File Path = docker/arcane/compose.yaml"
+    ;;
+
+  arcane-mentes)
+    # ==================================================================
+    #  ADAT-MENTÉS a KONTÉNERBŐL – Arcane frissítés ELŐTT
+    #  Ha Arcane új projekt-mappát hoz létre (első szinkron), a korábbi
+    #  konténer adatkönyvtára elérhetetlenné válhat. Előbb mentsd ki!
+    # ==================================================================
+    docker_van
+    cim "Adat-mentés a futó konténerből"
+    if ! docker ps --format '{{.Names}}' | grep -qx "$KONTENER"; then
+      piros "  nem fut a(z) $KONTENER konténer – nincs mit menteni"
+      return 1 2>/dev/null || exit 1
+    fi
+    cel="${2:-$HOME/florum-arcane-mentes-$(date +%Y%m%d-%H%M).zip}"
+    # a zip ELŐBB a gazdagépen készül, azt másoljuk a konténerbe (ott nem kell zip)
+    cel="${2:-$HOME/florum-arcane-mentes-$(date +%Y%m%d-%H%M).zip}"
+    tmp="$(mktemp -d)"
+    on="$tmp/florum-data"
+    mkdir -p "$on"
+    docker cp "$KONTENER:/data/." "$on/" >/dev/null 2>&1 || {
+      piros "  a /data kimásolása nem sikerült (van egyáltalán adat a konténerben?)"; rm -rf "$tmp"; exit 1; }
+    if command -v zip >/dev/null 2>&1; then
+      ( cd "$tmp" && zip -qr "$cel" florum-data ) || { rm -rf "$tmp"; exit 1; }
+    else
+      # zip nélkül: egyszerű tar
+      cel="${cel%.zip}.tar.gz"
+      tar -czf "$cel" -C "$tmp" florum-data || { rm -rf "$tmp"; exit 1; }
+    fi
+    rm -rf "$tmp"
+    zold "  mentve: $cel ($(du -h "$cel" | cut -f1))"
+    echo
+    echo "  Visszatöltés az ÚJ projekt-mappába (a konténer leállítása után):"
+    echo "      docker stop $KONTENER"
+    if [ "${cel##*.}" = "zip" ]; then
+      echo "      unzip -o \"$cel\" -d /tmp/florum-vissza && \\"
+      echo "        cp -a /tmp/florum-vissza/florum-data/. /opt/stacks/florum/data/"
+    else
+      echo "      tar -xzf \"$cel\" -C /tmp/florum-vissza && \\"
+      echo "        cp -a /tmp/florum-vissza/florum-data/. /opt/stacks/florum/data/"
+    fi
+    echo "      docker start $KONTENER"
+    echo
+    echo "  (az útvonalat igazítsd az Arcane projekt-mappájához – a compose"
+    echo "   fájl mellett lévő ./data mappa)"
     ;;
 
   leallit)

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  Event Calendar plasmoid telepítése (Plasma 6)
+#  FLORUM 1.33.4  ·  Event Calendar plasmoid telepítése (Plasma 6)
 #  Fájl:    kde-eventcalendar-telepites.sh
 #  Futtatás:  bash kde-eventcalendar-telepites.sh
 #

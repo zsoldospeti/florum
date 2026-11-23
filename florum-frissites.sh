@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.3  ·  frissítés után: „még mindig a régi verzió”
+#  FLORUM 1.33.4  ·  frissítés után: „még mindig a régi verzió”
 #  Fájl:    florum-frissites.sh
 #
 #  MIT TESZ?
