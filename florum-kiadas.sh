@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  kiadás: verzióváltás, szűrés, GitHubra feltöltés
+#  FLORUM 1.33.3  ·  kiadás: verzióváltás, szűrés, GitHubra feltöltés
 #  Fájl:    florum-kiadas.sh
 #
 #  MIÉRT VAN EZ?
@@ -176,6 +176,121 @@ epit() {
 csomag() {
   cim "Tiszta csomag"
   python3 _csomag_tiszta.py | tail -2
+}
+
+# ---- saját meghajtó: bare repó (GitHub nélkül, ugyanaz a git) --------------
+# A bare repó olyan, mint egy „szerver” egy mappában: nincs benne munkapéldány,
+# csak a történet. A push/pull ugyanúgy megy rá, mint a GitHubra.
+meghajto() {
+  local cel="${1:-}"
+  if [ -z "$cel" ]; then
+    hiba "használat: bash florum-kiadas.sh --meghajto /run/media/NEVED/USB/florum.git"
+    echo "    (a pendrive-on elég egy mappa, pl. /run/media/peti/KINGSTON/florum.git)"
+    return 1
+  fi
+  git_van || { hiba "nincs git – sudo pacman -S git"; return 1; }
+  [ -d .git ] || { hiba "előbb: bash florum-kiadas.sh --git-elokeszites"; return 1; }
+
+  cim "Saját meghajtó: $cel"
+  # 1. a cél mappa létrehozása (ha a szülő létezik – pendrive csatolva van-e?)
+  local szulo; szulo="$(dirname "$cel")"
+  if [ ! -d "$szulo" ]; then
+    hiba "a mappa nem létezik: $szulo"
+    echo "    Pendrive:  ls /run/media/$(whoami)/     (csatolva van-e?)"
+    echo "    Külső HDD: ls /mnt/"
+    return 1
+  fi
+  mkdir -p "$cel"
+  if [ ! -d "$cel/objects" ]; then
+    git init -q --bare "$cel" || { hiba "nem sikerült bare repót létrehozni"; return 1; }
+    git --git-dir="$cel" symbolic-ref HEAD refs/heads/main 2>/dev/null || true
+    ok "bare repó létrehozva: $cel"
+    # exFAT/FAT (pendrive) nem tárol jogosultságot – ne jelezzen hamis változást
+    case "$(stat -f -c %T "$cel" 2>/dev/null)" in
+      exfat|vfat|msdos|fuseblk) ok "a meghajtó nem ext4 – core.filemode kikapcsolva" ;;
+    esac
+  else
+    ok "már van bare repó itt: $cel"
+  fi
+
+  # 2. remote beállítása (külön néven, hogy az origin=GitHub megmaradjon)
+  local nev="meghajto"
+  local url="file://$cel"
+  local regi; regi="$(git remote get-url "$nev" 2>/dev/null || echo '')"
+  if [ -n "$regi" ] && [ "$regi" != "$url" ]; then
+    git remote set-url "$nev" "$url"; ok "a(z) $nev remote átállítva: $url"
+  elif [ -z "$regi" ]; then
+    git remote add "$nev" "$url"; ok "$nev remote hozzáadva: $url"
+  else
+    ok "$nev remote már jó: $url"
+  fi
+
+  # 3. teszt + adat-ellenőrzés + commit + push (ugyanaz, mint a GitHubnál)
+  if [ -f teszt-verzio.py ] && ! python3 teszt-verzio.py >/tmp/florum-verzio.log 2>&1; then
+    hiba "a verzió-teszt elbukott – előbb javítsd (/tmp/florum-verzio.log)"; return 1
+  fi
+  local baj
+  baj="$(git ls-files | grep -E 'florum-data\.json|^photos/|^mentes/|\.zip$|^\.env$' || true)"
+  if [ -n "$baj" ]; then hiba "adat/zip van a repóban – nem tolom fel:"; printf '    %s\n' $baj; return 1; fi
+  if [ -n "$(git status --porcelain)" ]; then
+    git add -A
+    git -c user.name="${GIT_AUTHOR_NAME:-Florum}" -c user.email="${GIT_AUTHOR_EMAIL:-florum@localhost}" \
+        commit -q -m "Florum $(jelenlegi) – mentés a meghajtóra"
+    ok "commit: Florum $(jelenlegi)"
+  fi
+  git push -u "$nev" HEAD 2>&1 | sed 's/^/  /'
+  ok "fent van a meghajtón: $cel ($(jelenlegi))"
+  cat <<EOF
+
+  Visszaállítás másik gépre / új mappába:
+      git clone $cel ~/florum-masolat
+      cd ~/florum-masolat && chmod +x *.sh *.py docker/*.sh docker/*.py
+
+  Vagy egy paranccsal:
+      bash florum-kiadas.sh --visszaallitas $cel ~/florum-masolat
+EOF
+}
+
+# ---- egyetlen fájlos történet (bundle) ------------------------------------
+# Minden ág + teljes előzmény egy fájlban – pendrive-ra, felhőbe, e-mailbe.
+bundle() {
+  git_van || { hiba "nincs git"; return 1; }
+  [ -d .git ] || { hiba "előbb: bash florum-kiadas.sh --git-elokeszites"; return 1; }
+  cim "Egyfájlos történet (git bundle)"
+  local cel="${1:-}"
+  if [ -z "$cel" ]; then
+    cel="$(cd .. && pwd)/florum-$(jelenlegi)-$(date +%Y%m%d).bundle"
+  fi
+  git bundle create "$cel" --all 2>&1 | tail -2 | sed 's/^/  /'
+  ok "elkészült: $cel ($(emberi "$cel"))"
+  cat <<EOF
+
+  Visszaállítás ebből a fájlból (internet és repó nélkül):
+      git clone $cel ~/florum-masolat
+  vagy:
+      bash florum-kiadas.sh --visszaallitas $cel ~/florum-masolat
+EOF
+}
+
+emberi() { local b; b=$(stat -c %s "$1" 2>/dev/null || echo 0); if [ "$b" -gt 1048576 ]; then echo "$((b/1048576)) MB"; elif [ "$b" -gt 1024 ]; then echo "$((b/1024)) kB"; else echo "$b B"; fi; }
+
+# ---- visszaállítás --------------------------------------------------------
+visszaallitas() {
+  local forras="${1:-}" cel="${2:-}"
+  if [ -z "$forras" ] || [ -z "$cel" ]; then
+    hiba "használat: bash florum-kiadas.sh --visszaallitas FORRÁS CÉLMAPPA"
+    echo "    FORRÁS lehet: bare repó mappa, .bundle fájl vagy git URL"
+    return 1
+  fi
+  if [ -e "$cel" ] && [ -n "$(ls -A "$cel" 2>/dev/null)" ]; then
+    hiba "a célmappa nem üres: $cel (válassz újat, ne írjam felül)"
+    return 1
+  fi
+  cim "Visszaállítás: $forras → $cel"
+  git clone "$forras" "$cel" 2>&1 | sed 's/^/  /' || { hiba "a klónozás nem sikerült"; return 1; }
+  chmod +x "$cel"/*.sh "$cel"/*.py "$cel"/docker/*.sh "$cel"/docker/*.py 2>/dev/null
+  ok "kész: $cel (verzió: $(cat "$cel/VERSION" 2>/dev/null || echo '?'))"
+  echo "    Indítás:  cd $cel && bash florum-megnyitas.sh"
 }
 
 # ---- git: repó és állapot -------------------------------------------------
@@ -406,6 +521,9 @@ case "${1:-}" in
   --csomag)          csomag ;;
   --git-elokeszites) git_elokeszites ;;
   --allapot)         git_allapot ;;
+  --meghajto)        meghajto "${2:-}" ;;
+  --bundle)          bundle "${2:-}" ;;
+  --visszaallitas)   visszaallitas "${2:-}" "${3:-}" ;;
   --feltoltes|--push)
       # opcionális: --feltoltes --repo NEVED/florum  → az origin-t is beállítja
       if [ "${2:-}" = "--repo" ] && [ -n "${3:-}" ]; then
@@ -424,6 +542,11 @@ case "${1:-}" in
   bash florum-kiadas.sh --feltoltes            feltöltés (teszt + adat-ellenőrzés után)
   bash florum-kiadas.sh --feltoltes --repo zsoldospeti/florum
                                                feltöltés + az origin beállítása
+
+  --- GitHub NÉLKÜL, saját meghajtóról ---
+  bash florum-kiadas.sh --meghajto /mnt/usb/florum.git   mentés pendrive-ra/HDD-re
+  bash florum-kiadas.sh --bundle                         egyfájlos történet (.bundle)
+  bash florum-kiadas.sh --visszaallitas FORRAS CELMAPPA  visszaállítás bármelyikből
 
   Részletes leírás: README 24. fejezet
 EOF

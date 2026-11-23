@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ==============================================================
-#  FLORUM 1.33.2  ·  új növény adatlapjának kiolvasása
+#  FLORUM 1.33.3  ·  új növény adatlapjának kiolvasása
 #  Fájl:    novenykereso.py
 #
 #  MIÉRT VAN EZ?
@@ -33,7 +33,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-APP_VERSION = "1.33.2"
+APP_VERSION = "1.33.3"
 UA = ("Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 "
       "Florum/" + APP_VERSION)
 

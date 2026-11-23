@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  a KDE-ablak telepítése
+#  FLORUM 1.33.3  ·  a KDE-ablak telepítése
 #  Fájl:    telepites-florum-kde.sh
 #
 #  Mit tesz?

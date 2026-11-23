@@ -1,8 +1,8 @@
-<!-- FLORUM 1.33.2 · otthoni növénygondozó · fájl: README.md (leírás) -->
+<!-- FLORUM 1.33.3 · otthoni növénygondozó · fájl: README.md (leírás) -->
 
 # 🌿 Florum – otthoni növénygondozó (PC-re, CachyOS/Arch)
 
-**Verzió: 1.33.2** · adatbázis: v2026.10.9 (82 növény)
+**Verzió: 1.33.3** · adatbázis: v2026.10.9 (82 növény)
 
 ## 🔎 Új növény egy linkről – nem neked kell beírni mindent
 
@@ -2202,7 +2202,7 @@ Példa (öntözés nyáron 7 nap, télen 12 nap):
 * 10 napnál régebbi mérés nem számít „most” – onnantól a havi átlag lép be, hogy egy elfelejtett
   mérés ne vezesse félre hónapokig.
 
-### 21.5. Hőmérséklet-grafikon (1.33.2)
+### 21.5. Hőmérséklet-grafikon (1.33.3)
 
 > **A kérés:** „Valamiféle hőmérséklet grafikon jó lenne.”
 
@@ -2240,7 +2240,7 @@ a naptár-sávot, a mentést/visszatöltést és a selejt-szűrést.
 
 ---
 
-## 22. Docker és Arcane (1.33.2) – konténerben, felülettel
+## 22. Docker és Arcane (1.33.3) – konténerben, felülettel
 
 > **A kérdés:** „ez dockerben fut. Hogyan frissítsem legjobban? Arcane is fent van.”
 
@@ -2289,7 +2289,7 @@ bash docker/florum-docker.sh mentes      # ZIP a kötetből (pl. frissítés el�
 **B) Kézi frissítés a segédszkripttel (ma este ez a legegyszerűbb)**
 
 ```bash
-unzip -o florum-1.33.2-tiszta.zip -d ~/florum-uj     # az új verzió
+unzip -o florum-1.33.3-tiszta.zip -d ~/florum-uj     # az új verzió
 cd ~/florum-uj/florum
 bash docker/florum-docker.sh frissit                # mentés NEM kell: az adat a köteten van
 ```
@@ -2391,7 +2391,7 @@ cp -a /az/a/mappa/. ./docker/data/                  # átmásolás
 
 ---
 
-## 23. Hol van az új verzió? (1.33.2) – a munkaterület és a három példány
+## 23. Hol van az új verzió? (1.33.3) – a munkaterület és a három példány
 
 > **A panasz:** „workspace nem frissül.”
 
@@ -2430,7 +2430,7 @@ A teszt mostantól azt is nézi, hogy
 * a három `florum.html` **ugyanazt a verziót** írja-e a `<meta name="florum-version">`-ben;
 * a `minden_html-egyesitett` példány **nem maradt-e el** a forrástól (a verzió és a
   legfontosabb új funkciók – jelenleg a `tempChartHTML` grafikon – megvannak-e benne);
-* a munkaterületen **csak a legfrissebb zip** van-e meg (`florum-1.33.2-tiszta.zip`);
+* a munkaterületen **csak a legfrissebb zip** van-e meg (`florum-1.33.3-tiszta.zip`);
 * a `florum/florum.html` és a `VERSION` egyezik-e.
 
 Ha bármelyik elbukik, a hibaüzenet megmondja, **melyik fájl** maradt el és **melyik
@@ -2456,7 +2456,7 @@ Ha viszont itt is az új verzió van, csak a böngésző fülét kell újratölt
 
 ---
 
-## 24. GitHub – verziókövetés és frissítés (1.33.2)
+## 24. GitHub – verziókövetés és frissítés (1.33.3)
 
 > **A kérdés:** „GitHubra hogyan tudom eltenni, hogy frissüljön ha kell?”
 
@@ -2690,7 +2690,7 @@ Siker esetén ezt látod:
 ```
  ✔ a repó elérhető és még üres – az első push feltölti
  * [new branch]      HEAD -> main
- ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.2)
+ ✔ fent van a GitHubon: git@github.com:ZSOLDOSPETI/florum.git (1.33.3)
 ```
 
 Ha nincs kedved böngészőzni, a GitHub CLI egy lépésben megcsinálja (létrehozás + push):
@@ -2736,3 +2736,185 @@ bash github-beallitas.sh           # GitHub-hozzáférés diagnózisa (nem vált
 A `teszt-verzio.py` a **szkriptek futtathatóságát** is nézi (`florum-kiadas.sh`,
 `florum-frissites.sh`) – egy `sed -i` ugyanis elveszi a `+x` jogot, és ezt a hiba osztályt
 a teszt fogja meg, nem a felhasználó.
+
+---
+
+## 25. GitHub vagy saját meghajtó? – mi ingyenes, és mi elég neked
+
+> **A kérdés:** „GitHub meddig ingyenes? Nem tudom ugyanezt megtenni saját meghajtóról?”
+
+Rövid válasz: **a GitHub Free nem próbaidő, hanem véglegesen 0 Ft** – de nem is kötelező.
+A git ugyanazt tudja egy pendrive-on. Alább a pontos tények, aztán a három út összevetve.
+
+### 25.1. Mit ad a GitHub Free (2026. novemberi állapot)
+
+| Mi | Ingyenes korlát | Neked elég? |
+|---|---|---|
+| Privát repók száma | **korlátlan** | bőven |
+| Közreműködők | korlátlan | egyedül dolgozol |
+| Tárhely | repó **1 GB alatt** ajánlott, fájlonként **100 MB** a kemény korlát | a Florum 0,5 MB |
+| GitHub Actions (CI) | privát repóban **2000 perc/hó**, publikusban korlátlan | nem használjuk |
+| Csomag-tárhely | 500 MB | nem használjuk |
+| Issues, Projects, Dependabot | ingyenes | nem kötelező |
+| Támogatás | csak közösségi fórum | nem kell |
+
+**„Meddig?” – határidő nélkül.** A GitHub a Free csomagot „$0, örökre” alapon hirdeti;
+nincs próbaidő, nincs lejárat. Amit **el lehet érni**: 2000 Actions-perc elfogyása (nálad nem
+fog, mert nincs CI), 100 MB-nál nagyobb fájl (nálad nincs), vagy szabályzatváltozás – ezért
+jó, hogy a repó **standard git**, bármikor átvihető. Ha egyszer fizetőssé válik valami,
+a kódod nem esik csapdába: `git clone` és kész.
+
+> Amit **érdemes** tudni: a GitHub a repódat elemzi (privátban is) biztonsági célból, és
+> a privát repó sem „titkos széf”. A növényeid adatai viszont nincsenek a repóban
+> (`.gitignore`), tehát ez téged nem érint.
+
+### 25.2. Ugyanez saját meghajtóról – igen, működik
+
+A git nem „GitHubhoz” való, hanem **elosztott**: bármelyik mappa lehet „szerver”.
+Egy **bare repó** (`.git` végű mappa, munkapéldány nélkül) pont ezt tudja. A Florum mostantól
+három GitHub nélküli utat is ismer:
+
+```bash
+# 1) pendrive / külső HDD / NAS-mappa  (a leggyorsabb, mindennapi)
+bash florum-kiadas.sh --meghajto /run/media/peti/KINGSTON/florum.git
+
+# 2) egyetlen fájl, az egész történettel (pendrive-ra, felhőbe, e-mailbe)
+bash florum-kiadas.sh --bundle
+#    → ~/florum-1.33.3-20261122.bundle   (kb. 0,5 MB)
+
+# 3) visszaállítás bármelyikből, bármelyik gépre
+bash florum-kiadas.sh --visszaallitas /run/media/peti/KINGSTON/florum.git ~/florum-masolat
+```
+
+Mindhárom ugyanazt csinálja, mint a GitHub-os út: **tesztel, kiszűri az adatot, commitol,
+majd ment** – nem tud félkész állapotot felvinni. És ugyanaz a visszaút:
+
+```bash
+cd ~/florum && git pull meghajto main     # a másik gépen/frissen telepítve
+```
+
+### 25.3. Melyiket válaszd
+
+| | GitHub (privát) | Pendrive / HDD | Bundle-fájl |
+|---|---|---|---|
+| Elérhető máshonnan | ✔ bárhonnan | ✘ csak ha nálad van a drive | ✔ (fájl, akár e-mail) |
+| Mentés, ha a gép meghal | ✔ | ✔ (ha a drive megvan) | ✔ |
+| Két gép szinkronja | ✔ automatikus | ✔ kézi, de egyszerű | ✘ kézi másolgatás |
+| Arcane „Git Sync” | ✔ | ✔ lokális útvonal is jó | ✘ |
+| Internet kell | ✔ | ✘ | ✘ |
+| Kockázat | fiók/szabályzat | elveszik/elnyűtt drive | könnyen elvész |
+| Költség | 0 Ft | egyszeri drive-ár | 0 Ft |
+
+**A javaslatom:** a kettő **együtt**, mert nem ugyanazt védi.
+
+* **GitHub** = a kód biztonsági mentése (ha a gép meghal, vagy új gépre költözöl);
+* **saját meghajtó** = a **mentéseid** (a `florum-data.json`, a fotók) – ezek soha nem
+  mennek fel a GitHubra, és a legfontosabbat, a növényeid történetét a drive védi.
+
+```bash
+# ez a kettő együtt a teljes biztonság:
+git push                                   # a program
+bash docker/florum-docker.sh mentes        # az adat (zip a ~/ mappába)
+cp ~/florum-docker-mentes-*.zip /run/media/peti/KINGSTON/
+```
+
+### 25.4. Ha a meghajtó exFAT/FAT (a legtöbb pendrive az)
+
+A pendrive-ok többsége exFAT – az nem tárol fájljogosultságot, ezért a git „minden fájl
+megváltozott” zajt kelthet. A Florum kiírja, ha ilyet észlel, és a git-et erre beállítja:
+
+```bash
+git config core.filemode false
+```
+
+Ez nem hiba, csak a jogosultság-bit hiánya. Két dolgot viszont **ne** tegyél pendrive-ra:
+a `docker/data` mappát (sok kicsi fájl, lassú) és a `photos/`-t (nagy) – ezekre a
+`florum-docker.sh mentes` való, egy tömörített zipben.
+
+### 25.5. Ellenőrzés
+
+```bash
+python3 teszt-verzio.py            # 48/0 – benne a meghajtós út valódi próbája
+bash florum-kiadas.sh --segitseg   # a három út egy helyen
+```
+
+---
+
+## 26. Naponta több mérés – napszak és évszak szerint (1.33.3)
+
+> **A kérés:** „Naponta akár több mérési eredmény is rögzíthető lenne, ugyanoda.
+> A statisztikák is változnának akár délelőtti-esti / helyiség, nyári-téli / helyiség stb.”
+
+Eddig a felület ugyan elfogadott napi több mérést, de a statisztika **mindent egyetlen
+napi értékre mosott** (a nap utolsó mérése), így a reggeli 18 °C és a délutáni 26 °C
+ugyanúgy elveszett. Most ez megváltozott: **minden mérés megmarad, és számít.**
+
+### 26.1. Mit tud most
+
+* **Több mérés egy napra, ugyanabba a helyiségbe** – a rögzítő űrlapon új **Idő (óra:perc)**
+  mező; üresen hagyva a mostani idő számít.
+* **A nap értéke az átlag**, nem az utolsó mérés. 18 / 26 / 21 °C → a nap **21,7 °C**,
+  mellette a napon belüli **min–max** (18–26) és a **hőingás** (8 °C).
+* **Napszak fél automatikusan** az órából – nem kell kézzel választani:
+
+  | Napszak | Idő | Miért ez a határ |
+  |---|---|---|
+  | hajnal | 04:00 – 08:00 | a legkínosabb hűvös, hajnali minimum |
+  | délelőtt | 08:00 – 12:00 | melegszik |
+  | délután | 12:00 – 18:00 | a napi csúcs |
+  | este | 18:00 – 22:00 | hűlni kezd |
+  | éjszaka | 22:00 – 04:00 | fűtés/hűlés nélküli állapot |
+
+* **„Mikor meleg?” panel** – napszakonkénti átlag oszlopdiagrammon, helyiségenként, mellette
+  a mérésszám (2-3 mérésből még nem trend, 2-3 hétből igen). A panel alatt a lényeg:
+  *„hajnal a leghűvösebb · délután a legmelegebb · különbség 8 °C”*.
+* **Órás profil** (0–23 óra, a háttérben): óránkénti átlag, csak a mért órákon – ebből derül
+  ki, mikor van a szoba csúcsa.
+* **Évszakok összevetése** – helyiség × évszak táblázat: **átlag · min–max · hőingás ·
+  fagyos napok (5 °C alatt) · meleg napok (26 °C felett) · hány nap adata**. Ugyanaz a szoba
+  nyáron és télen, egy táblázatban. Ha még csak egy évszakból van mérés, a táblázat megjelenik,
+  de **kiírja**, hogy az összevetéshez másik évszak is kell.
+* **A kártyán**: „ma: 21,7 °C · 3 mérés · ingás 8 °C”, alatta a napszakok bontása
+  (délelőtt 20,5° · délután 25,5° · este 22,4°).
+* **A táblázatban** új **Idő** oszlop a napszakkal („15:00 / délután”).
+* **A grafikon** ugyanezt a napi átlagot rajzolja – nem hazudik mást, mint a statisztika.
+
+### 26.2. Mit NEM változtat – és ez szándékos
+
+* **Az öntözés számítása a legutóbbi mérésből indul** (10 napos korláttal), nem a napi
+  átlagból. Ha délután 26 °C-ot mértél, a következő öntözésnél az számít – a nap átlaga
+  elrejtené a csúcsot. A napi átlag **a statisztikáé**, a „most” érték **az öntözésé**.
+* **A téli tápoldat-tilalom és a naptári téli szünet** érintetlen – a hőmérséklet továbbra
+  sem írja felül őket.
+* **A régi adat megmarad.** A régi méréseknél nincs értelmes időbélyeg (a program a mentés
+  pillanatát tárolta), ezért betöltéskor a **nap 12:00-ja** lesz az idejük: napszak = délután
+  eleje, nem „éjszaka 3-kor”. Így a napszak-statisztika nem lesz hamis a régi adattól.
+* **Egy mérés/nap esetén minden a régi**: a napi átlag = a mérés, az órás profil és az
+  évszak-tábla addig nem jelenik meg, amíg nincs mit összevetni.
+
+### 26.3. Gyakorlati tanács
+
+**Elég naponta kétszer mérni** – reggel (a nap indulása) és kora este (a csúcs után).
+Ebből már látszik a napi ingás és a napszak-hatás; a délutáni harmadik mérés csak
+pontosít. A hőmérőt ne tedd radiátor vagy ablak közelébe, és mindig ugyanoda – különben
+a statisztika a hőmérő helyét méri, nem a szobáét.
+
+### 26.4. Adat, korlátok
+
+* a mérések korlátja **12 000** (kb. 5 év, napi 4 mérés 6 helyiségből) – eddig 4000 volt;
+* a mérés rekordja: `{id, room, date, t, hum, note, ts}` – a **`ts` mostantól a mérés
+  valódi ideje** (nem a mentés pillanata), ebből jön a napszak és az órás profil;
+* a régi `florum-data.json` **átalakítás nélkül** betölthető (a hiányzó időt 12:00-ra teszi).
+
+### 26.5. Ellenőrzés
+
+```bash
+node teszt-tobbmeres.js      # 23/0 – napi átlag, napszak, órás profil, felület
+node teszt-evszak.js         #  9/0 – évszakok: nyár vs. tél ugyanabban a szobában
+node teszt-homerseklet-modul.js   # 38/0 – a korábbi modul (visszafelé is jó)
+```
+
+A tesztek valódi adatsorral dolgoznak: 3 nap × 3 mérés (18 / 26 / 21 °C), illetve egy
+éves minta (nyár 24–31 °C, tél 16–19 °C). Az elvárt értékek konkrétak – nem azt nézik,
+hogy „van valami a képernyőn”, hanem hogy a **21,7 °C** és a **10 °C-os évszak-különbség**
+tényleg kijön.

@@ -1,4 +1,4 @@
-FLORUM 1.33.2 – a csomag tartalma
+FLORUM 1.33.3 – a csomag tartalma
 ======================================================================
 
 Ez a zip CSAK a Florum fájljait tartalmazza: nincs benne
@@ -7,7 +7,7 @@ fejlesztői patch-szkript, teszt, előnézet és korábbi zip.
 fájl                                               méret  mi ez
 ----------------------------------------------------------------------
 florum.py                                        92.6 kB  a program (helyi szerver + fájlmentés + értesítés + --kert/--verzio/--leallit)
-florum.html                                     533.8 kB  a felület (egyetlen fájl, offline; benne van a növény-adatbázis is)
+florum.html                                     550.9 kB  a felület (egyetlen fájl, offline; benne van a növény-adatbázis is)
 plants-db.json                                   87.4 kB  növény-adatbázis (82 növény)
 VERSION                                              7 B  verziószám (mindenhonnan ez az igazság)
 mentes.py                                        14.3 kB  közös, előzményes mentés (perc/napi/havi pillanatképek)
@@ -25,7 +25,7 @@ install.sh                                        4.3 kB  menübejegyzés + eml�
 florum-megnyitas.sh                               7.1 kB  egységes indító: futó ablak előtérbe / KDE-ablak / böngésző + szerverindítás
 florum-atkoltoztetes.sh                           7.3 kB  az adatok átköltöztetése saját mappába (meg is jegyzi)
 florum-frissites.sh                               3.4 kB  frissítés után: a futó példány újraindítása + verzió-ellenőrzés
-florum-kiadas.sh                                 15.7 kB  kiadás: verzióváltás mindenhol, építés, csomag, git commit + feltöltés
+florum-kiadas.sh                                 21.0 kB  kiadás: verzióváltás mindenhol, építés, csomag, git commit + feltöltés
 github-beallitas.sh                              12.5 kB  GitHub-hozzáférés: kulcs, token, diagnózis (Permission denied javítása)
 florum-verzio.sh                                  6.9 kB  mi fut valójában (több porton) + --ujraindit
 florum-szolgaltatas.sh                            6.7 kB  háttérszerver (systemd --user) kezelése
@@ -58,19 +58,21 @@ docker/proba-docker.py                           12.4 kB  a docker-fájlok ellen
 docker/kontener-adat.py                           5.1 kB  a régi konténer adatainak vizsgálata és egyesítése
 .dockerignore                                      372 B  mi ne kerüljön a képbe
 .gitignore                                         980 B  mi ne kerüljön a git repóba (adat, fotó, zip, titkok)
-teszt-verzio.py                                  24.9 kB  
+teszt-verzio.py                                  28.5 kB  
 teszt-forras.py                                  11.3 kB  
 teszt-adatut.py                                   8.8 kB  
-teszt-homerseklet-modul.js                       20.6 kB  
+teszt-homerseklet-modul.js                       20.7 kB  
 teszt-homerseklet.js                             13.7 kB  
 teszt-dom.js                                     87.9 kB  
+teszt-tobbmeres.js                                9.6 kB  
+teszt-evszak.js                                   5.1 kB  
 teszt-datum.js                                   10.3 kB  
 teszt-lenyilo.js                                 21.6 kB  
 teszt-kert.js                                    23.2 kB  
 teszt-naplo.js                                   12.8 kB  
 teszt-tragyazas.js                               14.0 kB  
-README.md                                       137.8 kB  teljes leírás + hibaelhárítás + változáslista
-OLVASSEL.txt                                     32.5 kB  rövid, lépésenkénti útmutató
+README.md                                       147.0 kB  teljes leírás + hibaelhárítás + változáslista
+OLVASSEL.txt                                     34.2 kB  rövid, lépésenkénti útmutató
 forditas/entries.json                            38.3 kB  az Event Calendar magyar fordítása
 forditas/hu-1.py                                 10.4 kB  az Event Calendar magyar fordítása
 forditas/hu-2.py                                  6.7 kB  az Event Calendar magyar fordítása

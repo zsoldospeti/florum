@@ -260,7 +260,9 @@ setTimeout(() => {
       return sp.querySelectorAll('i').length + ' oszlop';
     });
     check('előzmény-táblázat sorai', () => {
-      const sorok = doc.querySelectorAll('#tempContent .ttable tbody tr');
+      // 1.33.2: több .ttable is van a fülön (előzmény + évszak-tábla),
+      // ezért csak az előzmény-táblázat sorait számoljuk
+      const sorok = doc.querySelectorAll('#tempContent .ttable:not(.tevszak) tbody tr');
       const elvart = T.state.tempLog.length;
       assert(sorok.length === elvart, 'sorok: ' + sorok.length + ' (mérés: ' + elvart + ')');
       return sorok.length + ' sor';

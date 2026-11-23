@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  az Event Calendar Python-függőségei
+#  FLORUM 1.33.3  ·  az Event Calendar Python-függőségei
 #  Fájl:    kde-eventcalendar-fuggoseg.sh
 #  Futtatás:  bash kde-eventcalendar-fuggoseg.sh
 #

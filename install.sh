@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  otthoni növénygondozó
+#  FLORUM 1.33.3  ·  otthoni növénygondozó
 #  Fájl:    install.sh
 #  Szerep:  menüparancs telepítése (CachyOS / Arch / Linux asztal)
 #  Licenc:  szabadon használható, módosítható és terjeszthető

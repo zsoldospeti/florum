@@ -361,6 +361,66 @@ class GithubBeallitas(unittest.TestCase):
                       "meglévő origin esetén: error: remote origin already exists")
         self.assertNotIn("git remote remove origin 2>/dev/null\n  git remote add", sh)
 
+    def test_meghajto_mod_letezik(self):
+        """GitHub nélkül is legyen út: bare repó, bundle, visszaállítás."""
+        with io.open(os.path.join(HERE, "florum-kiadas.sh"), encoding="utf-8") as fh:
+            sh = fh.read()
+        for kapcsolo, minta in (
+            ("--meghajto", "git init -q --bare"),
+            ("--bundle", "git bundle create"),
+            ("--visszaallitas", "git clone"),
+        ):
+            self.assertIn(kapcsolo, sh, "hiányzik: " + kapcsolo)
+            self.assertIn(minta, sh, "a %s nem csinál semmit (%s)" % (kapcsolo, minta))
+        # a meghajtó ne írja felül a meglévő, nem üres mappát
+        self.assertIn("a célmappa nem üres", sh)
+        # a bare repó külön remote legyen, ne az origin (az a GitHub)
+        self.assertIn('local nev="meghajto"', sh)
+
+    def test_meghajto_valodi_kor(self):
+        """Valódi próba: bare repó → klón → módosítás → vissza."""
+        if not shutil.which("git"):
+            self.skipTest("nincs git")
+        with tempfile.TemporaryDirectory(prefix="florum-mh-") as d:
+            usb = os.path.join(d, "usb", "florum.git")
+            os.makedirs(os.path.join(d, "usb"))
+            # kis „ál-program”: elég a szkriptek egy része a push/próba logikához
+            src = os.path.join(d, "gep1")
+            os.makedirs(src)
+            for nev in ("florum-kiadas.sh", "github-beallitas.sh", "VERSION",
+                        ".gitignore", "florum.html"):
+                shutil.copy2(os.path.join(HERE, nev), src)
+            os.chmod(os.path.join(src, "florum-kiadas.sh"), 0o755)
+            os.makedirs(os.path.join(src, "docker"), exist_ok=True)
+            env = dict(os.environ, GIT_AUTHOR_NAME="T", GIT_AUTHOR_EMAIL="t@l",
+                       GIT_COMMITTER_NAME="T", GIT_COMMITTER_EMAIL="t@l")
+            for cmd in (["git", "init", "-q"], ["git", "branch", "-M", "main"],
+                        ["git", "add", "-A"], ["git", "commit", "-q", "-m", "kezdet"]):
+                subprocess.run(cmd, cwd=src, env=env, capture_output=True)
+            # 1) mentés a meghajtóra
+            r = subprocess.run(["bash", "florum-kiadas.sh", "--meghajto", usb],
+                               cwd=src, env=env, capture_output=True, text=True, timeout=300)
+            self.assertIn("fent van a meghajtón", r.stdout + r.stderr, r.stdout[-400:])
+            self.assertTrue(os.path.isdir(os.path.join(usb, "objects")),
+                            "nem jött létre a bare repó")
+            # 2) visszaállítás új mappába
+            cel = os.path.join(d, "gep2")
+            r = subprocess.run(["bash", "florum-kiadas.sh", "--visszaallitas", usb, cel],
+                               cwd=src, env=env, capture_output=True, text=True, timeout=300)
+            self.assertIn("✔", r.stdout, r.stdout[-300:])
+            self.assertTrue(os.path.isfile(os.path.join(cel, "florum.html")),
+                            "a klón nem tartalmazza a fájlokat")
+            # 3) nem írja felül a nem üres mappát
+            r = subprocess.run(["bash", "florum-kiadas.sh", "--visszaallitas", usb, cel],
+                               cwd=src, env=env, capture_output=True, text=True, timeout=120)
+            self.assertIn("nem üres", r.stdout + r.stderr)
+            # 4) bundle
+            bundle = os.path.join(d, "florum.bundle")
+            r = subprocess.run(["bash", "florum-kiadas.sh", "--bundle", bundle],
+                               cwd=src, env=env, capture_output=True, text=True, timeout=300)
+            self.assertTrue(os.path.isfile(bundle), "nem készült bundle")
+            self.assertIn("elkészült", r.stdout)
+
     def test_push_hibak_leforditva(self):
         """A négy tipikus push-hibára legyen magyar magyarázat és megoldás."""
         with io.open(os.path.join(HERE, "florum-kiadas.sh"), encoding="utf-8") as fh:

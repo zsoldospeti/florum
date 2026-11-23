@@ -1,14 +1,58 @@
 ==============================================================
- FLORUM 1.33.2  ·  otthoni növénygondozó
+ FLORUM 1.33.3  ·  otthoni növénygondozó
  KDE panel – Digitális óra, naptár (.ics) és figyelmeztetés
 ==============================================================
 
 MI ÚJ EBBEN A VERZIÓBAN?
+
+  * NAPONTA TÖBB MÉRÉS – NAPSZAK ÉS ÉVSZAK SZERINT (1.33.3)
+    Ugyanabba a helyiségbe naponta több hőmérséklet
+    is rögzíthető. A rögzítésnél új „Idő (óra:perc)” mező
+    van – üresen hagyva a mostani idő számít.
+
+    Ettől megváltoznak a statisztikák:
+
+      · a nap értéke az ÁTLAG (nem az utolsó mérés):
+        18 / 26 / 21 °C → a nap 21,7 °C, ingás 8 °C
+      · napszak fél automatikusan (hajnal / délelőtt /
+        délután / este / éjszaka) – nem kell megadni
+      · „Mikor meleg?” panel: napszakonkénti átlag,
+        helyiségenként, mérésszámmal
+      · „Évszakok összevetése”: nyár vs. tél UGYANABBAN
+        a szobában – átlag, min–max, ingás, fagyos és
+        meleg napok száma
+
+    Az öntözés számítása NEM változott: az továbbra is a
+    legutóbbi mérésből indul (a nap átlaga elrejtené a
+    délutáni csúcsot). A téli tápoldat-tilalmat sem írja felül.
+
+    A régi mérések megmaradnak (idejük 12:00 lesz).
+    Részletek: README 26. fejezet.
+
+  * GITHUB HELYETT SAJÁT MEGHAJTÓ IS ELÉG (1.33.3)
+    A GitHub Free véglegesen ingyenes (korlátlan privát
+    repó, 1 GB alatti repó), de nem kötelező. Ugyanez
+    megy pendrive-ról vagy külső HDD-ről is:
+
+        bash florum-kiadas.sh --meghajto \
+            /run/media/peti/KINGSTON/florum.git
+
+    Egyfájlos változat (felhőbe, e-mailbe):
+
+        bash florum-kiadas.sh --bundle
+
+    Visszaállítás bármelyikből:
+
+        bash florum-kiadas.sh --visszaallitas FORRAS CELMAPPA
+
+    A program a GitHubra megy, az ADAT (növények, fotók,
+    mérések) a meghajtóra – ez a kettő együtt a biztonság.
+    Részletek: README 25. fejezet.
   A Florum teendőit naptárfájlba (.ics) írja, amit a KDE
   panel Digitális órája eseményként tud mutatni – és
   figyelmeztetni is tud rájuk.
 
-  * GITHUB – VERZIÓKÖVETÉS ÉS FRISSÍTÉS (1.33.2)
+  * GITHUB – VERZIÓKÖVETÉS ÉS FRISSÍTÉS (1.33.3)
     A program felkerülhet GitHubra (privát repó), és
     onnantól a frissítés egy parancs. A növényeid,
     méréseid, fotóid NEM mennek fel (a .gitignore kizárja).
@@ -79,7 +123,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
     Arcane: Git Syncs → a repó → Auto Sync.
     Részletek és hibaüzenet-táblázat: README 24. fejezet.
 
-  * „NEM FRISSÜL A MUNKATERÜLET” – MEGOLDVA (1.33.2)
+  * „NEM FRISSÜL A MUNKATERÜLET” – MEGOLDVA (1.33.3)
     A munkaterületen három florum.html van, és a
     build két lépésből áll. Ha a második kimarad,
     a felület a régi példányt mutatja:
@@ -97,7 +141,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
     eltér, vagy ha az egyesített példány lemaradt.
     Részletek: README 23. fejezet.
 
-  * HŐMÉRSÉKLET-GRAFIKON (1.33.2)
+  * HŐMÉRSÉKLET-GRAFIKON (1.33.3)
     A Hőmérséklet fülön a kártyák alatt most van egy
     rendes diagram: helyiségenként külön vonal, °C-tengely,
     zöld „ideális sáv” a növények hőmérséklet-tartományából,
@@ -110,7 +154,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
 
     Nem kell hozzá internet és külső könyvtár.
 
-  * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.2)
+  * DOCKER + ARCANE – FRISSÍTÉS ADATVESZTÉS NÉLKÜL (1.33.3)
     A Florumhoz kész Docker-kép és Arcane-barát compose fájl van:
 
         docker/Dockerfile        a kép (nem root, /data kötet, healthcheck)
@@ -124,7 +168,7 @@ MI ÚJ EBBEN A VERZIÓBAN?
 
     Frissítés (a legegyszerűbb ma este):
 
-        unzip -o florum-1.33.2-tiszta.zip -d ~/florum-uj
+        unzip -o florum-1.33.3-tiszta.zip -d ~/florum-uj
         cd ~/florum-uj/florum
         bash docker/florum-docker.sh frissit
 

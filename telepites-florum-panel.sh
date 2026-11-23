@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  „Florum naptár” panel-widget telepítése
+#  FLORUM 1.33.3  ·  „Florum naptár” panel-widget telepítése
 #  Fájl:    telepites-florum-panel.sh
 #
 #  A Florum saját Plasma 6 widgetjét telepíti a felhasználói

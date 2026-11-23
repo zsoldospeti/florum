@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  GitHub-hozzáférés beállítása és diagnózisa
+#  FLORUM 1.33.3  ·  GitHub-hozzáférés beállítása és diagnózisa
 #  Fájl:    github-beallitas.sh
 #
 #  MIRE JÓ?

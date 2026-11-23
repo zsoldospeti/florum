@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ==============================================================
-#  FLORUM 1.33.2  ·  KDE-ablak (PySide6 + QtWebEngine)
+#  FLORUM 1.33.3  ·  KDE-ablak (PySide6 + QtWebEngine)
 #  Fájl:    florum-kde.py
 #
 #  Mit tud?
@@ -32,7 +32,7 @@ import urllib.error
 import urllib.request
 
 APP_NAME = "Florum"
-APP_VERSION = "1.33.2"
+APP_VERSION = "1.33.3"
 HERE = os.path.dirname(os.path.abspath(__file__))
 QML_FILE = os.path.join(HERE, "florum-kde.qml")
 ICON_FILE = os.path.join(HERE, "florum.svg")

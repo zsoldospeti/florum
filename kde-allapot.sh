@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  KDE-állapot ellenőrzés (csak olvas, nem módosít)
+#  FLORUM 1.33.3  ·  KDE-állapot ellenőrzés (csak olvas, nem módosít)
 #  Fájl:    kde-allapot.sh
 #  Futtatás:  bash kde-allapot.sh
 #  Mit néz meg?

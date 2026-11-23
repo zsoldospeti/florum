@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================
-#  FLORUM 1.33.2  ·  az adatok átköltöztetése saját mappába
+#  FLORUM 1.33.3  ·  az adatok átköltöztetése saját mappába
 #  Fájl:    florum-atkoltoztetes.sh
 #
 #  MIÉRT KELL EZ, HA VAN --data-dir?

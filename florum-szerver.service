@@ -1,5 +1,5 @@
 # ==============================================================
-#  FLORUM 1.33.2  ·  háttérszerver a panel-widgethez (systemd --user)
+#  FLORUM 1.33.3  ·  háttérszerver a panel-widgethez (systemd --user)
 #  Fájl:    florum-szerver.service
 #
 #  A panel-widget innen kapja az adatot (http://127.0.0.1:8777/api/panel.json).

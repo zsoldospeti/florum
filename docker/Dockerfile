@@ -11,14 +11,14 @@
 #    · nem root-ként fut (uid 1000), csak a /data-hoz kell joga.
 #
 #  Építés (a zip kicsomagolt mappájában, ahol a florum.py van):
-#      docker build -f docker/Dockerfile -t florum:1.33.2 .
+#      docker build -f docker/Dockerfile -t florum:1.33.3 .
 #  vagy a kényelmi szkripttel:
 #      bash docker/epit-es-indit.sh
 # ==============================================================
 FROM python:3.13-slim
 
 # a kép verziója – a felület ezt írja ki a «futó példány» helyén
-ARG FLORUM_VERSION=1.33.2
+ARG FLORUM_VERSION=1.33.3
 ENV FLORUM_IMAGE_VERSION=${FLORUM_VERSION}
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -36,7 +36,7 @@ COPY florum.py florum.html plants-db.json VERSION /app/
 COPY naptar_ics.py naptar_forras.py mentes.py permetviz.py fotonezo.py \
      novenykereso.py emlekezteto.py florum.svg README.md OLVASSEL.txt /app/
 # a VERSION a build-argumentumból íródik felül (így a kép sosem hazudik verziót)
-ARG FLORUM_VERSION=1.33.2
+ARG FLORUM_VERSION=1.33.3
 RUN printf '%s\n' "$FLORUM_VERSION" > /app/VERSION \
  && chown -R florum:florum /app
 
